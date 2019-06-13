@@ -1,0 +1,59 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:27      CREATED BY USER: pchatter                
+ATOM      1  N   GLY     1       0.000   0.000   0.000  1.00  0.00      GLY 
+ATOM      2  DN  GLY     1      -0.002  -0.002  -0.002  1.00  0.00      GLY 
+ATOM      3  HT1 GLY     1      -0.342  -0.966  -0.000  1.00  0.00      GLY 
+ATOM      4  HT2 GLY     1      -0.342   0.483  -0.837  1.00  0.00      GLY 
+ATOM      5  HT3 GLY     1      -0.342   0.483   0.837  1.00  0.00      GLY 
+ATOM      6  CA  GLY     1       1.455   0.000   0.000  1.00  0.00      GLY 
+ATOM      7  DCA GLY     1       1.453  -0.002  -0.002  1.00  0.00      GLY 
+ATOM      8  HA1 GLY     1       1.801  -0.473  -0.909  1.00  0.00      GLY 
+ATOM      9  HA2 GLY     1       1.806  -0.473   0.908  1.00  0.00      GLY 
+ATOM     10  C   GLY     1       1.941   1.416   0.000  1.00  0.00      GLY 
+ATOM     11  DC  GLY     1       1.939   1.414  -0.002  1.00  0.00      GLY 
+ATOM     12  O   GLY     1       1.148   2.355  -0.000  1.00  0.00      GLY 
+ATOM     13  DO  GLY     1       1.146   2.353  -0.002  1.00  0.00      GLY 
+ATOM     14 LPOA GLY     1       0.915   2.165  -0.000  1.00  0.00      GLY 
+ATOM     15 LPOB GLY     1       1.374   2.552  -0.000  1.00  0.00      GLY 
+ATOM     16  N   ALA     2       3.274   1.619   0.000  1.00  0.00      GLY 
+ATOM     17  DN  ALA     2       3.272   1.617  -0.002  1.00  0.00      GLY 
+ATOM     18  HN  ALA     2       3.905   0.844   0.000  1.00  0.00      GLY 
+ATOM     19  CA  ALA     2       3.899   2.934   0.000  1.00  0.00      GLY 
+ATOM     20  DCA ALA     2       3.897   2.932  -0.002  1.00  0.00      GLY 
+ATOM     21  HA  ALA     2       3.602   3.466  -0.897  1.00  0.00      GLY 
+ATOM     22  C   ALA     2       5.438   2.908   0.000  1.00  0.00      GLY 
+ATOM     23  DC  ALA     2       5.436   2.906  -0.002  1.00  0.00      GLY 
+ATOM     24  O   ALA     2       6.081   1.860   0.000  1.00  0.00      GLY 
+ATOM     25  DO  ALA     2       6.079   1.858  -0.002  1.00  0.00      GLY 
+ATOM     26 LPOA ALA     2       5.828   1.698   0.000  1.00  0.00      GLY 
+ATOM     27 LPOB ALA     2       6.339   2.012   0.000  1.00  0.00      GLY 
+ATOM     28  CB  ALA     2       3.356   3.734   1.207  1.00  0.00      GLY 
+ATOM     29  DCB ALA     2       3.354   3.732   1.205  1.00  0.00      GLY 
+ATOM     30  HB1 ALA     2       2.247   3.779   1.155  1.00  0.00      GLY 
+ATOM     31  HB2 ALA     2       3.634   3.247   2.167  1.00  0.00      GLY 
+ATOM     32  HB3 ALA     2       3.742   4.776   1.214  1.00  0.00      GLY 
+ATOM     33  N   GLY     3       6.070   4.107   0.000  1.00  0.00      GLY 
+ATOM     34  DN  GLY     3       6.068   4.105  -0.002  1.00  0.00      GLY 
+ATOM     35  HN  GLY     3       5.503   4.930  -0.000  1.00  0.00      GLY 
+ATOM     36  CA  GLY     3       7.514   4.334   0.000  1.00  0.00      GLY 
+ATOM     37  DCA GLY     3       7.512   4.332  -0.002  1.00  0.00      GLY 
+ATOM     38  HA1 GLY     3       7.929   3.921  -0.909  1.00  0.00      GLY 
+ATOM     39  HA2 GLY     3       7.934   3.922   0.908  1.00  0.00      GLY 
+ATOM     40  C   GLY     3       7.773   5.809  -0.000  1.00  0.00      GLY 
+ATOM     41  DC  GLY     3       7.771   5.807  -0.002  1.00  0.00      GLY 
+ATOM     42  OT1 GLY     3       6.940   6.672  -0.000  1.00  0.00      GLY 
+ATOM     43 DOT1 GLY     3       6.938   6.670  -0.002  1.00  0.00      GLY 
+ATOM     44  OT2 GLY     3       9.079   6.063   0.000  1.00  0.00      GLY 
+ATOM     45 DOT2 GLY     3       9.077   6.061  -0.002  1.00  0.00      GLY 
+ATOM     46  CT  GLY     3       9.054   7.502  -0.000  1.00  0.00      GLY 
+ATOM     47  DCT GLY     3       9.052   7.500  -0.002  1.00  0.00      GLY 
+ATOM     48  HT1 GLY     3       8.000   7.855  -0.000  1.00  0.00      GLY 
+ATOM     49  HT2 GLY     3       9.571   7.882   0.907  1.00  0.00      GLY 
+ATOM     50  HT3 GLY     3       9.571   7.882  -0.907  1.00  0.00      GLY 
+ATOM     51 LPT1 GLY     3       6.720   6.467  -0.000  1.00  0.00      GLY 
+ATOM     52 LPT2 GLY     3       7.152   6.884  -0.000  1.00  0.00      GLY 
+ATOM     53 LPT3 GLY     3       9.203   6.081   0.327  1.00  0.00      GLY 
+ATOM     54 LPT4 GLY     3       9.203   6.081  -0.327  1.00  0.00      GLY 
+TER      55      GLY      3
+END

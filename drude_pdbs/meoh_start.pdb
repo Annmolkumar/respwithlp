@@ -1,0 +1,15 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  MEOH    1       1.405   1.363   0.000  1.00  0.00      MEOH
+ATOM      2  DC1 MEOH    1       1.403   1.361  -0.002  1.00  0.00      MEOH
+ATOM      3  O1  MEOH    1       0.972   0.000   0.000  1.00  0.00      MEOH
+ATOM      4  DO1 MEOH    1       0.970  -0.002  -0.002  1.00  0.00      MEOH
+ATOM      5  HO1 MEOH    1       0.000   0.000   0.000  1.00  0.00      MEOH
+ATOM      6  H1A MEOH    1       2.517   1.398  -0.000  1.00  0.00      MEOH
+ATOM      7  H1B MEOH    1       1.029   1.883  -0.908  1.00  0.00      MEOH
+ATOM      8  H1C MEOH    1       1.029   1.883   0.908  1.00  0.00      MEOH
+ATOM      9 LP1A MEOH    1       0.942  -0.116  -0.329  1.00  0.00      MEOH
+ATOM     10 LP1B MEOH    1       0.942  -0.116   0.329  1.00  0.00      MEOH
+TER      11      MEOH     1
+END

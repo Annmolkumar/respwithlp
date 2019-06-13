@@ -1,0 +1,39 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  DTHR    1       0.000   0.000   0.000  1.00  0.00      DTHR
+ATOM      2  DC1 DTHR    1      -0.002  -0.002  -0.002  1.00  0.00      DTHR
+ATOM      3  H11 DTHR    1      -0.422   0.185  -1.073  1.00  0.00      DTHR
+ATOM      4  H12 DTHR    1      -0.529  -0.952   0.165  1.00  0.00      DTHR
+ATOM      5  O1  DTHR    1      -0.532   1.073   0.789  1.00  0.00      DTHR
+ATOM      6  DO1 DTHR    1      -0.534   1.071   0.787  1.00  0.00      DTHR
+ATOM      7  HO1 DTHR    1      -0.358   1.835   0.196  1.00  0.00      DTHR
+ATOM      8 LP1A DTHR    1      -0.872   1.116   0.718  1.00  0.00      DTHR
+ATOM      9 LP1B DTHR    1      -0.284   1.201   1.000  1.00  0.00      DTHR
+ATOM     10  C2  DTHR    1       1.613   0.000   0.000  1.00  0.00      DTHR
+ATOM     11  DC2 DTHR    1       1.611  -0.002  -0.002  1.00  0.00      DTHR
+ATOM     12  H2  DTHR    1       1.883  -0.686   0.852  1.00  0.00      DTHR
+ATOM     13  O2  DTHR    1       2.133  -0.724  -1.095  1.00  0.00      DTHR
+ATOM     14  DO2 DTHR    1       2.131  -0.726  -1.097  1.00  0.00      DTHR
+ATOM     15  HO2 DTHR    1       1.661  -1.547  -1.084  1.00  0.00      DTHR
+ATOM     16 LP2A DTHR    1       1.949  -0.651  -1.385  1.00  0.00      DTHR
+ATOM     17 LP2B DTHR    1       2.411  -0.910  -0.994  1.00  0.00      DTHR
+ATOM     18  C3  DTHR    1       2.130   1.461   0.000  1.00  0.00      DTHR
+ATOM     19  DC3 DTHR    1       2.128   1.459  -0.002  1.00  0.00      DTHR
+ATOM     20  H3  DTHR    1       1.752   1.961   0.922  1.00  0.00      DTHR
+ATOM     21  O3  DTHR    1       1.714   2.159  -1.219  1.00  0.00      DTHR
+ATOM     22  DO3 DTHR    1       1.712   2.157  -1.221  1.00  0.00      DTHR
+ATOM     23  HO3 DTHR    1       1.958   1.446  -1.780  1.00  0.00      DTHR
+ATOM     24 LP3A DTHR    1       1.377   2.094  -1.285  1.00  0.00      DTHR
+ATOM     25 LP3B DTHR    1       1.981   2.348  -1.346  1.00  0.00      DTHR
+ATOM     26  C4  DTHR    1       3.731   1.549  -0.009  1.00  0.00      DTHR
+ATOM     27  DC4 DTHR    1       3.729   1.547  -0.011  1.00  0.00      DTHR
+ATOM     28  H41 DTHR    1       4.017   2.586  -0.314  1.00  0.00      DTHR
+ATOM     29  H42 DTHR    1       4.019   0.855  -0.886  1.00  0.00      DTHR
+ATOM     30  O4  DTHR    1       4.305   1.179   1.198  1.00  0.00      DTHR
+ATOM     31  DO4 DTHR    1       4.303   1.177   1.196  1.00  0.00      DTHR
+ATOM     32  HO4 DTHR    1       4.101   0.234   1.437  1.00  0.00      DTHR
+ATOM     33 LP4A DTHR    1       4.627   1.053   1.143  1.00  0.00      DTHR
+ATOM     34 LP4B DTHR    1       4.086   1.251   1.461  1.00  0.00      DTHR
+TER      35      DTHR     1
+END

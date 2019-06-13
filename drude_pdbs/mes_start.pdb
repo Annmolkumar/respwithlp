@@ -1,0 +1,13 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  H11 MES     1       0.000   0.000   0.000  1.00  0.00      MES 
+ATOM      2  H12 MES     1       2.735   1.054   0.000  1.00  0.00      MES 
+ATOM      3  H13 MES     1       2.735  -1.054   0.000  1.00  0.00      MES 
+ATOM      4  C1  MES     1       2.385   0.000   0.000  1.00  0.00      MES 
+ATOM      5  DC1 MES     1       2.383  -0.002  -0.002  1.00  0.00      MES 
+ATOM      6  S1  MES     1       1.306   2.169   0.000  1.00  0.00      MES 
+ATOM      7  DS1 MES     1       1.304   2.167  -0.002  1.00  0.00      MES 
+ATOM      8 LP1A MES     1       1.105   2.572   0.000  1.00  0.00      MES 
+TER       9      MES      1
+END

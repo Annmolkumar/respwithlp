@@ -1,0 +1,63 @@
+Step 3A: Adding up increments - Increments...
+
+        Name         Type        Char.  corr. Char.         Pol.        Pol.H   0.85 Pol.H
+       ------------------------------------------------------------------------------------
+          N1       NG2R61       -0.096       -0.090        1.463        1.463        1.244
+          C6       CG2R62       -0.011       -0.006        1.283        1.622        1.379
+          H6        HGR62        0.166        0.172        0.339  
+          C2       CG2R63        0.915        0.920        1.336        1.336        1.135
+          O2        OG2D4       -0.654       -0.649        1.192        1.192        1.013
+          N3       NG2R62       -0.891       -0.886        1.467        1.467        1.247
+          C4       CG2R61        0.852        0.857        1.379        1.379        1.172
+          N4        NG2S3       -1.032       -1.027        1.095        1.587        1.349
+         H41         HGP1        0.431        0.436        0.246  
+         H42         HGP1        0.431        0.436        0.246  
+          C5       CG2R62       -0.478       -0.473        1.402        1.756        1.492
+          H5        HGR61        0.207        0.212        0.353  
+          C1        CG331       -0.157       -0.152        0.940        1.912        1.625
+         H11         HGA3        0.078        0.084        0.324  
+         H12         HGA3        0.078        0.084        0.324  
+         H13         HGA3        0.078        0.084        0.324  
+       ------------------------------------------------------------------------------------
+Total charge:                        -0.082
+Total corrected charge:              -0.000
+Charge from str file:                 0.000
+Total polarizability:                13.712
+Total scaled polarizability:         11.655
+
+Step 3B: Adding up increments - Neural net...
+
+        Name         Type        Char.  corr. Char.         Pol.        Pol.H   0.85 Pol.H
+       ------------------------------------------------------------------------------------
+          N1       NG2R61       -0.171       -0.167        1.427        1.427        1.213
+          C6       CG2R62       -0.060       -0.055        1.271        1.649        1.401
+          H6        HGR62        0.148        0.153        0.378  
+          C2       CG2R63        0.744        0.749        1.319        1.319        1.121
+          O2        OG2D4       -0.515       -0.510        1.157        1.157        0.983
+          N3       NG2R62       -0.706       -0.702        1.440        1.440        1.224
+          C4       CG2R61        0.892        0.896        1.350        1.350        1.148
+          N4        NG2S3       -1.064       -1.059        1.224        1.816        1.544
+         H41         HGP1        0.383        0.388        0.296  
+         H42         HGP1        0.383        0.388        0.296  
+          C5       CG2R62       -0.485       -0.481        1.401        1.791        1.522
+          H5        HGR61        0.184        0.189        0.390  
+          C1        CG331       -0.078       -0.073        0.903        1.845        1.568
+         H11         HGA3        0.091        0.095        0.314  
+         H12         HGA3        0.091        0.095        0.314  
+         H13         HGA3        0.091        0.095        0.314  
+       ------------------------------------------------------------------------------------
+Total charge:                        -0.071
+Total corrected charge:              -0.000
+Charge from str file:                 0.000
+Total polarizability:                13.792
+Total scaled polarizability:         11.723
+
+Step 4: Lonepairs
+
+LPs for nitrogen currently not featured, except for unprotonated nitrogen in rings (NG2R60, NG2R62 or NG2R50),
+as no parametrized reference structures currently available in DrudeFF.
+LONEPAIR bisector LP1A N3 C2 C4 distance 0.35 angle 179.99 dihe 179.99
+ANISOTROPY  N3 LP1A C2 C4 A11 1.2376  A22 0.6648
+LONEPAIR relative LP2A O2 C2 N1 distance 0.30 angle 91.0 dihe   0.0
+LONEPAIR relative LP2B O2 C2 N1 distance 0.30 angle 91.0 dihe 180.0
+ANISOTROPY O2 C2 LP2A LP2B A11 0.82322 A22 1.14332

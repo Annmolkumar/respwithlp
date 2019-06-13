@@ -1,0 +1,28 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:27      CREATED BY USER: pchatter                
+ATOM      1  C1  DEET    1       0.000   0.000   0.000  1.00  0.00      DEET
+ATOM      2  DC1 DEET    1      -0.002  -0.002  -0.002  1.00  0.00      DEET
+ATOM      3  H11 DEET    1      -0.389  -1.040   0.000  1.00  0.00      DEET
+ATOM      4  H12 DEET    1      -0.386   0.522   0.901  1.00  0.00      DEET
+ATOM      5  H13 DEET    1      -0.386   0.522  -0.901  1.00  0.00      DEET
+ATOM      6  C2  DEET    1       1.530   0.000   0.000  1.00  0.00      DEET
+ATOM      7  DC2 DEET    1       1.528  -0.002  -0.002  1.00  0.00      DEET
+ATOM      8  H21 DEET    1       1.901  -0.533   0.903  1.00  0.00      DEET
+ATOM      9  H22 DEET    1       1.901  -0.533  -0.903  1.00  0.00      DEET
+ATOM     10  O3  DEET    1       2.016   1.333   0.000  1.00  0.00      DEET
+ATOM     11  DO3 DEET    1       2.014   1.331  -0.002  1.00  0.00      DEET
+ATOM     12  C4  DEET    1       3.435   1.363   0.000  1.00  0.00      DEET
+ATOM     13  DC4 DEET    1       3.433   1.361  -0.002  1.00  0.00      DEET
+ATOM     14  H41 DEET    1       3.820   0.840   0.903  1.00  0.00      DEET
+ATOM     15  H42 DEET    1       3.820   0.840  -0.903  1.00  0.00      DEET
+ATOM     16  C5  DEET    1       3.929   2.811  -0.000  1.00  0.00      DEET
+ATOM     17  DC5 DEET    1       3.927   2.809  -0.002  1.00  0.00      DEET
+ATOM     18  H51 DEET    1       5.039   2.843   0.000  1.00  0.00      DEET
+ATOM     19  H52 DEET    1       3.559   3.345  -0.901  1.00  0.00      DEET
+ATOM     20  H53 DEET    1       3.559   3.345   0.901  1.00  0.00      DEET
+ATOM     21 LP3A DEET    1       1.947   1.430  -0.329  1.00  0.00      DEET
+ATOM     22 LP3B DEET    1       1.947   1.430   0.329  1.00  0.00      DEET
+ATOM     23  LPX DEET    1       2.075   1.251   0.000  1.00  0.00      DEET
+TER      24      DEET     1
+END

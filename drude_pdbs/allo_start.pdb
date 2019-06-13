@@ -1,0 +1,53 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  H1  ALLO    1      -0.291   1.060   0.000  1.00  0.00      ALLO
+ATOM      2  C1  ALLO    1       0.000   0.000   0.000  1.00  0.00      ALLO
+ATOM      3  DC1 ALLO    1      -0.002  -0.002  -0.002  1.00  0.00      ALLO
+ATOM      4  O1  ALLO    1      -0.674  -0.999  -0.000  1.00  0.00      ALLO
+ATOM      5  DO1 ALLO    1      -0.676  -1.001  -0.002  1.00  0.00      ALLO
+ATOM      6 LP1A ALLO    1      -0.925  -0.836  -0.000  1.00  0.00      ALLO
+ATOM      7 LP1B ALLO    1      -0.428  -1.171  -0.000  1.00  0.00      ALLO
+ATOM      8  C2  ALLO    1       1.617   0.000   0.000  1.00  0.00      ALLO
+ATOM      9  DC2 ALLO    1       1.615  -0.002  -0.002  1.00  0.00      ALLO
+ATOM     10  H2  ALLO    1       2.003  -0.558  -0.967  1.00  0.00      ALLO
+ATOM     11  O2  ALLO    1       2.090  -0.671   1.162  1.00  0.00      ALLO
+ATOM     12  DO2 ALLO    1       2.088  -0.673   1.160  1.00  0.00      ALLO
+ATOM     13  HO2 ALLO    1       1.695  -0.112   1.845  1.00  0.00      ALLO
+ATOM     14 LP2A ALLO    1       1.864  -0.921   1.256  1.00  0.00      ALLO
+ATOM     15 LP2B ALLO    1       2.401  -0.541   1.257  1.00  0.00      ALLO
+ATOM     16  C3  ALLO    1       2.126   1.443   0.000  1.00  0.00      ALLO
+ATOM     17  DC3 ALLO    1       2.124   1.441  -0.002  1.00  0.00      ALLO
+ATOM     18  H3  ALLO    1       1.701   1.951   0.986  1.00  0.00      ALLO
+ATOM     19  O3  ALLO    1       1.668   2.147  -1.154  1.00  0.00      ALLO
+ATOM     20  DO3 ALLO    1       1.666   2.145  -1.156  1.00  0.00      ALLO
+ATOM     21  HO3 ALLO    1       2.078   1.575  -1.852  1.00  0.00      ALLO
+ATOM     22 LP3A ALLO    1       1.356   2.024  -1.254  1.00  0.00      ALLO
+ATOM     23 LP3B ALLO    1       1.897   2.397  -1.241  1.00  0.00      ALLO
+ATOM     24  C4  ALLO    1       3.662   1.470   0.000  1.00  0.00      ALLO
+ATOM     25  DC4 ALLO    1       3.660   1.468  -0.002  1.00  0.00      ALLO
+ATOM     26  H4  ALLO    1       4.110   0.975  -0.870  1.00  0.00      ALLO
+ATOM     27  O4  ALLO    1       4.198   0.832   1.120  1.00  0.00      ALLO
+ATOM     28  DO4 ALLO    1       4.196   0.830   1.118  1.00  0.00      ALLO
+ATOM     29  HO4 ALLO    1       3.829   1.351   1.883  1.00  0.00      ALLO
+ATOM     30 LP4A ALLO    1       3.986   0.574   1.223  1.00  0.00      ALLO
+ATOM     31 LP4B ALLO    1       4.507   0.974   1.202  1.00  0.00      ALLO
+ATOM     32  C5  ALLO    1       4.166   2.917  -0.000  1.00  0.00      ALLO
+ATOM     33  DC5 ALLO    1       4.164   2.915  -0.002  1.00  0.00      ALLO
+ATOM     34  H5  ALLO    1       3.748   3.393   0.956  1.00  0.00      ALLO
+ATOM     35  O5  ALLO    1       3.725   3.622  -1.123  1.00  0.00      ALLO
+ATOM     36  DO5 ALLO    1       3.723   3.620  -1.125  1.00  0.00      ALLO
+ATOM     37  HO5 ALLO    1       4.067   3.159  -1.849  1.00  0.00      ALLO
+ATOM     38 LP5A ALLO    1       3.413   3.501  -1.226  1.00  0.00      ALLO
+ATOM     39 LP5B ALLO    1       3.956   3.871  -1.206  1.00  0.00      ALLO
+ATOM     40  C6  ALLO    1       5.698   2.904   0.000  1.00  0.00      ALLO
+ATOM     41  DC6 ALLO    1       5.696   2.902  -0.002  1.00  0.00      ALLO
+ATOM     42  H61 ALLO    1       5.994   2.398   0.872  1.00  0.00      ALLO
+ATOM     43  H62 ALLO    1       5.992   2.389  -0.888  1.00  0.00      ALLO
+ATOM     44  O6  ALLO    1       6.114   4.335  -0.000  1.00  0.00      ALLO
+ATOM     45  DO6 ALLO    1       6.112   4.333  -0.002  1.00  0.00      ALLO
+ATOM     46  HO6 ALLO    1       7.038   4.478   0.000  1.00  0.00      ALLO
+ATOM     47 LP6A ALLO    1       6.142   4.452  -0.329  1.00  0.00      ALLO
+ATOM     48 LP6B ALLO    1       6.142   4.452   0.329  1.00  0.00      ALLO
+TER      49      ALLO     1
+END

@@ -1,0 +1,19 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  DIET    1       2.165   0.000   0.000  1.00  0.00      DIET
+ATOM      2  DC1 DIET    1       2.163  -0.002  -0.002  1.00  0.00      DIET
+ATOM      3  I11 DIET    1       0.000   0.000   0.000  1.00  0.00      DIET
+ATOM      4 DI11 DIET    1      -0.002  -0.002  -0.002  1.00  0.00      DIET
+ATOM      5  I12 DIET    1       2.925  -1.014   1.756  1.00  0.00      DIET
+ATOM      6 DI12 DIET    1       2.923  -1.016   1.754  1.00  0.00      DIET
+ATOM      7 LP11 DIET    1      -2.100   0.000   0.000  1.00  0.00      DIET
+ATOM      8 LP12 DIET    1       3.662  -1.997   3.459  1.00  0.00      DIET
+ATOM      9  H13 DIET    1       2.415  -0.541  -0.937  1.00  0.00      DIET
+ATOM     10  C2  DIET    1       2.686   1.447   0.000  1.00  0.00      DIET
+ATOM     11  DC2 DIET    1       2.684   1.445  -0.002  1.00  0.00      DIET
+ATOM     12  H21 DIET    1       3.797   1.453   0.000  1.00  0.00      DIET
+ATOM     13  H22 DIET    1       2.324   1.983  -0.904  1.00  0.00      DIET
+ATOM     14  H23 DIET    1       2.324   1.983   0.904  1.00  0.00      DIET
+TER      15      DIET     1
+END

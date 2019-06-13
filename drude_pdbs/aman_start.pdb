@@ -1,0 +1,54 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  AMAN    1       1.363   0.000   0.000  1.00  0.00      AMAN
+ATOM      2  DC1 AMAN    1       1.361  -0.002  -0.002  1.00  0.00      AMAN
+ATOM      3  H1  AMAN    1       1.674  -0.547  -0.908  1.00  0.00      AMAN
+ATOM      4  O1  AMAN    1       1.817  -0.734   1.100  1.00  0.00      AMAN
+ATOM      5  DO1 AMAN    1       1.815  -0.736   1.098  1.00  0.00      AMAN
+ATOM      6  HO1 AMAN    1       1.394  -1.597   1.068  1.00  0.00      AMAN
+ATOM      7  C5  AMAN    1      -0.599   0.740   1.077  1.00  0.00      AMAN
+ATOM      8  DC5 AMAN    1      -0.601   0.738   1.075  1.00  0.00      AMAN
+ATOM      9  H5  AMAN    1      -0.280   0.283   2.059  1.00  0.00      AMAN
+ATOM     10  O5  AMAN    1       0.000   0.000   0.000  1.00  0.00      AMAN
+ATOM     11  DO5 AMAN    1      -0.002  -0.002  -0.002  1.00  0.00      AMAN
+ATOM     12 LP1A AMAN    1       2.108  -0.908   1.015  1.00  0.00      AMAN
+ATOM     13 LP1B AMAN    1       1.609  -0.677   1.376  1.00  0.00      AMAN
+ATOM     14 LP5A AMAN    1      -0.060   0.213  -0.271  1.00  0.00      AMAN
+ATOM     15 LP5B AMAN    1      -0.060  -0.330   0.101  1.00  0.00      AMAN
+ATOM     16 LPX5 AMAN    1       0.050   0.049   0.071  1.00  0.00      AMAN
+ATOM     17  C2  AMAN    1       1.961   1.362   0.000  1.00  0.00      AMAN
+ATOM     18  DC2 AMAN    1       1.959   1.360  -0.002  1.00  0.00      AMAN
+ATOM     19  H2  AMAN    1       3.056   1.236  -0.035  1.00  0.00      AMAN
+ATOM     20  O2  AMAN    1       1.676   2.164  -1.205  1.00  0.00      AMAN
+ATOM     21  DO2 AMAN    1       1.674   2.162  -1.207  1.00  0.00      AMAN
+ATOM     22  HO2 AMAN    1       2.471   2.675  -1.565  1.00  0.00      AMAN
+ATOM     23 LP2A AMAN    1       1.727   1.970  -1.492  1.00  0.00      AMAN
+ATOM     24 LP2B AMAN    1       1.568   2.484  -1.113  1.00  0.00      AMAN
+ATOM     25  C3  AMAN    1       1.423   2.153   1.231  1.00  0.00      AMAN
+ATOM     26  DC3 AMAN    1       1.421   2.151   1.229  1.00  0.00      AMAN
+ATOM     27  H3  AMAN    1       1.737   1.693   2.197  1.00  0.00      AMAN
+ATOM     28  O3  AMAN    1       1.895   3.497   1.167  1.00  0.00      AMAN
+ATOM     29  DO3 AMAN    1       1.893   3.495   1.165  1.00  0.00      AMAN
+ATOM     30  HO3 AMAN    1       1.604   3.985   0.351  1.00  0.00      AMAN
+ATOM     31 LP3A AMAN    1       1.667   3.711   1.324  1.00  0.00      AMAN
+ATOM     32 LP3B AMAN    1       2.207   3.507   1.010  1.00  0.00      AMAN
+ATOM     33  C4  AMAN    1      -0.080   2.149   1.154  1.00  0.00      AMAN
+ATOM     34  DC4 AMAN    1      -0.082   2.147   1.152  1.00  0.00      AMAN
+ATOM     35  H4  AMAN    1      -0.303   2.710   0.204  1.00  0.00      AMAN
+ATOM     36  O4  AMAN    1      -0.580   2.721   2.316  1.00  0.00      AMAN
+ATOM     37  DO4 AMAN    1      -0.582   2.719   2.314  1.00  0.00      AMAN
+ATOM     38  HO4 AMAN    1      -0.006   3.470   2.462  1.00  0.00      AMAN
+ATOM     39 LP4A AMAN    1      -0.828   2.954   2.238  1.00  0.00      AMAN
+ATOM     40 LP4B AMAN    1      -0.426   2.577   2.596  1.00  0.00      AMAN
+ATOM     41  C6  AMAN    1      -2.079   0.677   1.040  1.00  0.00      AMAN
+ATOM     42  DC6 AMAN    1      -2.081   0.675   1.038  1.00  0.00      AMAN
+ATOM     43  H61 AMAN    1      -2.544   1.285   1.849  1.00  0.00      AMAN
+ATOM     44  H62 AMAN    1      -2.313   1.051   0.021  1.00  0.00      AMAN
+ATOM     45  O6  AMAN    1      -2.498  -0.688   1.115  1.00  0.00      AMAN
+ATOM     46  DO6 AMAN    1      -2.500  -0.690   1.113  1.00  0.00      AMAN
+ATOM     47  HO6 AMAN    1      -2.459  -0.985   0.224  1.00  0.00      AMAN
+ATOM     48 LP6A AMAN    1      -2.222  -0.895   1.171  1.00  0.00      AMAN
+ATOM     49 LP6B AMAN    1      -2.846  -0.708   1.082  1.00  0.00      AMAN
+TER      50      AMAN     1
+END

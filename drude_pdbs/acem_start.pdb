@@ -1,0 +1,20 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  CL  ACEM    1       1.819   1.053   0.000  1.00  0.00      ACEM
+ATOM      2  DCL ACEM    1       1.817   1.051  -0.002  1.00  0.00      ACEM
+ATOM      3  C   ACEM    1       1.350   0.000   0.000  1.00  0.00      ACEM
+ATOM      4  DC  ACEM    1       1.348  -0.002  -0.002  1.00  0.00      ACEM
+ATOM      5  N   ACEM    1       0.000   0.000   0.000  1.00  0.00      ACEM
+ATOM      6  DN  ACEM    1      -0.002  -0.002  -0.002  1.00  0.00      ACEM
+ATOM      7  HC  ACEM    1      -0.566  -0.855  -0.000  1.00  0.00      ACEM
+ATOM      8  HT  ACEM    1      -0.566   0.855   0.000  1.00  0.00      ACEM
+ATOM      9  O   ACEM    1       2.149  -0.955   0.000  1.00  0.00      ACEM
+ATOM     10  DO  ACEM    1       2.147  -0.957  -0.002  1.00  0.00      ACEM
+ATOM     11  HL1 ACEM    1       2.924   0.935   0.000  1.00  0.00      ACEM
+ATOM     12  HL2 ACEM    1       1.475   1.580  -0.916  1.00  0.00      ACEM
+ATOM     13  HL3 ACEM    1       1.475   1.580   0.916  1.00  0.00      ACEM
+ATOM     14  LPA ACEM    1       2.382  -0.767   0.000  1.00  0.00      ACEM
+ATOM     15  LPB ACEM    1       1.922  -1.152   0.000  1.00  0.00      ACEM
+TER      16      ACEM     1
+END

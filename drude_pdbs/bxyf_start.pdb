@@ -1,0 +1,46 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  O4  BXYF    1       1.437   0.000   0.000  1.00  0.00      BXYF
+ATOM      2  DO4 BXYF    1       1.435  -0.002  -0.002  1.00  0.00      BXYF
+ATOM      3  C1  BXYF    1       1.907   1.349   0.000  1.00  0.00      BXYF
+ATOM      4  DC1 BXYF    1       1.905   1.347  -0.002  1.00  0.00      BXYF
+ATOM      5  H1  BXYF    1       2.581   1.456   0.879  1.00  0.00      BXYF
+ATOM      6  O1  BXYF    1       2.610   1.617  -1.184  1.00  0.00      BXYF
+ATOM      7  DO1 BXYF    1       2.608   1.615  -1.186  1.00  0.00      BXYF
+ATOM      8  HO1 BXYF    1       1.991   1.476  -1.904  1.00  0.00      BXYF
+ATOM      9  C4  BXYF    1       0.000   0.000   0.000  1.00  0.00      BXYF
+ATOM     10  DC4 BXYF    1      -0.002  -0.002  -0.002  1.00  0.00      BXYF
+ATOM     11  H4  BXYF    1      -0.314  -0.138   1.059  1.00  0.00      BXYF
+ATOM     12 LP1A BXYF    1       2.583   1.956  -1.265  1.00  0.00      BXYF
+ATOM     13 LP1B BXYF    1       2.766   1.325  -1.298  1.00  0.00      BXYF
+ATOM     14 LP4A BXYF    1       1.507  -0.097  -0.329  1.00  0.00      BXYF
+ATOM     15 LP4B BXYF    1       1.507  -0.097   0.329  1.00  0.00      BXYF
+ATOM     16 LPX4 BXYF    1       1.379   0.081   0.000  1.00  0.00      BXYF
+ATOM     17  C5  BXYF    1      -0.557  -1.171  -0.843  1.00  0.00      BXYF
+ATOM     18  DC5 BXYF    1      -0.559  -1.173  -0.845  1.00  0.00      BXYF
+ATOM     19  H51 BXYF    1      -0.067  -1.160  -1.831  1.00  0.00      BXYF
+ATOM     20  H52 BXYF    1      -0.318  -2.132  -0.361  1.00  0.00      BXYF
+ATOM     21  O5  BXYF    1      -1.968  -1.045  -1.034  1.00  0.00      BXYF
+ATOM     22  DO5 BXYF    1      -1.970  -1.047  -1.036  1.00  0.00      BXYF
+ATOM     23  HO5 BXYF    1      -2.448  -1.445  -0.300  1.00  0.00      BXYF
+ATOM     24 LP5A BXYF    1      -2.081  -0.744  -0.895  1.00  0.00      BXYF
+ATOM     25 LP5B BXYF    1      -2.089  -1.319  -1.214  1.00  0.00      BXYF
+ATOM     26  C2  BXYF    1       0.657   2.266   0.186  1.00  0.00      BXYF
+ATOM     27  DC2 BXYF    1       0.655   2.264   0.184  1.00  0.00      BXYF
+ATOM     28  H2  BXYF    1       0.794   3.240  -0.324  1.00  0.00      BXYF
+ATOM     29  O2  BXYF    1       0.317   2.509   1.554  1.00  0.00      BXYF
+ATOM     30  DO2 BXYF    1       0.315   2.507   1.552  1.00  0.00      BXYF
+ATOM     31  HO2 BXYF    1       1.136   2.396   2.058  1.00  0.00      BXYF
+ATOM     32 LP2A BXYF    1       0.352   2.849   1.627  1.00  0.00      BXYF
+ATOM     33 LP2B BXYF    1       0.215   2.211   1.707  1.00  0.00      BXYF
+ATOM     34  C3  BXYF    1      -0.422   1.404  -0.461  1.00  0.00      BXYF
+ATOM     35  DC3 BXYF    1      -0.424   1.402  -0.463  1.00  0.00      BXYF
+ATOM     36  H3  BXYF    1      -1.445   1.671  -0.120  1.00  0.00      BXYF
+ATOM     37  O3  BXYF    1      -0.357   1.525  -1.877  1.00  0.00      BXYF
+ATOM     38  DO3 BXYF    1      -0.359   1.523  -1.879  1.00  0.00      BXYF
+ATOM     39  HO3 BXYF    1      -1.048   0.961  -2.249  1.00  0.00      BXYF
+ATOM     40 LP3A BXYF    1      -0.558   1.790  -1.983  1.00  0.00      BXYF
+ATOM     41 LP3B BXYF    1      -0.135   1.287  -2.007  1.00  0.00      BXYF
+TER      42      BXYF     1
+END

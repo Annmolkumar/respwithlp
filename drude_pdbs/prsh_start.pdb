@@ -1,0 +1,23 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  PRSH    1       1.555   1.799   0.000  1.00  0.00      PRSH
+ATOM      2  DC1 PRSH    1       1.553   1.797  -0.002  1.00  0.00      PRSH
+ATOM      3  S1  PRSH    1       1.350   0.000   0.000  1.00  0.00      PRSH
+ATOM      4  DS1 PRSH    1       1.348  -0.002  -0.002  1.00  0.00      PRSH
+ATOM      5  HS1 PRSH    1       0.000   0.000   0.000  1.00  0.00      PRSH
+ATOM      6  H11 PRSH    1       1.035   2.176  -0.906  1.00  0.00      PRSH
+ATOM      7  H12 PRSH    1       1.035   2.176   0.906  1.00  0.00      PRSH
+ATOM      8  C2  PRSH    1       3.021   2.253   0.000  1.00  0.00      PRSH
+ATOM      9  DC2 PRSH    1       3.019   2.251  -0.002  1.00  0.00      PRSH
+ATOM     10  H21 PRSH    1       3.524   1.830   0.899  1.00  0.00      PRSH
+ATOM     11  H22 PRSH    1       3.524   1.830  -0.899  1.00  0.00      PRSH
+ATOM     12  C3  PRSH    1       3.205   3.773   0.000  1.00  0.00      PRSH
+ATOM     13  DC3 PRSH    1       3.203   3.771  -0.002  1.00  0.00      PRSH
+ATOM     14  H31 PRSH    1       4.283   4.043   0.000  1.00  0.00      PRSH
+ATOM     15  H32 PRSH    1       2.739   4.231  -0.899  1.00  0.00      PRSH
+ATOM     16  H33 PRSH    1       2.739   4.231   0.899  1.00  0.00      PRSH
+ATOM     17 LP1A PRSH    1       1.471  -0.080  -0.736  1.00  0.00      PRSH
+ATOM     18 LP1B PRSH    1       1.471  -0.080   0.736  1.00  0.00      PRSH
+TER      19      PRSH     1
+END

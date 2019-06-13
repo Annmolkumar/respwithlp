@@ -1,0 +1,10 @@
+Step 3A: Adding up increments - Increments...
+
+        Name         Type        Char.  corr. Char.         Pol.        Pol.H   0.85 Pol.H
+       ------------------------------------------------------------------------------------
+DEVIATION! RESULTS MIGHT BE WRONG
+Total charge (column Char.): -0.3539241883532439
+Total corrected charge (column corr.Char.): -0.0
+Charge from str file: -1
+Check wether the predicted total charge, or the str file charge is correct
+Run again with manual charge set, by ./predictor.sh <str/mol2> <file> <correct_charge>

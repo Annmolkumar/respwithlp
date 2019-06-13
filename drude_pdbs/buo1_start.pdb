@@ -1,0 +1,27 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  BUO1    1       1.363   1.370   0.000  1.00  0.00      BUO1
+ATOM      2  DC1 BUO1    1       1.361   1.368  -0.002  1.00  0.00      BUO1
+ATOM      3  O1  BUO1    1       0.970   0.000   0.000  1.00  0.00      BUO1
+ATOM      4  DO1 BUO1    1       0.968  -0.002  -0.002  1.00  0.00      BUO1
+ATOM      5  HO1 BUO1    1       0.000   0.000   0.000  1.00  0.00      BUO1
+ATOM      6  H1A BUO1    1       0.978   1.904  -0.895  1.00  0.00      BUO1
+ATOM      7  H1B BUO1    1       0.978   1.904   0.895  1.00  0.00      BUO1
+ATOM      8  C2  BUO1    1       2.883   1.543   0.000  1.00  0.00      BUO1
+ATOM      9  DC2 BUO1    1       2.881   1.541  -0.002  1.00  0.00      BUO1
+ATOM     10  H2A BUO1    1       3.321   1.068   0.904  1.00  0.00      BUO1
+ATOM     11  H2B BUO1    1       3.321   1.068  -0.904  1.00  0.00      BUO1
+ATOM     12  C3  BUO1    1       3.333   3.005   0.000  1.00  0.00      BUO1
+ATOM     13  DC3 BUO1    1       3.331   3.003  -0.002  1.00  0.00      BUO1
+ATOM     14  H3A BUO1    1       2.946   3.524  -0.904  1.00  0.00      BUO1
+ATOM     15  H3B BUO1    1       2.946   3.524   0.904  1.00  0.00      BUO1
+ATOM     16  C4  BUO1    1       4.846   3.215   0.000  1.00  0.00      BUO1
+ATOM     17  DC4 BUO1    1       4.844   3.213  -0.002  1.00  0.00      BUO1
+ATOM     18  H4A BUO1    1       5.108   4.295   0.000  1.00  0.00      BUO1
+ATOM     19  H4B BUO1    1       5.321   2.759   0.895  1.00  0.00      BUO1
+ATOM     20  H4C BUO1    1       5.321   2.759  -0.895  1.00  0.00      BUO1
+ATOM     21 LP1A BUO1    1       0.943  -0.117  -0.329  1.00  0.00      BUO1
+ATOM     22 LP1B BUO1    1       0.943  -0.117   0.329  1.00  0.00      BUO1
+TER      23      BUO1     1
+END

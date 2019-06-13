@@ -1,0 +1,30 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  CD2 INDO    1      -0.430   1.353   0.000  1.00  0.00      INDO
+ATOM      2 DCD2 INDO    1      -0.432   1.351  -0.002  1.00  0.00      INDO
+ATOM      3  CE2 INDO    1       0.724   2.166   0.000  1.00  0.00      INDO
+ATOM      4 DCE2 INDO    1       0.722   2.164  -0.002  1.00  0.00      INDO
+ATOM      5  CZ2 INDO    1       0.608   3.560   0.000  1.00  0.00      INDO
+ATOM      6 DCZ2 INDO    1       0.606   3.558  -0.002  1.00  0.00      INDO
+ATOM      7  CH2 INDO    1      -0.667   4.155   0.000  1.00  0.00      INDO
+ATOM      8 DCH2 INDO    1      -0.669   4.153  -0.002  1.00  0.00      INDO
+ATOM      9  CZ3 INDO    1      -1.825   3.341   0.000  1.00  0.00      INDO
+ATOM     10 DCZ3 INDO    1      -1.827   3.339  -0.002  1.00  0.00      INDO
+ATOM     11  CE3 INDO    1      -1.701   1.940   0.000  1.00  0.00      INDO
+ATOM     12 DCE3 INDO    1      -1.703   1.938  -0.002  1.00  0.00      INDO
+ATOM     13  CG  INDO    1       0.000   0.000   0.000  1.00  0.00      INDO
+ATOM     14  DCG INDO    1      -0.002  -0.002  -0.002  1.00  0.00      INDO
+ATOM     15  CD1 INDO    1       1.398   0.000   0.000  1.00  0.00      INDO
+ATOM     16 DCD1 INDO    1       1.396  -0.002  -0.002  1.00  0.00      INDO
+ATOM     17  NE1 INDO    1       1.836   1.310   0.000  1.00  0.00      INDO
+ATOM     18 DNE1 INDO    1       1.834   1.308  -0.002  1.00  0.00      INDO
+ATOM     19  HZ2 INDO    1       1.482   4.188   0.000  1.00  0.00      INDO
+ATOM     20  HH2 INDO    1      -0.763   5.229   0.000  1.00  0.00      INDO
+ATOM     21  HZ3 INDO    1      -2.804   3.794   0.000  1.00  0.00      INDO
+ATOM     22  HE3 INDO    1      -2.589   1.331   0.000  1.00  0.00      INDO
+ATOM     23  HG  INDO    1      -0.619  -0.889  -0.000  1.00  0.00      INDO
+ATOM     24  HD1 INDO    1       2.033  -0.872   0.000  1.00  0.00      INDO
+ATOM     25  HE1 INDO    1       2.788   1.607   0.000  1.00  0.00      INDO
+TER      26      INDO     1
+END

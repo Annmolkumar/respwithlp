@@ -1,0 +1,23 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  N   ETAM    1       0.000   0.000   0.000  1.00  0.00      ETAM
+ATOM      2  DN  ETAM    1      -0.002  -0.002  -0.002  1.00  0.00      ETAM
+ATOM      3  HN1 ETAM    1      -0.319   0.631   0.727  1.00  0.00      ETAM
+ATOM      4  HN2 ETAM    1      -0.379   0.332  -0.876  1.00  0.00      ETAM
+ATOM      5  HN3 ETAM    1      -0.385  -0.918   0.172  1.00  0.00      ETAM
+ATOM      6  C1  ETAM    1       1.516   0.000   0.000  1.00  0.00      ETAM
+ATOM      7  DC1 ETAM    1       1.514  -0.002  -0.002  1.00  0.00      ETAM
+ATOM      8  H11 ETAM    1       1.827   0.008   1.036  1.00  0.00      ETAM
+ATOM      9  H12 ETAM    1       1.816   0.937  -0.445  1.00  0.00      ETAM
+ATOM     10  C5  ETAM    1       2.196   1.359   0.000  1.00  0.00      ETAM
+ATOM     11  DC5 ETAM    1       2.194   1.357  -0.002  1.00  0.00      ETAM
+ATOM     12  H51 ETAM    1       3.260   1.154   0.062  1.00  0.00      ETAM
+ATOM     13  H52 ETAM    1       2.019   1.879  -0.935  1.00  0.00      ETAM
+ATOM     14  OH1 ETAM    1       1.555   2.082   1.011  1.00  0.00      ETAM
+ATOM     15 DOH1 ETAM    1       1.553   2.080   1.009  1.00  0.00      ETAM
+ATOM     16  HO1 ETAM    1       1.973   2.919   1.169  1.00  0.00      ETAM
+ATOM     17 LP1A ETAM    1       1.299   2.281   0.879  1.00  0.00      ETAM
+ATOM     18 LP1B ETAM    1       1.688   2.003   1.325  1.00  0.00      ETAM
+TER      19      ETAM     1
+END

@@ -1,0 +1,73 @@
+PSF EXT CMAP CHEQ DRUDE XPLOR
+
+         3 !NTITLE
+* $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+* MASTER TEST CASE FOR DRUDE                                                    
+*  DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+
+        14 !NATOM
+         1 DMS      1        DMS      H21      HDA3A    0.870000E-01   1.00800           0   0.00000       0.00000    
+         2 DMS      1        DMS      H22      HDA3A    0.870000E-01   1.00800           0   0.00000       0.00000    
+         3 DMS      1        DMS      H23      HDA3A    0.870000E-01   1.00800           0   0.00000       0.00000    
+         4 DMS      1        DMS      C2       CD33A     2.02910       11.6110           0  -1.58700       1.54200    
+         5 DMS      1        DMS      DC2      DRUD     -2.18610      0.400000           0   0.00000       0.00000    
+         6 DMS      1        DMS      S1       SD30A     2.48520       31.6600           0  -2.05100       1.54300    
+         7 DMS      1        DMS      DS1      DRUD     -2.48520      0.400000           0   0.00000       0.00000    
+         8 DMS      1        DMS      C1       CD33A     2.02910       11.6110           0  -1.58700       1.54200    
+         9 DMS      1        DMS      DC1      DRUD     -2.18610      0.400000           0   0.00000       0.00000    
+        10 DMS      1        DMS      H11      HDA3A    0.870000E-01   1.00800           0   0.00000       0.00000    
+        11 DMS      1        DMS      H12      HDA3A    0.870000E-01   1.00800           0   0.00000       0.00000    
+        12 DMS      1        DMS      H13      HDA3A    0.870000E-01   1.00800           0   0.00000       0.00000    
+        13 DMS      1        DMS      LP1A     LPD     -0.104000       0.00000          -1   0.00000       0.00000    
+        14 DMS      1        DMS      LP1B     LPD     -0.104000       0.00000          -1   0.00000       0.00000    
+
+        13 !NBOND: bonds
+         4         5         6         7         8         9         4         1
+         4         2         4         3         4         6         6         8
+         8        10         8        11         8        12         6        13
+         6        14
+
+        13 !NTHETA: angles
+         1         4         2         1         4         3         1         4         6
+         2         4         3         2         4         6         3         4         6
+         4         6         8         6         8        10         6         8        11
+         6         8        12        10         8        11        10         8        12
+        11         8        12
+
+         6 !NPHI: dihedrals
+         1         4         6         8         2         4         6         8
+         3         4         6         8         4         6         8        10
+         4         6         8        11         4         6         8        12
+
+         0 !NIMPHI: impropers
+
+
+         0 !NDON: donors
+
+
+         0 !NACC: acceptors
+
+
+         0 !NNB
+
+         0         0         0         0         0         0         0         0
+         0         0         0         0         0         0
+
+         1         0 !NGRP NST2
+         0         1         0
+
+         1 !MOLNT
+         1         1         1         1         1         1         1         1
+         1         1         1         1         1         1
+
+         2         8 !NUMLP NUMLPH
+         3         1   F -0.700000       95.0000       100.000    
+         3         5   F -0.700000       95.0000       100.000    
+        13         6         8         4        14         6         4         8
+
+         1 !NUMANISO
+             54.2024      -220.188       86.1665    
+         6         8        13        14
+
+         0 !NCRTERM: cross-terms
+

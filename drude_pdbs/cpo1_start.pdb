@@ -1,0 +1,29 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  CPO1    1       0.000   0.000   0.000  1.00  0.00      CPO1
+ATOM      2  DC1 CPO1    1      -0.002  -0.002  -0.002  1.00  0.00      CPO1
+ATOM      3  H1A CPO1    1      -0.350   0.238  -1.025  1.00  0.00      CPO1
+ATOM      4  O1  CPO1    1      -0.589  -1.239   0.450  1.00  0.00      CPO1
+ATOM      5  DO1 CPO1    1      -0.591  -1.241   0.448  1.00  0.00      CPO1
+ATOM      6  HO1 CPO1    1      -0.257  -1.407   1.346  1.00  0.00      CPO1
+ATOM      7 LP1A CPO1    1      -0.895  -1.176   0.608  1.00  0.00      CPO1
+ATOM      8 LP1B CPO1    1      -0.387  -1.509   0.357  1.00  0.00      CPO1
+ATOM      9  C2  CPO1    1       1.547   0.000   0.000  1.00  0.00      CPO1
+ATOM     10  DC2 CPO1    1       1.545  -0.002  -0.002  1.00  0.00      CPO1
+ATOM     11  H2A CPO1    1       1.971  -0.562  -0.860  1.00  0.00      CPO1
+ATOM     12  H2B CPO1    1       1.926  -0.495   0.926  1.00  0.00      CPO1
+ATOM     13  C3  CPO1    1       1.979   1.487   0.000  1.00  0.00      CPO1
+ATOM     14  DC3 CPO1    1       1.977   1.485  -0.002  1.00  0.00      CPO1
+ATOM     15  H3A CPO1    1       2.185   1.834  -1.039  1.00  0.00      CPO1
+ATOM     16  H3B CPO1    1       2.911   1.643   0.587  1.00  0.00      CPO1
+ATOM     17  C4  CPO1    1       0.777   2.274   0.593  1.00  0.00      CPO1
+ATOM     18  DC4 CPO1    1       0.775   2.272   0.591  1.00  0.00      CPO1
+ATOM     19  H4A CPO1    1       0.395   3.006  -0.156  1.00  0.00      CPO1
+ATOM     20  H4B CPO1    1       1.062   2.854   1.498  1.00  0.00      CPO1
+ATOM     21  C5  CPO1    1      -0.303   1.211   0.913  1.00  0.00      CPO1
+ATOM     22  DC5 CPO1    1      -0.305   1.209   0.911  1.00  0.00      CPO1
+ATOM     23  H5A CPO1    1      -1.334   1.602   0.770  1.00  0.00      CPO1
+ATOM     24  H5B CPO1    1      -0.219   0.910   1.984  1.00  0.00      CPO1
+TER      25      CPO1     1
+END

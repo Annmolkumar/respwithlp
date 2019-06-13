@@ -1,0 +1,70 @@
+PSF EXT CMAP CHEQ DRUDE XPLOR
+
+         3 !NTITLE
+* $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+* MASTER TEST CASE FOR DRUDE                                                    
+*  DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+
+        12 !NATOM
+         1 IETH     1        IETH     C1       CD32A     2.99230       11.6110           0  -2.83000      0.780000    
+         2 IETH     1        IETH     DC1      DRUD     -2.91930      0.400000           0   0.00000       0.00000    
+         3 IETH     1        IETH     I11      IDA1      2.63140       126.504           0  -2.80500       1.13000    
+         4 IETH     1        IETH     DI11     DI2      -2.90640      0.400000           0   0.00000       0.00000    
+         5 IETH     1        IETH     LP       LPD      0.450000E-01   0.00000          -1   0.00000       0.00000    
+         6 IETH     1        IETH     H12      HDA2A    0.610000E-01   1.00800           0   0.00000       0.00000    
+         7 IETH     1        IETH     H13      HDA2A    0.610000E-01   1.00800           0   0.00000       0.00000    
+         8 IETH     1        IETH     C2       CD33A     2.69540       11.6110           0  -2.84000      0.600000    
+         9 IETH     1        IETH     DC2      DRUD     -2.92440      0.400000           0   0.00000       0.00000    
+        10 IETH     1        IETH     H21      HDA3A    0.880000E-01   1.00800           0   0.00000       0.00000    
+        11 IETH     1        IETH     H22      HDA3A    0.880000E-01   1.00800           0   0.00000       0.00000    
+        12 IETH     1        IETH     H23      HDA3A    0.880000E-01   1.00800           0   0.00000       0.00000    
+
+        11 !NBOND: bonds
+         1         2         3         4         8         9         1         3
+         1         6         1         7         1         8         8        10
+         8        11         8        12         3         5
+
+        12 !NTHETA: angles
+         3         1         6         3         1         7         3         1         8
+         6         1         7         6         1         8         7         1         8
+         1         8        10         1         8        11         1         8        12
+        10         8        11        10         8        12        11         8        12
+
+         9 !NPHI: dihedrals
+         3         1         8        10         3         1         8        11
+         3         1         8        12         6         1         8        10
+         6         1         8        11         6         1         8        12
+         7         1         8        10         7         1         8        11
+         7         1         8        12
+
+         0 !NIMPHI: impropers
+
+
+         0 !NDON: donors
+
+
+         0 !NACC: acceptors
+
+
+         0 !NNB
+
+         0         0         0         0         0         0         0         0
+         0         0         0         0
+
+         1         0 !NGRP NST2
+         0         1         0
+
+         1 !MOLNT
+         1         1         1         1         1         1         1         1
+         1         1         1         1
+
+         1         3 !NUMLP NUMLPH
+         2         1   F   2.10000       0.00000       0.00000    
+         5         3         1
+
+         1 !NUMANISO
+            -490.552       0.00000       281.250    
+         3         1         6         7
+
+         0 !NCRTERM: cross-terms
+

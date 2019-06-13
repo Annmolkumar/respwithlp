@@ -1,0 +1,53 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  PSIC    1       0.000   0.000   0.000  1.00  0.00      PSIC
+ATOM      2  DC1 PSIC    1      -0.002  -0.002  -0.002  1.00  0.00      PSIC
+ATOM      3  H11 PSIC    1      -0.291   0.530   0.918  1.00  0.00      PSIC
+ATOM      4  H12 PSIC    1      -0.371   0.524  -0.907  1.00  0.00      PSIC
+ATOM      5  O1  PSIC    1      -0.460  -1.344  -0.000  1.00  0.00      PSIC
+ATOM      6  DO1 PSIC    1      -0.462  -1.346  -0.002  1.00  0.00      PSIC
+ATOM      7  HO1 PSIC    1      -1.406  -1.361  -0.000  1.00  0.00      PSIC
+ATOM      8 LP1A PSIC    1      -0.493  -1.459  -0.329  1.00  0.00      PSIC
+ATOM      9 LP1B PSIC    1      -0.493  -1.459   0.329  1.00  0.00      PSIC
+ATOM     10  C2  PSIC    1       1.617   0.000   0.000  1.00  0.00      PSIC
+ATOM     11  DC2 PSIC    1       1.615  -0.002  -0.002  1.00  0.00      PSIC
+ATOM     12  O2  PSIC    1       2.090  -1.342   0.000  1.00  0.00      PSIC
+ATOM     13  DO2 PSIC    1       2.088  -1.344  -0.002  1.00  0.00      PSIC
+ATOM     14 LP2A PSIC    1       1.809  -1.446   0.000  1.00  0.00      PSIC
+ATOM     15 LP2B PSIC    1       2.375  -1.247   0.000  1.00  0.00      PSIC
+ATOM     16  C3  PSIC    1       2.180   1.423   0.000  1.00  0.00      PSIC
+ATOM     17  DC3 PSIC    1       2.178   1.421  -0.002  1.00  0.00      PSIC
+ATOM     18  H3  PSIC    1       1.775   1.947   0.986  1.00  0.00      PSIC
+ATOM     19  O3  PSIC    1       1.749   2.144  -1.154  1.00  0.00      PSIC
+ATOM     20  DO3 PSIC    1       1.747   2.142  -1.156  1.00  0.00      PSIC
+ATOM     21  HO3 PSIC    1       2.137   1.557  -1.852  1.00  0.00      PSIC
+ATOM     22 LP3A PSIC    1       1.432   2.032  -1.254  1.00  0.00      PSIC
+ATOM     23 LP3B PSIC    1       1.988   2.384  -1.241  1.00  0.00      PSIC
+ATOM     24  C4  PSIC    1       3.717   1.391   0.000  1.00  0.00      PSIC
+ATOM     25  DC4 PSIC    1       3.715   1.389  -0.002  1.00  0.00      PSIC
+ATOM     26  H4  PSIC    1       4.145   0.880  -0.870  1.00  0.00      PSIC
+ATOM     27  O4  PSIC    1       4.228   0.734   1.120  1.00  0.00      PSIC
+ATOM     28  DO4 PSIC    1       4.226   0.732   1.118  1.00  0.00      PSIC
+ATOM     29  HO4 PSIC    1       3.879   1.267   1.883  1.00  0.00      PSIC
+ATOM     30 LP4A PSIC    1       4.006   0.483   1.223  1.00  0.00      PSIC
+ATOM     31 LP4B PSIC    1       4.542   0.864   1.202  1.00  0.00      PSIC
+ATOM     32  C5  PSIC    1       4.275   2.818  -0.000  1.00  0.00      PSIC
+ATOM     33  DC5 PSIC    1       4.273   2.816  -0.002  1.00  0.00      PSIC
+ATOM     34  H5  PSIC    1       3.875   3.310   0.956  1.00  0.00      PSIC
+ATOM     35  O5  PSIC    1       3.861   3.539  -1.123  1.00  0.00      PSIC
+ATOM     36  DO5 PSIC    1       3.859   3.537  -1.125  1.00  0.00      PSIC
+ATOM     37  HO5 PSIC    1       4.185   3.064  -1.849  1.00  0.00      PSIC
+ATOM     38 LP5A PSIC    1       3.545   3.430  -1.226  1.00  0.00      PSIC
+ATOM     39 LP5B PSIC    1       4.101   3.780  -1.206  1.00  0.00      PSIC
+ATOM     40  C6  PSIC    1       5.805   2.747   0.000  1.00  0.00      PSIC
+ATOM     41  DC6 PSIC    1       5.803   2.745  -0.002  1.00  0.00      PSIC
+ATOM     42  H61 PSIC    1       6.081   2.230   0.872  1.00  0.00      PSIC
+ATOM     43  H62 PSIC    1       6.079   2.221  -0.888  1.00  0.00      PSIC
+ATOM     44  O6  PSIC    1       6.275   4.162  -0.000  1.00  0.00      PSIC
+ATOM     45  DO6 PSIC    1       6.273   4.160  -0.002  1.00  0.00      PSIC
+ATOM     46  HO6 PSIC    1       7.204   4.270   0.000  1.00  0.00      PSIC
+ATOM     47 LP6A PSIC    1       6.307   4.277  -0.329  1.00  0.00      PSIC
+ATOM     48 LP6B PSIC    1       6.307   4.277   0.329  1.00  0.00      PSIC
+TER      49      PSIC     1
+END

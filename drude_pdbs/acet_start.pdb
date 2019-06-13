@@ -1,0 +1,20 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  ACET    1       1.970   1.344   0.000  1.00  0.00      ACET
+ATOM      2  DC1 ACET    1       1.968   1.342  -0.002  1.00  0.00      ACET
+ATOM      3  H1  ACET    1       3.074   1.219   0.000  1.00  0.00      ACET
+ATOM      4  H2  ACET    1       1.687   1.928  -0.902  1.00  0.00      ACET
+ATOM      5  H3  ACET    1       1.687   1.928   0.902  1.00  0.00      ACET
+ATOM      6  C2  ACET    1       1.254   0.000   0.000  1.00  0.00      ACET
+ATOM      7  DC2 ACET    1       1.252  -0.002  -0.002  1.00  0.00      ACET
+ATOM      8  O1  ACET    1       0.000   0.000   0.000  1.00  0.00      ACET
+ATOM      9  DO1 ACET    1      -0.002  -0.002  -0.002  1.00  0.00      ACET
+ATOM     10  O2  ACET    1       1.935  -1.053   0.000  1.00  0.00      ACET
+ATOM     11  DO2 ACET    1       1.933  -1.055  -0.002  1.00  0.00      ACET
+ATOM     12 LP1A ACET    1      -0.120   0.329   0.000  1.00  0.00      ACET
+ATOM     13 LP1B ACET    1      -0.120  -0.329  -0.000  1.00  0.00      ACET
+ATOM     14 LP2A ACET    1       2.276  -0.975   0.000  1.00  0.00      ACET
+ATOM     15 LP2B ACET    1       1.724  -1.332   0.000  1.00  0.00      ACET
+TER      16      ACET     1
+END

@@ -1,0 +1,19 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  H21 DMS     1       0.000   0.000   0.000  1.00  0.00      DMS 
+ATOM      2  H22 DMS     1       1.474  -0.528  -0.908  1.00  0.00      DMS 
+ATOM      3  H23 DMS     1       1.477  -0.535   0.902  1.00  0.00      DMS 
+ATOM      4  C2  DMS     1       1.111   0.000   0.000  1.00  0.00      DMS 
+ATOM      5  DC2 DMS     1       1.109  -0.002  -0.002  1.00  0.00      DMS 
+ATOM      6  S1  DMS     1       1.721   1.687   0.000  1.00  0.00      DMS 
+ATOM      7  DS1 DMS     1       1.719   1.685  -0.002  1.00  0.00      DMS 
+ATOM      8  C1  DMS     1       0.960   2.188   1.545  1.00  0.00      DMS 
+ATOM      9  DC1 DMS     1       0.958   2.186   1.543  1.00  0.00      DMS 
+ATOM     10  H11 DMS     1       1.334   1.551   2.375  1.00  0.00      DMS 
+ATOM     11  H12 DMS     1       1.213   3.248   1.759  1.00  0.00      DMS 
+ATOM     12  H13 DMS     1      -0.144   2.086   1.473  1.00  0.00      DMS 
+ATOM     13 LP1A DMS     1       1.190   2.019  -0.312  1.00  0.00      DMS 
+ATOM     14 LP1B DMS     1       2.323   1.416   0.233  1.00  0.00      DMS 
+TER      15      DMS      1
+END

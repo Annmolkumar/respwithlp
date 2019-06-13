@@ -1,0 +1,45 @@
+PSF EXT CMAP CHEQ DRUDE XPLOR
+
+         3 !NTITLE
+* $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+* MASTER TEST CASE FOR DRUDE                                                    
+*  DATE:     6/13/19     16:19:27      CREATED BY USER: pchatter                
+
+         2 !NATOM
+         1 HE       1        HE       HE       XED      0.785700       3.60260           0 -0.205000       1.30000    
+         2 HE       1        HE       DHE      DRUD    -0.785700      0.400000           0   0.00000       0.00000    
+
+         1 !NBOND: bonds
+         1         2
+
+         0 !NTHETA: angles
+
+
+         0 !NPHI: dihedrals
+
+
+         0 !NIMPHI: impropers
+
+
+         0 !NDON: donors
+
+
+         0 !NACC: acceptors
+
+
+         0 !NNB
+
+         0         0
+
+         1         0 !NGRP NST2
+         0         0         0
+
+         1 !MOLNT
+         1         1
+
+         0         0 !NUMLP NUMLPH
+
+         0 !NUMANISO
+
+         0 !NCRTERM: cross-terms
+

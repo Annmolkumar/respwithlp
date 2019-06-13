@@ -1,0 +1,47 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  DARA    1       0.000   0.000   0.000  1.00  0.00      DARA
+ATOM      2  DC1 DARA    1      -0.002  -0.002  -0.002  1.00  0.00      DARA
+ATOM      3  H11 DARA    1      -0.261   0.343  -1.015  1.00  0.00      DARA
+ATOM      4  H12 DARA    1      -0.343  -1.009   0.209  1.00  0.00      DARA
+ATOM      5  O1  DARA    1      -0.567   0.851   0.934  1.00  0.00      DARA
+ATOM      6  DO1 DARA    1      -0.569   0.849   0.932  1.00  0.00      DARA
+ATOM      7  HO1 DARA    1      -0.490   0.502   1.877  1.00  0.00      DARA
+ATOM      8 LP1A DARA    1      -0.330   1.083   1.044  1.00  0.00      DARA
+ATOM      9 LP1B DARA    1      -0.906   0.773   0.977  1.00  0.00      DARA
+ATOM     10  C2  DARA    1       1.606   0.000   0.000  1.00  0.00      DARA
+ATOM     11  DC2 DARA    1       1.604  -0.002  -0.002  1.00  0.00      DARA
+ATOM     12  H2  DARA    1       1.893  -0.380   1.003  1.00  0.00      DARA
+ATOM     13  O2  DARA    1       2.117  -0.755  -1.123  1.00  0.00      DARA
+ATOM     14  DO2 DARA    1       2.115  -0.757  -1.125  1.00  0.00      DARA
+ATOM     15  HO2 DARA    1       1.862  -0.158  -1.866  1.00  0.00      DARA
+ATOM     16 LP2A DARA    1       2.449  -0.666  -1.186  1.00  0.00      DARA
+ATOM     17 LP2B DARA    1       1.872  -0.977  -1.238  1.00  0.00      DARA
+ATOM     18  C3  DARA    1       2.184   1.386   0.000  1.00  0.00      DARA
+ATOM     19  DC3 DARA    1       2.182   1.384  -0.002  1.00  0.00      DARA
+ATOM     20  H3  DARA    1       1.753   1.949   0.875  1.00  0.00      DARA
+ATOM     21  O3  DARA    1       1.779   2.131  -1.165  1.00  0.00      DARA
+ATOM     22  DO3 DARA    1       1.777   2.129  -1.167  1.00  0.00      DARA
+ATOM     23  HO3 DARA    1       0.896   2.304  -0.848  1.00  0.00      DARA
+ATOM     24 LP3A DARA    1       1.856   2.470  -1.123  1.00  0.00      DARA
+ATOM     25 LP3B DARA    1       1.646   1.914  -1.406  1.00  0.00      DARA
+ATOM     26  C4  DARA    1       3.714   1.307   0.171  1.00  0.00      DARA
+ATOM     27  DC4 DARA    1       3.712   1.305   0.169  1.00  0.00      DARA
+ATOM     28  H4  DARA    1       4.129   0.559  -0.542  1.00  0.00      DARA
+ATOM     29  O4  DARA    1       3.933   0.784   1.509  1.00  0.00      DARA
+ATOM     30  DO4 DARA    1       3.931   0.782   1.507  1.00  0.00      DARA
+ATOM     31  HO4 DARA    1       4.401   1.494   1.932  1.00  0.00      DARA
+ATOM     32 LP4A DARA    1       3.662   0.866   1.715  1.00  0.00      DARA
+ATOM     33 LP4B DARA    1       4.234   0.606   1.520  1.00  0.00      DARA
+ATOM     34  C5  DARA    1       4.407   2.666  -0.047  1.00  0.00      DARA
+ATOM     35  DC5 DARA    1       4.405   2.664  -0.049  1.00  0.00      DARA
+ATOM     36  H51 DARA    1       4.373   3.086  -1.012  1.00  0.00      DARA
+ATOM     37  H52 DARA    1       5.581   2.635   0.081  1.00  0.00      DARA
+ATOM     38  O5  DARA    1       3.999   3.611   0.990  1.00  0.00      DARA
+ATOM     39  DO5 DARA    1       3.997   3.609   0.988  1.00  0.00      DARA
+ATOM     40  HO5 DARA    1       3.062   3.725   0.889  1.00  0.00      DARA
+ATOM     41 LP5A DARA    1       3.918   3.438   1.284  1.00  0.00      DARA
+ATOM     42 LP5B DARA    1       4.024   3.938   0.870  1.00  0.00      DARA
+TER      43      DARA     1
+END

@@ -1,0 +1,21 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  TIET    1       2.170   0.000   0.000  1.00  0.00      TIET
+ATOM      2  DC1 TIET    1       2.168  -0.002  -0.002  1.00  0.00      TIET
+ATOM      3  I11 TIET    1       0.000   0.000   0.000  1.00  0.00      TIET
+ATOM      4 DI11 TIET    1      -0.002  -0.002  -0.002  1.00  0.00      TIET
+ATOM      5  I12 TIET    1       2.909  -1.020   1.767  1.00  0.00      TIET
+ATOM      6 DI12 TIET    1       2.907  -1.022   1.765  1.00  0.00      TIET
+ATOM      7  I13 TIET    1       2.909  -1.020  -1.767  1.00  0.00      TIET
+ATOM      8 DI13 TIET    1       2.907  -1.022  -1.769  1.00  0.00      TIET
+ATOM      9 LP11 TIET    1      -2.010   0.000   0.000  1.00  0.00      TIET
+ATOM     10 LP12 TIET    1       3.593  -1.965   3.404  1.00  0.00      TIET
+ATOM     11 LP13 TIET    1       3.593  -1.965  -3.404  1.00  0.00      TIET
+ATOM     12  C2  TIET    1       2.688   1.448   0.000  1.00  0.00      TIET
+ATOM     13  DC2 TIET    1       2.686   1.446  -0.002  1.00  0.00      TIET
+ATOM     14  H21 TIET    1       3.799   1.456   0.000  1.00  0.00      TIET
+ATOM     15  H22 TIET    1       2.326   1.983  -0.904  1.00  0.00      TIET
+ATOM     16  H23 TIET    1       2.326   1.983   0.904  1.00  0.00      TIET
+TER      17      TIET     1
+END

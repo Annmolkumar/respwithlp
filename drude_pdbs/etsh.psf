@@ -1,0 +1,76 @@
+PSF EXT CMAP CHEQ DRUDE XPLOR
+
+         3 !NTITLE
+* $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+* MASTER TEST CASE FOR DRUDE                                                    
+*  DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+
+        14 !NATOM
+         1 ETSH     1        ETSH     C1       CD32A     2.06390       11.6110           0  -1.27300      0.716000    
+         2 ETSH     1        ETSH     DC1      DRUD     -1.95790      0.400000           0   0.00000       0.00000    
+         3 ETSH     1        ETSH     S1       SD31B     2.61220       31.6600           0  -2.18000       1.61200    
+         4 ETSH     1        ETSH     DS1      DRUD     -2.56220      0.400000           0   0.00000       0.00000    
+         5 ETSH     1        ETSH     HS1      HDP1A    0.148000       1.00800           0   0.00000       0.00000    
+         6 ETSH     1        ETSH     H11      HDA2A    0.130000E-01   1.00800           0   0.00000       0.00000    
+         7 ETSH     1        ETSH     H12      HDA2A    0.130000E-01   1.00800           0   0.00000       0.00000    
+         8 ETSH     1        ETSH     C2       CD33A     1.89880       11.6110           0  -1.43500       1.49600    
+         9 ETSH     1        ETSH     DC2      DRUD     -2.07880      0.400000           0   0.00000       0.00000    
+        10 ETSH     1        ETSH     H21      HDA3A    0.600000E-01   1.00800           0   0.00000       0.00000    
+        11 ETSH     1        ETSH     H22      HDA3A    0.600000E-01   1.00800           0   0.00000       0.00000    
+        12 ETSH     1        ETSH     H23      HDA3A    0.600000E-01   1.00800           0   0.00000       0.00000    
+        13 ETSH     1        ETSH     LP1A     LPD     -0.165000       0.00000          -1   0.00000       0.00000    
+        14 ETSH     1        ETSH     LP1B     LPD     -0.165000       0.00000          -1   0.00000       0.00000    
+
+        13 !NBOND: bonds
+         1         2         3         4         8         9         1         8
+         1         3         1         6         1         7         3         5
+         8        10         8        11         8        12         3        13
+         3        14
+
+        13 !NTHETA: angles
+         3         1         6         3         1         7         3         1         8
+         6         1         7         6         1         8         7         1         8
+         1         3         5         1         8        10         1         8        11
+         1         8        12        10         8        11        10         8        12
+        11         8        12
+
+        12 !NPHI: dihedrals
+         3         1         8        10         3         1         8        11
+         3         1         8        12         5         3         1         6
+         5         3         1         7         5         3         1         8
+         6         1         8        10         6         1         8        11
+         6         1         8        12         7         1         8        10
+         7         1         8        11         7         1         8        12
+
+         0 !NIMPHI: impropers
+
+
+         0 !NDON: donors
+
+
+         0 !NACC: acceptors
+
+
+         0 !NNB
+
+         0         0         0         0         0         0         0         0
+         0         0         0         0         0         0
+
+         1         0 !NGRP NST2
+         0         1         0
+
+         1 !MOLNT
+         1         1         1         1         1         1         1         1
+         1         1         1         1         1         1
+
+         2         8 !NUMLP NUMLPH
+         3         1   F  0.750000       95.0000       100.000    
+         3         5   F  0.750000       95.0000       260.000    
+        13         3         1         5        14         3         1         5
+
+         1 !NUMANISO
+            -56.8182      -246.212       125.000    
+         3         1        13        14
+
+         0 !NCRTERM: cross-terms
+

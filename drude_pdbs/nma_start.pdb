@@ -1,0 +1,24 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  CL  NMA     1       1.989   1.380   0.000  1.00  0.00      NMA 
+ATOM      2  DCL NMA     1       1.987   1.378  -0.002  1.00  0.00      NMA 
+ATOM      3  HL1 NMA     1       3.100   1.361   0.000  1.00  0.00      NMA 
+ATOM      4  HL2 NMA     1       1.725   2.008  -0.877  1.00  0.00      NMA 
+ATOM      5  HL3 NMA     1       1.725   2.008   0.877  1.00  0.00      NMA 
+ATOM      6  C   NMA     1       1.340   0.000   0.000  1.00  0.00      NMA 
+ATOM      7  DC  NMA     1       1.338  -0.002  -0.002  1.00  0.00      NMA 
+ATOM      8  O   NMA     1       2.040  -1.022   0.000  1.00  0.00      NMA 
+ATOM      9  DO  NMA     1       2.038  -1.024  -0.002  1.00  0.00      NMA 
+ATOM     10  N   NMA     1       0.000   0.000   0.000  1.00  0.00      NMA 
+ATOM     11  DN  NMA     1      -0.002  -0.002  -0.002  1.00  0.00      NMA 
+ATOM     12  H   NMA     1      -0.566   0.855   0.000  1.00  0.00      NMA 
+ATOM     13  CC  NMA     1      -0.694  -1.265  -0.000  1.00  0.00      NMA 
+ATOM     14  DCC NMA     1      -0.696  -1.267  -0.002  1.00  0.00      NMA 
+ATOM     15  HC1 NMA     1      -1.797  -1.133  -0.000  1.00  0.00      NMA 
+ATOM     16  HC2 NMA     1      -0.441  -1.876  -0.893  1.00  0.00      NMA 
+ATOM     17  HC3 NMA     1      -0.441  -1.876   0.893  1.00  0.00      NMA 
+ATOM     18  LPA NMA     1       2.291  -0.857   0.000  1.00  0.00      NMA 
+ATOM     19  LPB NMA     1       1.796  -1.196   0.000  1.00  0.00      NMA 
+TER      20      NMA      1
+END

@@ -1,0 +1,16 @@
+N1 C2 
+C2 N3 
+N3 C4 
+C4 C5 
+C5 C6 
+C6 N1 
+C2 O2 
+C4 N4 
+N4 H41 
+N4 H42 
+C5 H5 
+C6 H6 
+N1 C1 
+C1 H11 
+C1 H12 
+C1 H13 

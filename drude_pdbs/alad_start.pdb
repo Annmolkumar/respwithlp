@@ -1,0 +1,41 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:27      CREATED BY USER: pchatter                
+ATOM      1  CAY ALAD    1      -1.711   0.072   1.025  1.00  0.00      ALAD
+ATOM      2 DCAY ALAD    1      -1.713   0.070   1.023  1.00  0.00      ALAD
+ATOM      3  HY1 ALAD    1      -2.166   0.142   2.037  1.00  0.00      ALAD
+ATOM      4  HY2 ALAD    1      -1.992   0.946   0.400  1.00  0.00      ALAD
+ATOM      5  HY3 ALAD    1      -1.992  -0.881   0.528  1.00  0.00      ALAD
+ATOM      6  CY  ALAD    1      -0.565   0.080   1.151  1.00  0.00      ALAD
+ATOM      7  DCY ALAD    1      -0.567   0.078   1.149  1.00  0.00      ALAD
+ATOM      8  OY  ALAD    1      -0.120   0.803   2.062  1.00  0.00      ALAD
+ATOM      9  DOY ALAD    1      -0.122   0.801   2.060  1.00  0.00      ALAD
+ATOM     10 LPY1 ALAD    1      -0.397   0.889   2.137  1.00  0.00      ALAD
+ATOM     11 LPY2 ALAD    1       0.161   0.723   1.995  1.00  0.00      ALAD
+ATOM     12  N   ALAD    1       0.000   0.000   0.000  1.00  0.00      ALAD
+ATOM     13  DN  ALAD    1      -0.002  -0.002  -0.002  1.00  0.00      ALAD
+ATOM     14  HN  ALAD    1      -0.571  -0.060  -0.855  1.00  0.00      ALAD
+ATOM     15  CA  ALAD    1       1.445   0.000   0.000  1.00  0.00      ALAD
+ATOM     16  DCA ALAD    1       1.443  -0.002  -0.002  1.00  0.00      ALAD
+ATOM     17  HA  ALAD    1       1.783  -0.529   0.917  1.00  0.00      ALAD
+ATOM     18  CB  ALAD    1       2.168  -0.680  -1.178  1.00  0.00      ALAD
+ATOM     19  DCB ALAD    1       2.166  -0.682  -1.180  1.00  0.00      ALAD
+ATOM     20  HB1 ALAD    1       3.269  -0.604  -1.046  1.00  0.00      ALAD
+ATOM     21  HB2 ALAD    1       1.887  -1.754  -1.231  1.00  0.00      ALAD
+ATOM     22  HB3 ALAD    1       1.887  -0.189  -2.134  1.00  0.00      ALAD
+ATOM     23  C   ALAD    1       1.762   1.302   0.000  1.00  0.00      ALAD
+ATOM     24  DC  ALAD    1       1.760   1.300  -0.002  1.00  0.00      ALAD
+ATOM     25  O   ALAD    1       2.853   1.808  -0.324  1.00  0.00      ALAD
+ATOM     26  DO  ALAD    1       2.851   1.806  -0.326  1.00  0.00      ALAD
+ATOM     27 LPOA ALAD    1       2.966   1.537  -0.384  1.00  0.00      ALAD
+ATOM     28 LPOB ALAD    1       2.748   2.083  -0.266  1.00  0.00      ALAD
+ATOM     29  NT  ALAD    1       1.593   1.620   1.233  1.00  0.00      ALAD
+ATOM     30  DNT ALAD    1       1.591   1.618   1.231  1.00  0.00      ALAD
+ATOM     31  HNT ALAD    1       1.284   0.912   1.915  1.00  0.00      ALAD
+ATOM     32  CAT ALAD    1       1.833   2.986   1.692  1.00  0.00      ALAD
+ATOM     33 DCAT ALAD    1       1.831   2.984   1.690  1.00  0.00      ALAD
+ATOM     34 HTC1 ALAD    1       1.717   3.363   2.731  1.00  0.00      ALAD
+ATOM     35 HTC2 ALAD    1       2.793   3.543   1.632  1.00  0.00      ALAD
+ATOM     36 HTC3 ALAD    1       1.316   3.903   1.336  1.00  0.00      ALAD
+TER      37      ALAD     1
+END

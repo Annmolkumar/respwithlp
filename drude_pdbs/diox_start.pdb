@@ -1,0 +1,31 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  O1  DIOX    1       0.000   0.000   0.000  1.00  0.00      DIOX
+ATOM      2  DO1 DIOX    1      -0.002  -0.002  -0.002  1.00  0.00      DIOX
+ATOM      3  C1  DIOX    1       1.420   0.000   0.000  1.00  0.00      DIOX
+ATOM      4  DC1 DIOX    1       1.418  -0.002  -0.002  1.00  0.00      DIOX
+ATOM      5  H1A DIOX    1       1.782  -0.545  -0.898  1.00  0.00      DIOX
+ATOM      6  H1B DIOX    1       1.785  -0.540   0.901  1.00  0.00      DIOX
+ATOM      7  C2  DIOX    1       1.982   1.431   0.000  1.00  0.00      DIOX
+ATOM      8  DC2 DIOX    1       1.980   1.429  -0.002  1.00  0.00      DIOX
+ATOM      9  H2A DIOX    1       3.091   1.397   0.051  1.00  0.00      DIOX
+ATOM     10  H2B DIOX    1       1.697   1.939  -0.947  1.00  0.00      DIOX
+ATOM     11  O3  DIOX    1       1.490   2.181   1.099  1.00  0.00      DIOX
+ATOM     12  DO3 DIOX    1       1.488   2.179   1.097  1.00  0.00      DIOX
+ATOM     13  C4  DIOX    1       0.070   2.182   1.099  1.00  0.00      DIOX
+ATOM     14  DC4 DIOX    1       0.068   2.180   1.097  1.00  0.00      DIOX
+ATOM     15  H4A DIOX    1      -0.295   2.722   0.198  1.00  0.00      DIOX
+ATOM     16  H4B DIOX    1      -0.292   2.726   1.997  1.00  0.00      DIOX
+ATOM     17  C5  DIOX    1      -0.491   0.751   1.099  1.00  0.00      DIOX
+ATOM     18  DC5 DIOX    1      -0.493   0.749   1.097  1.00  0.00      DIOX
+ATOM     19  H5A DIOX    1      -1.601   0.785   1.048  1.00  0.00      DIOX
+ATOM     20  H5B DIOX    1      -0.206   0.242   2.046  1.00  0.00      DIOX
+ATOM     21 LP1A DIOX    1      -0.068   0.216  -0.267  1.00  0.00      DIOX
+ATOM     22 LP1B DIOX    1      -0.068  -0.327   0.104  1.00  0.00      DIOX
+ATOM     23  LPX DIOX    1       0.057   0.046   0.068  1.00  0.00      DIOX
+ATOM     24 LP2A DIOX    1       1.558   2.508   0.995  1.00  0.00      DIOX
+ATOM     25 LP2B DIOX    1       1.558   1.965   1.366  1.00  0.00      DIOX
+ATOM     26 LPX2 DIOX    1       1.433   2.135   1.031  1.00  0.00      DIOX
+TER      27      DIOX     1
+END

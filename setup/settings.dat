@@ -1,0 +1,20 @@
+# =============================================================================
+# The following variables trigger an event (prediction mode, ...)
+# if set to "yes". Setting to "no" (or any other word) switches off the
+# corresponding code.
+#
+# Set verbose to yes (additional information) or no (no additional information)
+# =============================================================================
+
+predict_increment=yes
+predict_neural_net=yes
+calc_lonepairs=yes
+verbose=no
+keep_intermediate_files=no
+
+# =============================================================================
+# If you have CGenFF running on your system, specify the path.
+# This is only necessary if you want to process mol2 files.
+# =============================================================================
+
+cgenff_exec=/raid/kaushik/nsf/cgenff/2.1.0/lp/cgenff -r /raid/kaushik/nsf/cgenff/2.1.0/lp/cgenff.rules 

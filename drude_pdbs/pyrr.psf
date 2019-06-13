@@ -1,0 +1,76 @@
+PSF EXT CMAP CHEQ DRUDE XPLOR
+
+         3 !NTITLE
+* $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+* MASTER TEST CASE FOR DRUDE                                                    
+*  DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+
+        15 !NATOM
+         1 PYRR     1        PYRR     C1       CD2R5A    2.20340       11.6110           0  -1.61800      0.190000    
+         2 PYRR     1        PYRR     DC1      DRUD     -2.20740      0.400000           0   0.00000       0.00000    
+         3 PYRR     1        PYRR     HP1      HDR5A    0.840000E-01   1.00800           0   0.00000       0.00000    
+         4 PYRR     1        PYRR     C2       CD2R5C    2.00740       11.6110           0  -1.62100       1.01800    
+         5 PYRR     1        PYRR     DC2      DRUD     -2.20940      0.400000           0   0.00000       0.00000    
+         6 PYRR     1        PYRR     HP2      HDR5C    0.112000       1.00800           0   0.00000       0.00000    
+         7 PYRR     1        PYRR     C3       CD2R5C    2.00740       11.6110           0  -1.62100       1.01800    
+         8 PYRR     1        PYRR     DC3      DRUD     -2.20940      0.400000           0   0.00000       0.00000    
+         9 PYRR     1        PYRR     HP3      HDR5C    0.112000       1.00800           0   0.00000       0.00000    
+        10 PYRR     1        PYRR     C4       CD2R5A    2.20340       11.6110           0  -1.61800      0.190000    
+        11 PYRR     1        PYRR     DC4      DRUD     -2.20740      0.400000           0   0.00000       0.00000    
+        12 PYRR     1        PYRR     HP4      HDR5A    0.840000E-01   1.00800           0   0.00000       0.00000    
+        13 PYRR     1        PYRR     N5       ND2R5A    1.76410       13.6070           0  -1.37800       1.64800    
+        14 PYRR     1        PYRR     DN5      DRUD     -2.03710      0.400000           0   0.00000       0.00000    
+        15 PYRR     1        PYRR     HP5      HDP1A    0.293000       1.00800           0   0.00000       0.00000    
+
+        15 !NBOND: bonds
+         1         2         4         5         7         8        10        11
+        13        14         1         3         1         4         4         6
+         4         7         7         9         7        10        10        12
+        10        13        13        15        13         1
+
+        15 !NTHETA: angles
+         3         1         4         3         1        13         4         1        13
+         1         4         6         1         4         7         6         4         7
+         4         7         9         4         7        10         9         7        10
+         7        10        12         7        10        13        12        10        13
+         1        13        10         1        13        15        10        13        15
+
+        20 !NPHI: dihedrals
+         1         4         7         9         1         4         7        10
+         1        13        10         7         1        13        10        12
+         3         1         4         6         3         1         4         7
+         3         1        13        10         3         1        13        15
+         4         1        13        10         4         1        13        15
+         4         7        10        12         4         7        10        13
+         6         4         1        13         6         4         7         9
+         6         4         7        10         7         4         1        13
+         7        10        13        15         9         7        10        12
+         9         7        10        13        12        10        13        15
+
+         0 !NIMPHI: impropers
+
+
+         0 !NDON: donors
+
+
+         0 !NACC: acceptors
+
+
+         0 !NNB
+
+         0         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+
+         1         0 !NGRP NST2
+         0         1         0
+
+         1 !MOLNT
+         1         1         1         1         1         1         1         1
+         1         1         1         1         1         1         1
+
+         0         0 !NUMLP NUMLPH
+
+         0 !NUMANISO
+
+         0 !NCRTERM: cross-terms
+

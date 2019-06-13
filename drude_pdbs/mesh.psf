@@ -1,0 +1,65 @@
+PSF EXT CMAP CHEQ DRUDE XPLOR
+
+         3 !NTITLE
+* $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+* MASTER TEST CASE FOR DRUDE                                                    
+*  DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+
+        10 !NATOM
+         1 MESH     1        MESH     H11      HDA3A    0.600000E-01   1.00800           0   0.00000       0.00000    
+         2 MESH     1        MESH     H12      HDA3A    0.600000E-01   1.00800           0   0.00000       0.00000    
+         3 MESH     1        MESH     H13      HDA3A    0.600000E-01   1.00800           0   0.00000       0.00000    
+         4 MESH     1        MESH     C1       CD33A     1.95610       11.6110           0  -1.39700       1.33000    
+         5 MESH     1        MESH     DC1      DRUD     -2.05110      0.400000           0   0.00000       0.00000    
+         6 MESH     1        MESH     S1       SD31A     2.74360       31.6600           0  -2.15700       1.11800    
+         7 MESH     1        MESH     DS1      DRUD     -2.54860      0.400000           0   0.00000       0.00000    
+         8 MESH     1        MESH     HS1      HDP1A    0.120000       1.00800           0   0.00000       0.00000    
+         9 MESH     1        MESH     LP1A     LPD     -0.200000       0.00000          -1   0.00000       0.00000    
+        10 MESH     1        MESH     LP1B     LPD     -0.200000       0.00000          -1   0.00000       0.00000    
+
+         9 !NBOND: bonds
+         4         5         6         7         4         6         6         8
+         4         1         4         2         4         3         6         9
+         6        10
+
+         7 !NTHETA: angles
+         1         4         2         1         4         3         1         4         6
+         2         4         3         2         4         6         3         4         6
+         4         6         8
+
+         3 !NPHI: dihedrals
+         1         4         6         8         2         4         6         8
+         3         4         6         8
+
+         0 !NIMPHI: impropers
+
+
+         0 !NDON: donors
+
+
+         0 !NACC: acceptors
+
+
+         0 !NNB
+
+         0         0         0         0         0         0         0         0
+         0         0
+
+         1         0 !NGRP NST2
+         0         1         0
+
+         1 !MOLNT
+         1         1         1         1         1         1         1         1
+         1         1
+
+         2         8 !NUMLP NUMLPH
+         3         1   F  0.800000       95.0000       100.000    
+         3         5   F  0.800000       95.0000       260.000    
+         9         6         4         8        10         6         4         8
+
+         1 !NUMANISO
+            -56.8182      -246.212       125.000    
+         6         4         9        10
+
+         0 !NCRTERM: cross-terms
+

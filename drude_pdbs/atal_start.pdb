@@ -1,0 +1,54 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  ATAL    1       1.430   0.000   0.000  1.00  0.00      ATAL
+ATOM      2  DC1 ATAL    1       1.428  -0.002  -0.002  1.00  0.00      ATAL
+ATOM      3  H1  ATAL    1       1.774  -0.455  -0.971  1.00  0.00      ATAL
+ATOM      4  O1  ATAL    1       1.872  -0.695   1.159  1.00  0.00      ATAL
+ATOM      5  DO1 ATAL    1       1.870  -0.697   1.157  1.00  0.00      ATAL
+ATOM      6  HO1 ATAL    1       1.521  -1.599   1.025  1.00  0.00      ATAL
+ATOM      7  C5  ATAL    1      -0.567   0.894   0.970  1.00  0.00      ATAL
+ATOM      8  DC5 ATAL    1      -0.569   0.892   0.968  1.00  0.00      ATAL
+ATOM      9  H5  ATAL    1      -0.347   0.456   1.966  1.00  0.00      ATAL
+ATOM     10  O5  ATAL    1       0.000   0.000   0.000  1.00  0.00      ATAL
+ATOM     11  DO5 ATAL    1      -0.002  -0.002  -0.002  1.00  0.00      ATAL
+ATOM     12 LP1A ATAL    1       2.189  -0.833   1.102  1.00  0.00      ATAL
+ATOM     13 LP1B ATAL    1       1.635  -0.665   1.415  1.00  0.00      ATAL
+ATOM     14 LP5A ATAL    1      -0.066   0.174  -0.297  1.00  0.00      ATAL
+ATOM     15 LP5B ATAL    1      -0.066  -0.310   0.149  1.00  0.00      ATAL
+ATOM     16 LPX5 ATAL    1       0.055   0.057   0.062  1.00  0.00      ATAL
+ATOM     17  C2  ATAL    1       2.112   1.384   0.000  1.00  0.00      ATAL
+ATOM     18  DC2 ATAL    1       2.110   1.382  -0.002  1.00  0.00      ATAL
+ATOM     19  H2  ATAL    1       3.221   1.308   0.033  1.00  0.00      ATAL
+ATOM     20  O2  ATAL    1       1.909   2.041  -1.276  1.00  0.00      ATAL
+ATOM     21  DO2 ATAL    1       1.907   2.039  -1.278  1.00  0.00      ATAL
+ATOM     22  HO2 ATAL    1       1.144   2.632  -1.108  1.00  0.00      ATAL
+ATOM     23 LP2A ATAL    1       2.103   2.332  -1.292  1.00  0.00      ATAL
+ATOM     24 LP2B ATAL    1       1.692   1.852  -1.475  1.00  0.00      ATAL
+ATOM     25  C3  ATAL    1       1.589   2.257   1.081  1.00  0.00      ATAL
+ATOM     26  DC3 ATAL    1       1.587   2.255   1.079  1.00  0.00      ATAL
+ATOM     27  H3  ATAL    1       1.807   1.794   2.075  1.00  0.00      ATAL
+ATOM     28  O3  ATAL    1       2.177   3.538   1.031  1.00  0.00      ATAL
+ATOM     29  DO3 ATAL    1       2.175   3.536   1.029  1.00  0.00      ATAL
+ATOM     30  HO3 ATAL    1       1.931   3.911   0.152  1.00  0.00      ATAL
+ATOM     31 LP3A ATAL    1       1.957   3.776   1.163  1.00  0.00      ATAL
+ATOM     32 LP3B ATAL    1       2.501   3.516   0.901  1.00  0.00      ATAL
+ATOM     33  C4  ATAL    1       0.049   2.269   1.008  1.00  0.00      ATAL
+ATOM     34  DC4 ATAL    1       0.047   2.267   1.006  1.00  0.00      ATAL
+ATOM     35  H4  ATAL    1      -0.296   2.745   1.917  1.00  0.00      ATAL
+ATOM     36  O4  ATAL    1      -0.362   3.025  -0.048  1.00  0.00      ATAL
+ATOM     37  DO4 ATAL    1      -0.364   3.023  -0.050  1.00  0.00      ATAL
+ATOM     38  HO4 ATAL    1      -1.212   2.616  -0.303  1.00  0.00      ATAL
+ATOM     39 LP4A ATAL    1      -0.552   3.296   0.065  1.00  0.00      ATAL
+ATOM     40 LP4B ATAL    1      -0.235   2.894  -0.346  1.00  0.00      ATAL
+ATOM     41  C6  ATAL    1      -2.065   0.838   0.879  1.00  0.00      ATAL
+ATOM     42  DC6 ATAL    1      -2.067   0.836   0.877  1.00  0.00      ATAL
+ATOM     43  H61 ATAL    1      -2.279  -0.253   1.025  1.00  0.00      ATAL
+ATOM     44  H62 ATAL    1      -2.601   1.389   1.717  1.00  0.00      ATAL
+ATOM     45  O6  ATAL    1      -2.530   1.428  -0.348  1.00  0.00      ATAL
+ATOM     46  DO6 ATAL    1      -2.532   1.426  -0.350  1.00  0.00      ATAL
+ATOM     47  HO6 ATAL    1      -2.433   0.842  -1.092  1.00  0.00      ATAL
+ATOM     48 LP6A ATAL    1      -2.871   1.361  -0.391  1.00  0.00      ATAL
+ATOM     49 LP6B ATAL    1      -2.269   1.602  -0.503  1.00  0.00      ATAL
+TER      50      ATAL     1
+END

@@ -1,0 +1,59 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  O4A T3PS    1       1.425   0.000   0.000  1.00  0.00      T3PS
+ATOM      2 DO4A T3PS    1       1.423  -0.002  -0.002  1.00  0.00      T3PS
+ATOM      3  LP1 T3PS    1       1.496  -0.096  -0.329  1.00  0.00      T3PS
+ATOM      4  LP2 T3PS    1       1.496  -0.096   0.329  1.00  0.00      T3PS
+ATOM      5  LPX T3PS    1       1.366   0.081   0.000  1.00  0.00      T3PS
+ATOM      6  C1A T3PS    1       1.864   1.343   0.000  1.00  0.00      T3PS
+ATOM      7 DC1A T3PS    1       1.862   1.341  -0.002  1.00  0.00      T3PS
+ATOM      8 H11A T3PS    1       2.121   1.603   1.037  1.00  0.00      T3PS
+ATOM      9 H12A T3PS    1       2.741   1.400  -0.661  1.00  0.00      T3PS
+ATOM     10  C4A T3PS    1       0.000   0.000   0.000  1.00  0.00      T3PS
+ATOM     11 DC4A T3PS    1      -0.002  -0.002  -0.002  1.00  0.00      T3PS
+ATOM     12 H41A T3PS    1      -0.328  -0.507   0.919  1.00  0.00      T3PS
+ATOM     13 H42A T3PS    1      -0.328  -0.614  -0.851  1.00  0.00      T3PS
+ATOM     14  C2A T3PS    1       0.680   2.183  -0.532  1.00  0.00      T3PS
+ATOM     15 DC2A T3PS    1       0.678   2.181  -0.534  1.00  0.00      T3PS
+ATOM     16 H21A T3PS    1       0.722   2.287  -1.626  1.00  0.00      T3PS
+ATOM     17 H22A T3PS    1       0.682   3.196  -0.103  1.00  0.00      T3PS
+ATOM     18  C3A T3PS    1      -0.547   1.378  -0.083  1.00  0.00      T3PS
+ATOM     19 DC3A T3PS    1      -0.549   1.376  -0.085  1.00  0.00      T3PS
+ATOM     20 H31A T3PS    1      -1.373   1.438  -0.807  1.00  0.00      T3PS
+ATOM     21  O3A T3PS    1      -1.043   1.782   1.207  1.00  0.00      T3PS
+ATOM     22 DO3A T3PS    1      -1.045   1.780   1.205  1.00  0.00      T3PS
+ATOM     23  P   T3PS    1      -2.002   3.062   1.177  1.00  0.00      T3PS
+ATOM     24  DP  T3PS    1      -2.004   3.060   1.175  1.00  0.00      T3PS
+ATOM     25  O1P T3PS    1      -2.957   3.106   2.334  1.00  0.00      T3PS
+ATOM     26 DO1P T3PS    1      -2.959   3.104   2.332  1.00  0.00      T3PS
+ATOM     27  O2P T3PS    1      -2.707   3.237  -0.135  1.00  0.00      T3PS
+ATOM     28 DO2P T3PS    1      -2.709   3.235  -0.137  1.00  0.00      T3PS
+ATOM     29  O5B T3PS    1      -1.079   4.359   1.340  1.00  0.00      T3PS
+ATOM     30 DO5B T3PS    1      -1.081   4.357   1.338  1.00  0.00      T3PS
+ATOM     31  C5B T3PS    1      -0.039   4.501   2.326  1.00  0.00      T3PS
+ATOM     32 DC5B T3PS    1      -0.041   4.499   2.324  1.00  0.00      T3PS
+ATOM     33 H5B1 T3PS    1      -0.477   4.412   3.343  1.00  0.00      T3PS
+ATOM     34 H5B2 T3PS    1       0.722   3.704   2.180  1.00  0.00      T3PS
+ATOM     35  O4B T3PS    1      -0.369   7.693   2.516  1.00  0.00      T3PS
+ATOM     36 DO4B T3PS    1      -0.371   7.691   2.514  1.00  0.00      T3PS
+ATOM     37  LPA T3PS    1      -0.649   7.614   2.711  1.00  0.00      T3PS
+ATOM     38  LPB T3PS    1      -0.276   7.905   2.254  1.00  0.00      T3PS
+ATOM     39 LPX2 T3PS    1      -0.291   7.637   2.544  1.00  0.00      T3PS
+ATOM     40  C4B T3PS    1       0.605   5.876   2.153  1.00  0.00      T3PS
+ATOM     41 DC4B T3PS    1       0.603   5.874   2.151  1.00  0.00      T3PS
+ATOM     42 H4B1 T3PS    1       1.008   5.755   1.137  1.00  0.00      T3PS
+ATOM     43  C1B T3PS    1       0.482   8.207   3.538  1.00  0.00      T3PS
+ATOM     44 DC1B T3PS    1       0.480   8.205   3.536  1.00  0.00      T3PS
+ATOM     45 H1B1 T3PS    1       1.178   8.912   3.060  1.00  0.00      T3PS
+ATOM     46 H1B2 T3PS    1      -0.161   8.710   4.276  1.00  0.00      T3PS
+ATOM     47  C2B T3PS    1       1.262   7.092   4.211  1.00  0.00      T3PS
+ATOM     48 DC2B T3PS    1       1.260   7.090   4.209  1.00  0.00      T3PS
+ATOM     49 H2B1 T3PS    1       0.647   6.566   4.957  1.00  0.00      T3PS
+ATOM     50 H2B2 T3PS    1       2.150   7.481   4.730  1.00  0.00      T3PS
+ATOM     51  C3B T3PS    1       1.715   6.088   3.167  1.00  0.00      T3PS
+ATOM     52 DC3B T3PS    1       1.713   6.086   3.165  1.00  0.00      T3PS
+ATOM     53 H3B1 T3PS    1       1.978   5.149   3.677  1.00  0.00      T3PS
+ATOM     54 H3B2 T3PS    1       2.628   6.471   2.688  1.00  0.00      T3PS
+TER      55      T3PS     1
+END

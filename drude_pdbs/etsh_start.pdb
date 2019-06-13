@@ -1,0 +1,19 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  ETSH    1       1.554   1.798   0.000  1.00  0.00      ETSH
+ATOM      2  DC1 ETSH    1       1.552   1.796  -0.002  1.00  0.00      ETSH
+ATOM      3  S1  ETSH    1       1.350   0.000   0.000  1.00  0.00      ETSH
+ATOM      4  DS1 ETSH    1       1.348  -0.002  -0.002  1.00  0.00      ETSH
+ATOM      5  HS1 ETSH    1       0.000   0.000   0.000  1.00  0.00      ETSH
+ATOM      6  H11 ETSH    1       1.036   2.176  -0.907  1.00  0.00      ETSH
+ATOM      7  H12 ETSH    1       1.036   2.176   0.907  1.00  0.00      ETSH
+ATOM      8  C2  ETSH    1       3.016   2.237   0.000  1.00  0.00      ETSH
+ATOM      9  DC2 ETSH    1       3.014   2.235  -0.002  1.00  0.00      ETSH
+ATOM     10  H21 ETSH    1       3.096   3.345   0.000  1.00  0.00      ETSH
+ATOM     11  H22 ETSH    1       3.547   1.857   0.899  1.00  0.00      ETSH
+ATOM     12  H23 ETSH    1       3.547   1.857  -0.899  1.00  0.00      ETSH
+ATOM     13 LP1A ETSH    1       1.471  -0.080  -0.736  1.00  0.00      ETSH
+ATOM     14 LP1B ETSH    1       1.471  -0.080   0.736  1.00  0.00      ETSH
+TER      15      ETSH     1
+END

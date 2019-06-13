@@ -1,0 +1,25 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  P   DMPN    1       1.584   0.000   0.000  1.00  0.00      DMPN
+ATOM      2  DP  DMPN    1       1.582  -0.002  -0.002  1.00  0.00      DMPN
+ATOM      3  O13 DMPN    1       2.037  -0.579  -1.297  1.00  0.00      DMPN
+ATOM      4 DO13 DMPN    1       2.035  -0.581  -1.299  1.00  0.00      DMPN
+ATOM      5  O14 DMPN    1       2.048  -0.569   1.297  1.00  0.00      DMPN
+ATOM      6 DO14 DMPN    1       2.046  -0.571   1.295  1.00  0.00      DMPN
+ATOM      7  O11 DMPN    1       0.000   0.000   0.000  1.00  0.00      DMPN
+ATOM      8 DO11 DMPN    1      -0.002  -0.002  -0.002  1.00  0.00      DMPN
+ATOM      9  O12 DMPN    1       1.933   1.545   0.000  1.00  0.00      DMPN
+ATOM     10 DO12 DMPN    1       1.931   1.543  -0.002  1.00  0.00      DMPN
+ATOM     11  C1  DMPN    1      -0.650   0.387  -1.225  1.00  0.00      DMPN
+ATOM     12  DC1 DMPN    1      -0.652   0.385  -1.227  1.00  0.00      DMPN
+ATOM     13  H11 DMPN    1      -0.149   1.272  -1.675  1.00  0.00      DMPN
+ATOM     14  H12 DMPN    1      -0.612  -0.451  -1.955  1.00  0.00      DMPN
+ATOM     15  H13 DMPN    1      -1.712   0.639  -1.024  1.00  0.00      DMPN
+ATOM     16  C2  DMPN    1       1.699   2.265   1.224  1.00  0.00      DMPN
+ATOM     17  DC2 DMPN    1       1.697   2.263   1.222  1.00  0.00      DMPN
+ATOM     18  H21 DMPN    1       0.725   1.972   1.674  1.00  0.00      DMPN
+ATOM     19  H22 DMPN    1       2.508   2.042   1.954  1.00  0.00      DMPN
+ATOM     20  H23 DMPN    1       1.688   3.356   1.023  1.00  0.00      DMPN
+TER      21      DMPN     1
+END

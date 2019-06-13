@@ -1,0 +1,37 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  N1  MTHY    1       1.370   0.000   0.000  1.00  0.00      MTHY
+ATOM      2  DN1 MTHY    1       1.368  -0.002  -0.002  1.00  0.00      MTHY
+ATOM      3  C6  MTHY    1       2.016   1.165   0.000  1.00  0.00      MTHY
+ATOM      4  DC6 MTHY    1       2.014   1.163  -0.002  1.00  0.00      MTHY
+ATOM      5  H6  MTHY    1       3.095   1.123   0.000  1.00  0.00      MTHY
+ATOM      6  C2  MTHY    1       0.000   0.000   0.000  1.00  0.00      MTHY
+ATOM      7  DC2 MTHY    1      -0.002  -0.002  -0.002  1.00  0.00      MTHY
+ATOM      8  O2  MTHY    1      -0.663  -1.023   0.000  1.00  0.00      MTHY
+ATOM      9  DO2 MTHY    1      -0.665  -1.025  -0.002  1.00  0.00      MTHY
+ATOM     10 LP2A MTHY    1      -1.004  -0.945   0.000  1.00  0.00      MTHY
+ATOM     11 LP2B MTHY    1      -0.452  -1.303   0.001  1.00  0.00      MTHY
+ATOM     12  N3  MTHY    1      -0.592   1.248  -0.001  1.00  0.00      MTHY
+ATOM     13  DN3 MTHY    1      -0.594   1.246  -0.003  1.00  0.00      MTHY
+ATOM     14  H3  MTHY    1      -1.682   1.274  -0.003  1.00  0.00      MTHY
+ATOM     15  C4  MTHY    1       0.059   2.464  -0.001  1.00  0.00      MTHY
+ATOM     16  DC4 MTHY    1       0.057   2.462  -0.003  1.00  0.00      MTHY
+ATOM     17  O4  MTHY    1      -0.581   3.518  -0.002  1.00  0.00      MTHY
+ATOM     18  DO4 MTHY    1      -0.583   3.516  -0.004  1.00  0.00      MTHY
+ATOM     19 LP4A MTHY    1      -0.361   3.791  -0.002  1.00  0.00      MTHY
+ATOM     20 LP4B MTHY    1      -0.924   3.450  -0.002  1.00  0.00      MTHY
+ATOM     21  C5  MTHY    1       1.349   2.331  -0.000  1.00  0.00      MTHY
+ATOM     22  DC5 MTHY    1       1.347   2.329  -0.002  1.00  0.00      MTHY
+ATOM     23  C5M MTHY    1       2.067   3.648  -0.001  1.00  0.00      MTHY
+ATOM     24 DC5M MTHY    1       2.065   3.646  -0.003  1.00  0.00      MTHY
+ATOM     25  H51 MTHY    1       3.157   3.434  -0.001  1.00  0.00      MTHY
+ATOM     26  H52 MTHY    1       1.809   4.153   0.954  1.00  0.00      MTHY
+ATOM     27  H53 MTHY    1       1.889   4.361  -0.834  1.00  0.00      MTHY
+ATOM     28  C1  MTHY    1       2.109  -1.255  -0.000  1.00  0.00      MTHY
+ATOM     29  DC1 MTHY    1       2.107  -1.257  -0.002  1.00  0.00      MTHY
+ATOM     30  H11 MTHY    1       1.317  -2.033   0.000  1.00  0.00      MTHY
+ATOM     31  H12 MTHY    1       2.710  -1.213  -0.934  1.00  0.00      MTHY
+ATOM     32  H13 MTHY    1       2.710  -1.213   0.934  1.00  0.00      MTHY
+TER      33      MTHY     1
+END

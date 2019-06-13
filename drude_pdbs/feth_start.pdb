@@ -1,0 +1,16 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  FETH    1       1.093   0.000   0.000  1.00  0.00      FETH
+ATOM      2  DC1 FETH    1       1.091  -0.002  -0.002  1.00  0.00      FETH
+ATOM      3  F11 FETH    1       0.000   0.000   0.000  1.00  0.00      FETH
+ATOM      4 DF11 FETH    1      -0.002  -0.002  -0.002  1.00  0.00      FETH
+ATOM      5  H12 FETH    1       1.426  -0.552  -0.883  1.00  0.00      FETH
+ATOM      6  H13 FETH    1       1.426  -0.552   0.883  1.00  0.00      FETH
+ATOM      7  C2  FETH    1       1.645   1.423   0.000  1.00  0.00      FETH
+ATOM      8  DC2 FETH    1       1.643   1.421  -0.002  1.00  0.00      FETH
+ATOM      9  H21 FETH    1       2.738   1.423   0.000  1.00  0.00      FETH
+ATOM     10  H22 FETH    1       1.312   1.975  -0.883  1.00  0.00      FETH
+ATOM     11  H23 FETH    1       1.312   1.975   0.883  1.00  0.00      FETH
+TER      12      FETH     1
+END

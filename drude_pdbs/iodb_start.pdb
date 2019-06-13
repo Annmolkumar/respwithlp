@@ -1,0 +1,25 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  IODB    1       0.000   0.000   0.000  1.00  0.00      IODB
+ATOM      2  DC1 IODB    1      -0.002  -0.002  -0.002  1.00  0.00      IODB
+ATOM      3  H1  IODB    1      -0.540  -0.935   0.000  1.00  0.00      IODB
+ATOM      4  C2  IODB    1       1.375   0.000   0.000  1.00  0.00      IODB
+ATOM      5  DC2 IODB    1       1.373  -0.002  -0.002  1.00  0.00      IODB
+ATOM      6  H2  IODB    1       1.915  -0.935  -0.000  1.00  0.00      IODB
+ATOM      7  C3  IODB    1       2.062   1.191   0.000  1.00  0.00      IODB
+ATOM      8  DC3 IODB    1       2.060   1.189  -0.002  1.00  0.00      IODB
+ATOM      9  H3  IODB    1       3.142   1.191  -0.000  1.00  0.00      IODB
+ATOM     10  C4  IODB    1       1.375   2.382   0.000  1.00  0.00      IODB
+ATOM     11  DC4 IODB    1       1.373   2.380  -0.002  1.00  0.00      IODB
+ATOM     12  H4  IODB    1       1.915   3.317  -0.000  1.00  0.00      IODB
+ATOM     13  C5  IODB    1      -0.000   2.382   0.000  1.00  0.00      IODB
+ATOM     14  DC5 IODB    1      -0.002   2.380  -0.002  1.00  0.00      IODB
+ATOM     15  H5  IODB    1      -0.540   3.317  -0.000  1.00  0.00      IODB
+ATOM     16  C6  IODB    1      -0.687   1.191   0.000  1.00  0.00      IODB
+ATOM     17  DC6 IODB    1      -0.689   1.189  -0.002  1.00  0.00      IODB
+ATOM     18  I6  IODB    1      -2.798   1.191  -0.000  1.00  0.00      IODB
+ATOM     19  DI6 IODB    1      -2.800   1.189  -0.002  1.00  0.00      IODB
+ATOM     20  LP6 IODB    1      -4.829   1.191  -0.000  1.00  0.00      IODB
+TER      21      IODB     1
+END

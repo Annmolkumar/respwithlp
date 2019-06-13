@@ -1,0 +1,67 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  PEND    1       0.000   0.000   0.000  1.00  0.00      PEND
+ATOM      2  DC1 PEND    1      -0.002  -0.002  -0.002  1.00  0.00      PEND
+ATOM      3  H1A PEND    1      -0.407  -1.034  -0.000  1.00  0.00      PEND
+ATOM      4  H1B PEND    1      -0.407  -0.000   1.034  1.00  0.00      PEND
+ATOM      5  H1C PEND    1      -0.407   1.034   0.000  1.00  0.00      PEND
+ATOM      6  C2  PEND    1       1.528   0.000   0.000  1.00  0.00      PEND
+ATOM      7  DC2 PEND    1       1.526  -0.002  -0.002  1.00  0.00      PEND
+ATOM      8  H2A PEND    1       1.910   0.000   1.043  1.00  0.00      PEND
+ATOM      9  H2B PEND    1       1.910  -1.043   0.000  1.00  0.00      PEND
+ATOM     10  C3  PEND    1       2.175   1.387   0.000  1.00  0.00      PEND
+ATOM     11  DC3 PEND    1       2.173   1.385  -0.002  1.00  0.00      PEND
+ATOM     12  H3A PEND    1       2.336   1.733  -1.043  1.00  0.00      PEND
+ATOM     13  H3B PEND    1       1.390   2.174  -0.000  1.00  0.00      PEND
+ATOM     14  C4  PEND    1       3.704   1.349   0.000  1.00  0.00      PEND
+ATOM     15  DC4 PEND    1       3.702   1.347  -0.002  1.00  0.00      PEND
+ATOM     16  H4A PEND    1       4.086   1.340   1.043  1.00  0.00      PEND
+ATOM     17  H4B PEND    1       4.060   0.297   0.000  1.00  0.00      PEND
+ATOM     18  C5  PEND    1       4.351   2.736   0.000  1.00  0.00      PEND
+ATOM     19  DC5 PEND    1       4.349   2.734  -0.002  1.00  0.00      PEND
+ATOM     20  H5A PEND    1       4.512   3.082  -1.043  1.00  0.00      PEND
+ATOM     21  H5B PEND    1       3.567   3.523  -0.000  1.00  0.00      PEND
+ATOM     22  C6  PEND    1       5.880   2.699   0.000  1.00  0.00      PEND
+ATOM     23  DC6 PEND    1       5.878   2.697  -0.002  1.00  0.00      PEND
+ATOM     24  H6A PEND    1       6.262   2.689   1.043  1.00  0.00      PEND
+ATOM     25  H6B PEND    1       6.236   1.646   0.000  1.00  0.00      PEND
+ATOM     26  C7  PEND    1       6.527   4.085   0.000  1.00  0.00      PEND
+ATOM     27  DC7 PEND    1       6.525   4.083  -0.002  1.00  0.00      PEND
+ATOM     28  H7A PEND    1       6.688   4.431  -1.043  1.00  0.00      PEND
+ATOM     29  H7B PEND    1       5.743   4.872  -0.000  1.00  0.00      PEND
+ATOM     30  C8  PEND    1       8.056   4.048   0.000  1.00  0.00      PEND
+ATOM     31  DC8 PEND    1       8.054   4.046  -0.002  1.00  0.00      PEND
+ATOM     32  H8A PEND    1       8.438   4.038   1.043  1.00  0.00      PEND
+ATOM     33  H8B PEND    1       8.413   2.995   0.000  1.00  0.00      PEND
+ATOM     34  C9  PEND    1       8.703   5.434   0.000  1.00  0.00      PEND
+ATOM     35  DC9 PEND    1       8.701   5.432  -0.002  1.00  0.00      PEND
+ATOM     36  H9A PEND    1       8.864   5.780  -1.043  1.00  0.00      PEND
+ATOM     37  H9B PEND    1       7.919   6.221  -0.000  1.00  0.00      PEND
+ATOM     38  C10 PEND    1      10.233   5.397   0.000  1.00  0.00      PEND
+ATOM     39 DC10 PEND    1      10.231   5.395  -0.002  1.00  0.00      PEND
+ATOM     40 H10A PEND    1      10.614   5.388   1.043  1.00  0.00      PEND
+ATOM     41 H10B PEND    1      10.589   4.345   0.000  1.00  0.00      PEND
+ATOM     42  C11 PEND    1      10.879   6.784   0.000  1.00  0.00      PEND
+ATOM     43 DC11 PEND    1      10.877   6.782  -0.002  1.00  0.00      PEND
+ATOM     44 H11A PEND    1      11.041   7.130  -1.043  1.00  0.00      PEND
+ATOM     45 H11B PEND    1      10.095   7.571  -0.000  1.00  0.00      PEND
+ATOM     46  C12 PEND    1      12.409   6.746   0.000  1.00  0.00      PEND
+ATOM     47 DC12 PEND    1      12.407   6.744  -0.002  1.00  0.00      PEND
+ATOM     48 H12A PEND    1      12.790   6.737   1.043  1.00  0.00      PEND
+ATOM     49 H12B PEND    1      12.765   5.694   0.000  1.00  0.00      PEND
+ATOM     50  C13 PEND    1      13.055   8.133   0.000  1.00  0.00      PEND
+ATOM     51 DC13 PEND    1      13.053   8.131  -0.002  1.00  0.00      PEND
+ATOM     52 H13A PEND    1      13.217   8.479  -1.043  1.00  0.00      PEND
+ATOM     53 H13B PEND    1      12.271   8.920  -0.000  1.00  0.00      PEND
+ATOM     54  C14 PEND    1      14.585   8.096   0.000  1.00  0.00      PEND
+ATOM     55 DC14 PEND    1      14.583   8.094  -0.002  1.00  0.00      PEND
+ATOM     56 H14A PEND    1      14.967   8.086   1.043  1.00  0.00      PEND
+ATOM     57 H14B PEND    1      14.941   7.043   0.000  1.00  0.00      PEND
+ATOM     58  C15 PEND    1      15.264   9.464   0.000  1.00  0.00      PEND
+ATOM     59 DC15 PEND    1      15.262   9.462  -0.002  1.00  0.00      PEND
+ATOM     60 H15A PEND    1      16.371   9.369   0.000  1.00  0.00      PEND
+ATOM     61 H15B PEND    1      15.445   9.829  -1.034  1.00  0.00      PEND
+ATOM     62 H15C PEND    1      14.519  10.289  -0.000  1.00  0.00      PEND
+TER      63      PEND     1
+END

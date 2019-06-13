@@ -1,0 +1,17 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  HA  AALD    1       1.745  -0.970  -0.000  1.00  0.00      AALD
+ATOM      2  C   AALD    1       1.218   0.000   0.000  1.00  0.00      AALD
+ATOM      3  DC  AALD    1       1.216  -0.002  -0.002  1.00  0.00      AALD
+ATOM      4  O   AALD    1       0.000   0.000   0.000  1.00  0.00      AALD
+ATOM      5  DO  AALD    1      -0.002  -0.002  -0.002  1.00  0.00      AALD
+ATOM      6  LPA AALD    1      -0.005  -0.300  -0.000  1.00  0.00      AALD
+ATOM      7  LPB AALD    1      -0.005   0.300   0.000  1.00  0.00      AALD
+ATOM      8  CB  AALD    1       2.073   1.232   0.000  1.00  0.00      AALD
+ATOM      9  DCB AALD    1       2.071   1.230  -0.002  1.00  0.00      AALD
+ATOM     10  HB1 AALD    1       2.717   1.235  -0.904  1.00  0.00      AALD
+ATOM     11  HB2 AALD    1       1.448   2.152   0.000  1.00  0.00      AALD
+ATOM     12  HB3 AALD    1       2.717   1.235   0.904  1.00  0.00      AALD
+TER      13      AALD     1
+END

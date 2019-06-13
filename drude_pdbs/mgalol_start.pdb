@@ -1,0 +1,55 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  MGAL    1       0.000   0.000   0.000  1.00  0.00      MGAL
+ATOM      2  DC1 MGAL    1      -0.002  -0.002  -0.002  1.00  0.00      MGAL
+ATOM      3  H11 MGAL    1      -0.291   0.530   0.918  1.00  0.00      MGAL
+ATOM      4  H12 MGAL    1      -0.371   0.524  -0.907  1.00  0.00      MGAL
+ATOM      5  O1  MGAL    1      -0.536  -1.326  -0.000  1.00  0.00      MGAL
+ATOM      6  DO1 MGAL    1      -0.538  -1.328  -0.002  1.00  0.00      MGAL
+ATOM      7  HO1 MGAL    1      -1.481  -1.292  -0.000  1.00  0.00      MGAL
+ATOM      8 LP1A MGAL    1      -0.575  -1.439  -0.329  1.00  0.00      MGAL
+ATOM      9 LP1B MGAL    1      -0.575  -1.439   0.329  1.00  0.00      MGAL
+ATOM     10  C2  MGAL    1       1.560   0.000   0.000  1.00  0.00      MGAL
+ATOM     11  DC2 MGAL    1       1.558  -0.002  -0.002  1.00  0.00      MGAL
+ATOM     12  H2  MGAL    1       1.923  -0.524  -0.908  1.00  0.00      MGAL
+ATOM     13  O2  MGAL    1       2.033  -0.671   1.162  1.00  0.00      MGAL
+ATOM     14  DO2 MGAL    1       2.031  -0.673   1.160  1.00  0.00      MGAL
+ATOM     15  HO2 MGAL    1       1.638  -0.112   1.845  1.00  0.00      MGAL
+ATOM     16 LP2A MGAL    1       1.807  -0.921   1.256  1.00  0.00      MGAL
+ATOM     17 LP2B MGAL    1       2.344  -0.541   1.257  1.00  0.00      MGAL
+ATOM     18  C3  MGAL    1       2.069   1.443   0.000  1.00  0.00      MGAL
+ATOM     19  DC3 MGAL    1       2.067   1.441  -0.002  1.00  0.00      MGAL
+ATOM     20  H3  MGAL    1       1.644   1.951  -0.986  1.00  0.00      MGAL
+ATOM     21  O3  MGAL    1       1.611   2.147   1.154  1.00  0.00      MGAL
+ATOM     22  DO3 MGAL    1       1.609   2.145   1.152  1.00  0.00      MGAL
+ATOM     23  HO3 MGAL    1       0.634   2.064   1.004  1.00  0.00      MGAL
+ATOM     24 LP3A MGAL    1       1.575   1.926   1.423  1.00  0.00      MGAL
+ATOM     25 LP3B MGAL    1       1.580   2.488   1.082  1.00  0.00      MGAL
+ATOM     26  C4  MGAL    1       3.605   1.470   0.000  1.00  0.00      MGAL
+ATOM     27  DC4 MGAL    1       3.603   1.468  -0.002  1.00  0.00      MGAL
+ATOM     28  H4  MGAL    1       4.053   0.975   0.870  1.00  0.00      MGAL
+ATOM     29  O4  MGAL    1       4.141   0.832  -1.120  1.00  0.00      MGAL
+ATOM     30  DO4 MGAL    1       4.139   0.830  -1.122  1.00  0.00      MGAL
+ATOM     31  HO4 MGAL    1       3.798  -0.098  -1.047  1.00  0.00      MGAL
+ATOM     32 LP4A MGAL    1       3.924   0.867  -1.392  1.00  0.00      MGAL
+ATOM     33 LP4B MGAL    1       4.455   0.698  -1.043  1.00  0.00      MGAL
+ATOM     34  C5  MGAL    1       4.109   2.917  -0.000  1.00  0.00      MGAL
+ATOM     35  DC5 MGAL    1       4.107   2.915  -0.002  1.00  0.00      MGAL
+ATOM     36  H5  MGAL    1       3.691   3.393   0.956  1.00  0.00      MGAL
+ATOM     37  O5  MGAL    1       3.668   3.622  -1.123  1.00  0.00      MGAL
+ATOM     38  DO5 MGAL    1       3.666   3.620  -1.125  1.00  0.00      MGAL
+ATOM     39  HO5 MGAL    1       4.010   3.159  -1.849  1.00  0.00      MGAL
+ATOM     40 LP5A MGAL    1       3.356   3.501  -1.226  1.00  0.00      MGAL
+ATOM     41 LP5B MGAL    1       3.899   3.871  -1.206  1.00  0.00      MGAL
+ATOM     42  C6  MGAL    1       5.641   2.904   0.000  1.00  0.00      MGAL
+ATOM     43  DC6 MGAL    1       5.639   2.902  -0.002  1.00  0.00      MGAL
+ATOM     44  H61 MGAL    1       5.937   2.398   0.872  1.00  0.00      MGAL
+ATOM     45  H62 MGAL    1       5.935   2.389  -0.888  1.00  0.00      MGAL
+ATOM     46  O6  MGAL    1       6.057   4.335  -0.000  1.00  0.00      MGAL
+ATOM     47  DO6 MGAL    1       6.055   4.333  -0.002  1.00  0.00      MGAL
+ATOM     48  HO6 MGAL    1       7.006   4.482   0.000  1.00  0.00      MGAL
+ATOM     49 LP6A MGAL    1       6.085   4.452  -0.329  1.00  0.00      MGAL
+ATOM     50 LP6B MGAL    1       6.085   4.452   0.329  1.00  0.00      MGAL
+TER      51      MGAL     1
+END

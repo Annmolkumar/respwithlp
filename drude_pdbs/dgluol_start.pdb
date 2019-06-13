@@ -1,0 +1,55 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  DGLU    1       0.000   0.000   0.000  1.00  0.00      DGLU
+ATOM      2  DC1 DGLU    1      -0.002  -0.002  -0.002  1.00  0.00      DGLU
+ATOM      3  H11 DGLU    1      -0.291   0.530   0.918  1.00  0.00      DGLU
+ATOM      4  H12 DGLU    1      -0.371   0.524  -0.907  1.00  0.00      DGLU
+ATOM      5  O1  DGLU    1      -0.536  -1.326  -0.000  1.00  0.00      DGLU
+ATOM      6  DO1 DGLU    1      -0.538  -1.328  -0.002  1.00  0.00      DGLU
+ATOM      7  HO1 DGLU    1      -1.481  -1.292  -0.000  1.00  0.00      DGLU
+ATOM      8 LP1A DGLU    1      -0.575  -1.439  -0.329  1.00  0.00      DGLU
+ATOM      9 LP1B DGLU    1      -0.575  -1.439   0.329  1.00  0.00      DGLU
+ATOM     10  C2  DGLU    1       1.560   0.000   0.000  1.00  0.00      DGLU
+ATOM     11  DC2 DGLU    1       1.558  -0.002  -0.002  1.00  0.00      DGLU
+ATOM     12  H2  DGLU    1       1.923  -0.524  -0.908  1.00  0.00      DGLU
+ATOM     13  O2  DGLU    1       2.033  -0.671   1.162  1.00  0.00      DGLU
+ATOM     14  DO2 DGLU    1       2.031  -0.673   1.160  1.00  0.00      DGLU
+ATOM     15  HO2 DGLU    1       1.638  -0.112   1.845  1.00  0.00      DGLU
+ATOM     16 LP2A DGLU    1       1.807  -0.921   1.256  1.00  0.00      DGLU
+ATOM     17 LP2B DGLU    1       2.344  -0.541   1.257  1.00  0.00      DGLU
+ATOM     18  C3  DGLU    1       2.069   1.443   0.000  1.00  0.00      DGLU
+ATOM     19  DC3 DGLU    1       2.067   1.441  -0.002  1.00  0.00      DGLU
+ATOM     20  H3  DGLU    1       1.644   1.951  -0.986  1.00  0.00      DGLU
+ATOM     21  O3  DGLU    1       1.611   2.147   1.154  1.00  0.00      DGLU
+ATOM     22  DO3 DGLU    1       1.609   2.145   1.152  1.00  0.00      DGLU
+ATOM     23  HO3 DGLU    1       0.634   2.064   1.004  1.00  0.00      DGLU
+ATOM     24 LP3A DGLU    1       1.575   1.926   1.423  1.00  0.00      DGLU
+ATOM     25 LP3B DGLU    1       1.580   2.488   1.082  1.00  0.00      DGLU
+ATOM     26  C4  DGLU    1       3.605   1.470   0.000  1.00  0.00      DGLU
+ATOM     27  DC4 DGLU    1       3.603   1.468  -0.002  1.00  0.00      DGLU
+ATOM     28  H4  DGLU    1       4.053   0.975  -0.870  1.00  0.00      DGLU
+ATOM     29  O4  DGLU    1       4.141   0.832   1.120  1.00  0.00      DGLU
+ATOM     30  DO4 DGLU    1       4.139   0.830   1.118  1.00  0.00      DGLU
+ATOM     31  HO4 DGLU    1       3.772   1.351   1.883  1.00  0.00      DGLU
+ATOM     32 LP4A DGLU    1       3.929   0.574   1.223  1.00  0.00      DGLU
+ATOM     33 LP4B DGLU    1       4.450   0.974   1.202  1.00  0.00      DGLU
+ATOM     34  C5  DGLU    1       4.109   2.917  -0.000  1.00  0.00      DGLU
+ATOM     35  DC5 DGLU    1       4.107   2.915  -0.002  1.00  0.00      DGLU
+ATOM     36  H5  DGLU    1       3.691   3.393   0.956  1.00  0.00      DGLU
+ATOM     37  O5  DGLU    1       3.668   3.622  -1.123  1.00  0.00      DGLU
+ATOM     38  DO5 DGLU    1       3.666   3.620  -1.125  1.00  0.00      DGLU
+ATOM     39  HO5 DGLU    1       4.010   3.159  -1.849  1.00  0.00      DGLU
+ATOM     40 LP5A DGLU    1       3.356   3.501  -1.226  1.00  0.00      DGLU
+ATOM     41 LP5B DGLU    1       3.899   3.871  -1.206  1.00  0.00      DGLU
+ATOM     42  C6  DGLU    1       5.641   2.904   0.000  1.00  0.00      DGLU
+ATOM     43  DC6 DGLU    1       5.639   2.902  -0.002  1.00  0.00      DGLU
+ATOM     44  H61 DGLU    1       5.937   2.398   0.872  1.00  0.00      DGLU
+ATOM     45  H62 DGLU    1       5.935   2.389  -0.888  1.00  0.00      DGLU
+ATOM     46  O6  DGLU    1       6.057   4.335  -0.000  1.00  0.00      DGLU
+ATOM     47  DO6 DGLU    1       6.055   4.333  -0.002  1.00  0.00      DGLU
+ATOM     48  HO6 DGLU    1       7.006   4.482   0.000  1.00  0.00      DGLU
+ATOM     49 LP6A DGLU    1       6.085   4.452  -0.329  1.00  0.00      DGLU
+ATOM     50 LP6B DGLU    1       6.085   4.452   0.329  1.00  0.00      DGLU
+TER      51      DGLU     1
+END

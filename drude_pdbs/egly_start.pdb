@@ -1,0 +1,23 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  EGLY    1       1.425   0.000   0.000  1.00  0.00      EGLY
+ATOM      2  DC1 EGLY    1       1.423  -0.002  -0.002  1.00  0.00      EGLY
+ATOM      3  H11 EGLY    1       1.803  -0.506   0.876  1.00  0.00      EGLY
+ATOM      4  H12 EGLY    1       1.803  -0.506  -0.876  1.00  0.00      EGLY
+ATOM      5  O1  EGLY    1       0.000   0.000   0.000  1.00  0.00      EGLY
+ATOM      6  DO1 EGLY    1      -0.002  -0.002  -0.002  1.00  0.00      EGLY
+ATOM      7  HO1 EGLY    1      -0.288  -0.926  -0.000  1.00  0.00      EGLY
+ATOM      8 LP1A EGLY    1      -0.120   0.006   0.329  1.00  0.00      EGLY
+ATOM      9 LP1B EGLY    1      -0.120   0.006  -0.329  1.00  0.00      EGLY
+ATOM     10  C2  EGLY    1       1.963   1.400   0.000  1.00  0.00      EGLY
+ATOM     11  DC2 EGLY    1       1.961   1.398  -0.002  1.00  0.00      EGLY
+ATOM     12  H21 EGLY    1       1.622   1.929  -0.878  1.00  0.00      EGLY
+ATOM     13  H22 EGLY    1       1.622   1.929   0.878  1.00  0.00      EGLY
+ATOM     14  O2  EGLY    1       3.388   1.400   0.000  1.00  0.00      EGLY
+ATOM     15  DO2 EGLY    1       3.386   1.398  -0.002  1.00  0.00      EGLY
+ATOM     16  HO2 EGLY    1       3.676   2.326   0.000  1.00  0.00      EGLY
+ATOM     17 LP2A EGLY    1       3.507   1.395   0.329  1.00  0.00      EGLY
+ATOM     18 LP2B EGLY    1       3.507   1.395  -0.329  1.00  0.00      EGLY
+TER      19      EGLY     1
+END

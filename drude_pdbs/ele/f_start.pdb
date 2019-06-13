@@ -1,0 +1,7 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:27      CREATED BY USER: pchatter                
+ATOM      1  F   F       1       0.000   0.000   0.000  1.00  0.00      F   
+ATOM      2  DF  F       1      -0.002  -0.002  -0.002  1.00  0.00      F   
+TER       3      F        1
+END

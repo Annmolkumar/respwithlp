@@ -1,0 +1,46 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  O4  ARIB    1       1.434   0.000   0.000  1.00  0.00      ARIB
+ATOM      2  DO4 ARIB    1       1.432  -0.002  -0.002  1.00  0.00      ARIB
+ATOM      3  C1  ARIB    1       1.852   1.360   0.000  1.00  0.00      ARIB
+ATOM      4  DC1 ARIB    1       1.850   1.358  -0.002  1.00  0.00      ARIB
+ATOM      5  H1  ARIB    1       2.909   1.408  -0.340  1.00  0.00      ARIB
+ATOM      6  O1  ARIB    1       1.751   1.887   1.296  1.00  0.00      ARIB
+ATOM      7  DO1 ARIB    1       1.749   1.885   1.294  1.00  0.00      ARIB
+ATOM      8  HO1 ARIB    1       2.398   1.435   1.839  1.00  0.00      ARIB
+ATOM      9  C4  ARIB    1       0.000   0.000   0.000  1.00  0.00      ARIB
+ATOM     10  DC4 ARIB    1      -0.002  -0.002  -0.002  1.00  0.00      ARIB
+ATOM     11  H4  ARIB    1      -0.309   0.239   1.043  1.00  0.00      ARIB
+ATOM     12 LP1A ARIB    1       1.962   2.164   1.329  1.00  0.00      ARIB
+ATOM     13 LP1B ARIB    1       1.514   1.707   1.480  1.00  0.00      ARIB
+ATOM     14 LP4A ARIB    1       1.506  -0.096  -0.329  1.00  0.00      ARIB
+ATOM     15 LP4B ARIB    1       1.506  -0.096   0.329  1.00  0.00      ARIB
+ATOM     16 LPX4 ARIB    1       1.374   0.080   0.000  1.00  0.00      ARIB
+ATOM     17  C5  ARIB    1      -0.586  -1.377  -0.382  1.00  0.00      ARIB
+ATOM     18  DC5 ARIB    1      -0.588  -1.379  -0.384  1.00  0.00      ARIB
+ATOM     19  H51 ARIB    1      -0.222  -1.655  -1.385  1.00  0.00      ARIB
+ATOM     20  H52 ARIB    1      -0.241  -2.144   0.330  1.00  0.00      ARIB
+ATOM     21  O5  ARIB    1      -2.015  -1.334  -0.404  1.00  0.00      ARIB
+ATOM     22  DO5 ARIB    1      -2.017  -1.336  -0.406  1.00  0.00      ARIB
+ATOM     23  HO5 ARIB    1      -2.371  -1.509   0.474  1.00  0.00      ARIB
+ATOM     24 LP5A ARIB    1      -2.126  -1.008  -0.344  1.00  0.00      ARIB
+ATOM     25 LP5B ARIB    1      -2.143  -1.651  -0.479  1.00  0.00      ARIB
+ATOM     26  C2  ARIB    1       0.902   2.015  -1.044  1.00  0.00      ARIB
+ATOM     27  DC2 ARIB    1       0.900   2.013  -1.046  1.00  0.00      ARIB
+ATOM     28  H2  ARIB    1       1.349   1.834  -2.047  1.00  0.00      ARIB
+ATOM     29  O2  ARIB    1       0.711   3.425  -0.924  1.00  0.00      ARIB
+ATOM     30  DO2 ARIB    1       0.709   3.423  -0.926  1.00  0.00      ARIB
+ATOM     31  HO2 ARIB    1       0.041   3.546  -0.237  1.00  0.00      ARIB
+ATOM     32 LP2A ARIB    1       0.935   3.557  -0.690  1.00  0.00      ARIB
+ATOM     33 LP2B ARIB    1       0.462   3.532  -1.146  1.00  0.00      ARIB
+ATOM     34  C3  ARIB    1      -0.394   1.151  -0.942  1.00  0.00      ARIB
+ATOM     35  DC3 ARIB    1      -0.396   1.149  -0.944  1.00  0.00      ARIB
+ATOM     36  H3  ARIB    1      -0.619   0.751  -1.956  1.00  0.00      ARIB
+ATOM     37  O3  ARIB    1      -1.554   1.830  -0.465  1.00  0.00      ARIB
+ATOM     38  DO3 ARIB    1      -1.556   1.828  -0.467  1.00  0.00      ARIB
+ATOM     39  HO3 ARIB    1      -2.328   1.291  -0.668  1.00  0.00      ARIB
+ATOM     40 LP3A ARIB    1      -1.618   1.739  -0.133  1.00  0.00      ARIB
+ATOM     41 LP3B ARIB    1      -1.678   2.043  -0.713  1.00  0.00      ARIB
+TER      42      ARIB     1
+END

@@ -1,0 +1,33 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  CHXM    1       0.000   0.000   0.000  1.00  0.00      CHXM
+ATOM      2  DC1 CHXM    1      -0.002  -0.002  -0.002  1.00  0.00      CHXM
+ATOM      3  H1A CHXM    1      -0.328  -1.046  -0.213  1.00  0.00      CHXM
+ATOM      4  C2  CHXM    1       1.540   0.000   0.000  1.00  0.00      CHXM
+ATOM      5  DC2 CHXM    1       1.538  -0.002  -0.002  1.00  0.00      CHXM
+ATOM      6  H2A CHXM    1       1.885  -0.520  -0.922  1.00  0.00      CHXM
+ATOM      7  H2B CHXM    1       1.917  -0.572   0.875  1.00  0.00      CHXM
+ATOM      8  C3  CHXM    1       2.142   1.414   0.000  1.00  0.00      CHXM
+ATOM      9  DC3 CHXM    1       2.140   1.412  -0.002  1.00  0.00      CHXM
+ATOM     10  H3A CHXM    1       3.247   1.350  -0.095  1.00  0.00      CHXM
+ATOM     11  H3B CHXM    1       1.910   1.903   0.972  1.00  0.00      CHXM
+ATOM     12  C4  CHXM    1       1.576   2.282  -1.133  1.00  0.00      CHXM
+ATOM     13  DC4 CHXM    1       1.574   2.280  -1.135  1.00  0.00      CHXM
+ATOM     14  H4A CHXM    1       1.921   1.863  -2.105  1.00  0.00      CHXM
+ATOM     15  H4B CHXM    1       1.968   3.318  -1.046  1.00  0.00      CHXM
+ATOM     16  C5  CHXM    1       0.041   2.304  -1.129  1.00  0.00      CHXM
+ATOM     17  DC5 CHXM    1       0.039   2.302  -1.131  1.00  0.00      CHXM
+ATOM     18  H5A CHXM    1      -0.327   2.864  -2.016  1.00  0.00      CHXM
+ATOM     19  H5B CHXM    1      -0.305   2.842  -0.219  1.00  0.00      CHXM
+ATOM     20  C6  CHXM    1      -0.557   0.889  -1.127  1.00  0.00      CHXM
+ATOM     21  DC6 CHXM    1      -0.559   0.887  -1.129  1.00  0.00      CHXM
+ATOM     22  H6A CHXM    1      -0.306   0.409  -2.101  1.00  0.00      CHXM
+ATOM     23  H6B CHXM    1      -1.664   0.945  -1.051  1.00  0.00      CHXM
+ATOM     24  C7  CHXM    1      -0.583   0.372   1.379  1.00  0.00      CHXM
+ATOM     25  DC7 CHXM    1      -0.585   0.370   1.377  1.00  0.00      CHXM
+ATOM     26  H7A CHXM    1      -0.205  -0.324   2.156  1.00  0.00      CHXM
+ATOM     27  H7B CHXM    1      -0.298   1.406   1.664  1.00  0.00      CHXM
+ATOM     28  H7C CHXM    1      -1.692   0.306   1.356  1.00  0.00      CHXM
+TER      29      CHXM     1
+END

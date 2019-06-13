@@ -1,0 +1,54 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  AALL    1       1.440   0.000   0.000  1.00  0.00      AALL
+ATOM      2  DC1 AALL    1       1.438  -0.002  -0.002  1.00  0.00      AALL
+ATOM      3  H1  AALL    1       1.781  -0.406  -0.987  1.00  0.00      AALL
+ATOM      4  O1  AALL    1       1.901  -0.713   1.126  1.00  0.00      AALL
+ATOM      5  DO1 AALL    1       1.899  -0.715   1.124  1.00  0.00      AALL
+ATOM      6  HO1 AALL    1       1.498  -1.598   0.998  1.00  0.00      AALL
+ATOM      7  C5  AALL    1      -0.595   0.759   1.044  1.00  0.00      AALL
+ATOM      8  DC5 AALL    1      -0.597   0.757   1.042  1.00  0.00      AALL
+ATOM      9  H5  AALL    1      -0.333   0.235   1.994  1.00  0.00      AALL
+ATOM     10  O5  AALL    1       0.000   0.000   0.000  1.00  0.00      AALL
+ATOM     11  DO5 AALL    1      -0.002  -0.002  -0.002  1.00  0.00      AALL
+ATOM     12 LP1A AALL    1       2.208  -0.865   1.054  1.00  0.00      AALL
+ATOM     13 LP1B AALL    1       1.678  -0.673   1.392  1.00  0.00      AALL
+ATOM     14 LP5A AALL    1      -0.066   0.207  -0.274  1.00  0.00      AALL
+ATOM     15 LP5B AALL    1      -0.066  -0.325   0.112  1.00  0.00      AALL
+ATOM     16 LPX5 AALL    1       0.055   0.049   0.068  1.00  0.00      AALL
+ATOM     17  C2  AALL    1       1.996   1.454   0.000  1.00  0.00      AALL
+ATOM     18  DC2 AALL    1       1.994   1.452  -0.002  1.00  0.00      AALL
+ATOM     19  H2  AALL    1       1.649   1.971  -0.864  1.00  0.00      AALL
+ATOM     20  O2  AALL    1       3.419   1.611  -0.219  1.00  0.00      AALL
+ATOM     21  DO2 AALL    1       3.417   1.609  -0.221  1.00  0.00      AALL
+ATOM     22  HO2 AALL    1       3.757   2.031   0.555  1.00  0.00      AALL
+ATOM     23 LP2A AALL    1       3.589   1.327  -0.105  1.00  0.00      AALL
+ATOM     24 LP2B AALL    1       3.482   1.915  -0.378  1.00  0.00      AALL
+ATOM     25  C3  AALL    1       1.472   2.256   1.090  1.00  0.00      AALL
+ATOM     26  DC3 AALL    1       1.470   2.254   1.088  1.00  0.00      AALL
+ATOM     27  H3  AALL    1       1.675   3.365   0.980  1.00  0.00      AALL
+ATOM     28  O3  AALL    1       2.144   1.878   2.349  1.00  0.00      AALL
+ATOM     29  DO3 AALL    1       2.142   1.876   2.347  1.00  0.00      AALL
+ATOM     30  HO3 AALL    1       2.357   0.963   2.193  1.00  0.00      AALL
+ATOM     31 LP3A AALL    1       2.487   1.942   2.325  1.00  0.00      AALL
+ATOM     32 LP3B AALL    1       1.908   1.764   2.580  1.00  0.00      AALL
+ATOM     33  C4  AALL    1      -0.069   2.179   1.157  1.00  0.00      AALL
+ATOM     34  DC4 AALL    1      -0.071   2.177   1.155  1.00  0.00      AALL
+ATOM     35  H4  AALL    1      -0.430   2.776   0.265  1.00  0.00      AALL
+ATOM     36  O4  AALL    1      -0.418   2.759   2.400  1.00  0.00      AALL
+ATOM     37  DO4 AALL    1      -0.420   2.757   2.398  1.00  0.00      AALL
+ATOM     38  HO4 AALL    1       0.331   2.711   2.994  1.00  0.00      AALL
+ATOM     39 LP4A AALL    1      -0.349   3.102   2.395  1.00  0.00      AALL
+ATOM     40 LP4B AALL    1      -0.557   2.516   2.611  1.00  0.00      AALL
+ATOM     41  C6  AALL    1      -2.073   0.675   1.001  1.00  0.00      AALL
+ATOM     42  DC6 AALL    1      -2.075   0.673   0.999  1.00  0.00      AALL
+ATOM     43  H61 AALL    1      -2.335   1.191   0.041  1.00  0.00      AALL
+ATOM     44  H62 AALL    1      -2.538  -0.336   0.901  1.00  0.00      AALL
+ATOM     45  O6  AALL    1      -2.660   1.230   2.176  1.00  0.00      AALL
+ATOM     46  DO6 AALL    1      -2.662   1.228   2.174  1.00  0.00      AALL
+ATOM     47  HO6 AALL    1      -2.464   2.204   2.266  1.00  0.00      AALL
+ATOM     48 LP6A AALL    1      -2.984   1.342   2.106  1.00  0.00      AALL
+ATOM     49 LP6B AALL    1      -2.438   1.201   2.445  1.00  0.00      AALL
+TER      50      AALL     1
+END

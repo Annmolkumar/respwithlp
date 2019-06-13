@@ -1,0 +1,23 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  CG  PYR     1       0.000   0.000   0.000  1.00  0.00      PYR 
+ATOM      2  DCG PYR     1      -0.002  -0.002  -0.002  1.00  0.00      PYR 
+ATOM      3  HG  PYR     1      -0.549  -0.931   0.000  1.00  0.00      PYR 
+ATOM      4  CD1 PYR     1       1.412   0.000   0.000  1.00  0.00      PYR 
+ATOM      5 DCD1 PYR     1       1.410  -0.002  -0.002  1.00  0.00      PYR 
+ATOM      6  HD1 PYR     1       1.967  -0.924   0.000  1.00  0.00      PYR 
+ATOM      7  CD2 PYR     1      -0.684   1.235   0.000  1.00  0.00      PYR 
+ATOM      8 DCD2 PYR     1      -0.686   1.233  -0.002  1.00  0.00      PYR 
+ATOM      9  HD2 PYR     1      -1.761   1.275  -0.000  1.00  0.00      PYR 
+ATOM     10  CE1 PYR     1       2.085   1.242   0.000  1.00  0.00      PYR 
+ATOM     11 DCE1 PYR     1       2.083   1.240  -0.002  1.00  0.00      PYR 
+ATOM     12  HE1 PYR     1       3.162   1.302   0.000  1.00  0.00      PYR 
+ATOM     13  CE2 PYR     1       0.077   2.426   0.000  1.00  0.00      PYR 
+ATOM     14 DCE2 PYR     1       0.075   2.424  -0.002  1.00  0.00      PYR 
+ATOM     15  HE2 PYR     1      -0.391   3.397  -0.000  1.00  0.00      PYR 
+ATOM     16  NZ  PYR     1       1.445   2.451   0.000  1.00  0.00      PYR 
+ATOM     17  DNZ PYR     1       1.443   2.449  -0.002  1.00  0.00      PYR 
+ATOM     18  LP1 PYR     1       1.623   2.752   0.000  1.00  0.00      PYR 
+TER      19      PYR      1
+END

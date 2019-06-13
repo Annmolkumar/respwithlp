@@ -1,0 +1,17 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  ETS     1       1.655   1.428   0.000  1.00  0.00      ETS 
+ATOM      2  DC1 ETS     1       1.653   1.426  -0.002  1.00  0.00      ETS 
+ATOM      3  S1  ETS     1       3.462   1.503   0.000  1.00  0.00      ETS 
+ATOM      4  DS1 ETS     1       3.460   1.501  -0.002  1.00  0.00      ETS 
+ATOM      5  H11 ETS     1       1.314   1.972   0.907  1.00  0.00      ETS 
+ATOM      6  H12 ETS     1       1.314   1.972  -0.907  1.00  0.00      ETS 
+ATOM      7  C2  ETS     1       1.111   0.000   0.000  1.00  0.00      ETS 
+ATOM      8  DC2 ETS     1       1.109  -0.002  -0.002  1.00  0.00      ETS 
+ATOM      9  H21 ETS     1       0.000   0.000   0.000  1.00  0.00      ETS 
+ATOM     10  H22 ETS     1       1.452  -0.557  -0.899  1.00  0.00      ETS 
+ATOM     11  H23 ETS     1       1.452  -0.557   0.899  1.00  0.00      ETS 
+ATOM     12 LP1A ETS     1       3.812   1.518   0.000  1.00  0.00      ETS 
+TER      13      ETS      1
+END

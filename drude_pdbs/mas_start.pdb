@@ -1,0 +1,25 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  C1  MAS     1       0.000   0.000   0.000  1.00  0.00      MAS 
+ATOM      2  DC1 MAS     1      -0.002  -0.002  -0.002  1.00  0.00      MAS 
+ATOM      3  C   MAS     1       1.520   0.000   0.000  1.00  0.00      MAS 
+ATOM      4  DC  MAS     1       1.518  -0.002  -0.002  1.00  0.00      MAS 
+ATOM      5  OM  MAS     1       1.954   1.261   0.000  1.00  0.00      MAS 
+ATOM      6  DOM MAS     1       1.952   1.259  -0.002  1.00  0.00      MAS 
+ATOM      7  C2  MAS     1       3.384   1.407   0.000  1.00  0.00      MAS 
+ATOM      8  DC2 MAS     1       3.382   1.405  -0.002  1.00  0.00      MAS 
+ATOM      9  O   MAS     1       2.210  -0.982   0.000  1.00  0.00      MAS 
+ATOM     10  DO  MAS     1       2.208  -0.984  -0.002  1.00  0.00      MAS 
+ATOM     11  H11 MAS     1      -0.356  -1.041  -0.000  1.00  0.00      MAS 
+ATOM     12  H12 MAS     1      -0.372   0.511  -0.900  1.00  0.00      MAS 
+ATOM     13  H13 MAS     1      -0.372   0.511   0.900  1.00  0.00      MAS 
+ATOM     14  H21 MAS     1       3.647   2.453   0.000  1.00  0.00      MAS 
+ATOM     15  H22 MAS     1       3.811   0.949  -0.881  1.00  0.00      MAS 
+ATOM     16  H23 MAS     1       3.811   0.949   0.881  1.00  0.00      MAS 
+ATOM     17 LP1A MAS     1       1.968  -1.159   0.000  1.00  0.00      MAS 
+ATOM     18 LP1B MAS     1       2.458  -0.814   0.000  1.00  0.00      MAS 
+ATOM     19 LPMA MAS     1       1.990   1.381  -0.327  1.00  0.00      MAS 
+ATOM     20 LPMB MAS     1       1.990   1.381   0.327  1.00  0.00      MAS 
+TER      21      MAS      1
+END

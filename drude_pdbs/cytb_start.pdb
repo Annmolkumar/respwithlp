@@ -1,0 +1,29 @@
+REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
+REMARK  MASTER TEST CASE FOR DRUDE                                                    
+REMARK   DATE:     6/13/19     16:19:28      CREATED BY USER: pchatter                
+ATOM      1  N1  CYTB    1       1.399   0.000   0.000  1.00  0.00      CYTB
+ATOM      2  DN1 CYTB    1       1.397  -0.002  -0.002  1.00  0.00      CYTB
+ATOM      3  C6  CYTB    1       2.077   1.147   0.000  1.00  0.00      CYTB
+ATOM      4  DC6 CYTB    1       2.075   1.145  -0.002  1.00  0.00      CYTB
+ATOM      5  H6  CYTB    1       3.155   1.079  -0.000  1.00  0.00      CYTB
+ATOM      6  C2  CYTB    1       0.000   0.000   0.000  1.00  0.00      CYTB
+ATOM      7  DC2 CYTB    1      -0.002  -0.002  -0.002  1.00  0.00      CYTB
+ATOM      8  O2  CYTB    1      -0.603  -1.080   0.000  1.00  0.00      CYTB
+ATOM      9  DO2 CYTB    1      -0.605  -1.082  -0.002  1.00  0.00      CYTB
+ATOM     10 LP2A CYTB    1      -0.949  -1.024   0.000  1.00  0.00      CYTB
+ATOM     11 LP2B CYTB    1      -0.375  -1.345   0.000  1.00  0.00      CYTB
+ATOM     12  N3  CYTB    1      -0.655   1.187   0.000  1.00  0.00      CYTB
+ATOM     13  DN3 CYTB    1      -0.657   1.185  -0.002  1.00  0.00      CYTB
+ATOM     14  LP3 CYTB    1      -1.005   1.199  -0.000  1.00  0.00      CYTB
+ATOM     15  C4  CYTB    1       0.034   2.329   0.000  1.00  0.00      CYTB
+ATOM     16  DC4 CYTB    1       0.032   2.327  -0.002  1.00  0.00      CYTB
+ATOM     17  N4  CYTB    1      -0.635   3.487  -0.000  1.00  0.00      CYTB
+ATOM     18  DN4 CYTB    1      -0.637   3.485  -0.002  1.00  0.00      CYTB
+ATOM     19  H41 CYTB    1      -1.645   3.468  -0.000  1.00  0.00      CYTB
+ATOM     20  H42 CYTB    1      -0.140   4.368  -0.000  1.00  0.00      CYTB
+ATOM     21  C5  CYTB    1       1.441   2.323   0.000  1.00  0.00      CYTB
+ATOM     22  DC5 CYTB    1       1.439   2.321  -0.002  1.00  0.00      CYTB
+ATOM     23  H5  CYTB    1       1.986   3.255  -0.000  1.00  0.00      CYTB
+ATOM     24  H1  CYTB    1       1.815  -0.935   0.000  1.00  0.00      CYTB
+TER      25      CYTB     1
+END
