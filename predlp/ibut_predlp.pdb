@@ -1,0 +1,16 @@
+ATOM      1  CT  IBUT     1       1.527   0.000   0.000  0.00  0.00          IBUT
+ATOM      3  HT  IBUT     1       1.868  -0.494   0.920  0.00  0.00          IBUT
+ATOM      4  C1  IBUT     1       0.000   0.000   0.000  0.00  0.00          IBUT
+ATOM      6 H11  IBUT     1      -0.396   0.541   0.865  0.00  0.00          IBUT
+ATOM      7 H12  IBUT     1      -0.381   0.486  -0.905  0.00  0.00          IBUT
+ATOM      8 H13  IBUT     1      -0.396  -1.020   0.027  0.00  0.00          IBUT
+ATOM      9  C2  IBUT     1       2.071   1.427   0.000  0.00  0.00          IBUT
+ATOM     11 H21  IBUT     1       3.165   1.435   0.027  0.00  0.00          IBUT
+ATOM     12 H22  IBUT     1       1.752   1.957  -0.905  0.00  0.00          IBUT
+ATOM     13 H23  IBUT     1       1.706   1.990   0.865  0.00  0.00          IBUT
+ATOM     14  C3  IBUT     1       2.071  -0.788  -1.190  0.00  0.00          IBUT
+ATOM     16 H31  IBUT     1       1.706  -1.820  -1.181  0.00  0.00          IBUT
+ATOM     17 H32  IBUT     1       1.752  -0.326  -2.131  0.00  0.00          IBUT
+ATOM     18 H33  IBUT     1       3.165  -0.815  -1.181  0.00  0.00          IBUT
+TER      19     IBUT     1
+END

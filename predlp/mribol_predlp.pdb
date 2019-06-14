@@ -1,0 +1,34 @@
+ATOM      1  C1  MRIB     1       0.000   0.000   0.000  0.00  0.00          MRIB
+ATOM      3 H11  MRIB     1      -0.305  -1.065   0.212  0.00  0.00          MRIB
+ATOM      4 H12  MRIB     1      -0.295   0.671   0.827  0.00  0.00          MRIB
+ATOM      5  O1  MRIB     1      -0.641   0.503  -1.165  0.00  0.00          MRIB
+ATOM      7 HO1  MRIB     1      -1.591   0.708  -1.007  0.00  0.00          MRIB
+ATOM     10  C2  MRIB     1       1.559   0.000   0.000  0.00  0.00          MRIB
+ATOM     12  H2  MRIB     1       2.002  -0.619   0.789  0.00  0.00          MRIB
+ATOM     13  O2  MRIB     1       1.899  -0.541  -1.272  0.00  0.00          MRIB
+ATOM     15 HO2  MRIB     1       1.054  -0.353  -1.699  0.00  0.00          MRIB
+ATOM     18  C3  MRIB     1       2.094   1.428   0.000  0.00  0.00          MRIB
+ATOM     20  H3  MRIB     1       1.499   2.003  -0.732  0.00  0.00          MRIB
+ATOM     21  O3  MRIB     1       1.819   1.998   1.259  0.00  0.00          MRIB
+ATOM     23 HO3  MRIB     1       2.241   2.889   1.280  0.00  0.00          MRIB
+ATOM     26  C4  MRIB     1       3.663   1.526  -0.434  0.00  0.00          MRIB
+ATOM     28  H4  MRIB     1       3.787   1.187  -1.506  0.00  0.00          MRIB
+ATOM     29  O4  MRIB     1       4.045   2.918  -0.412  0.00  0.00          MRIB
+ATOM     31 HO4  MRIB     1       5.011   2.818  -0.419  0.00  0.00          MRIB
+ATOM     34  C5  MRIB     1       4.502   0.619   0.477  0.00  0.00          MRIB
+ATOM     36 H51  MRIB     1       4.125  -0.442   0.425  0.00  0.00          MRIB
+ATOM     37 H52  MRIB     1       4.487   0.862   1.580  0.00  0.00          MRIB
+ATOM     38  O5  MRIB     1       5.853   0.651   0.090  0.00  0.00          MRIB
+ATOM     40 HO5  MRIB     1       6.241  -0.231   0.311  0.00  0.00          MRIB
+ATOM     43 LP1A MRIB     1      -0.534   0.835  -1.191  0.00  0.00          MRIB
+ATOM     44 LP1B MRIB     1      -0.695   0.222  -1.367  0.00  0.00          MRIB
+ATOM     45 LP2A MRIB     1       2.099  -0.301  -1.429  0.00  0.00          MRIB
+ATOM     46 LP2B MRIB     1       1.873  -0.889  -1.239  0.00  0.00          MRIB
+ATOM     47 LP3A MRIB     1       1.486   2.105   1.240  0.00  0.00          MRIB
+ATOM     48 LP3B MRIB     1       2.037   1.838   1.481  0.00  0.00          MRIB
+ATOM     49 LP4A MRIB     1       4.000   3.035  -0.739  0.00  0.00          MRIB
+ATOM     50 LP4B MRIB     1       4.003   3.024  -0.081  0.00  0.00          MRIB
+ATOM     51 LP5A MRIB     1       5.849   0.615  -0.258  0.00  0.00          MRIB
+ATOM     52 LP5B MRIB     1       6.015   0.837   0.338  0.00  0.00          MRIB
+TER      53     MRIB     1
+END

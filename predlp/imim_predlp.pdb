@@ -1,0 +1,12 @@
+ATOM      1  CG  IMIM     1       0.000   0.000   0.000  0.00  0.00          IMIM
+ATOM      3  HG  IMIM     1      -0.656  -0.862   0.000  0.00  0.00          IMIM
+ATOM      4 CD2  IMIM     1       1.360   0.000   0.000  0.00  0.00          IMIM
+ATOM      6 HD2  IMIM     1       2.056  -0.830   0.000  0.00  0.00          IMIM
+ATOM      7 ND1  IMIM     1      -0.453   1.339   0.000  0.00  0.00          IMIM
+ATOM      9 HD1  IMIM     1      -1.411   1.628  -0.000  0.00  0.00          IMIM
+ATOM     10 NE2  IMIM     1       1.727   1.325   0.000  0.00  0.00          IMIM
+ATOM     12 HE2  IMIM     1       2.667   1.667   0.000  0.00  0.00          IMIM
+ATOM     13 CE1  IMIM     1       0.642   2.128   0.000  0.00  0.00          IMIM
+ATOM     15 HE1  IMIM     1       0.628   3.218  -0.000  0.00  0.00          IMIM
+TER      16     IMIM     1
+END

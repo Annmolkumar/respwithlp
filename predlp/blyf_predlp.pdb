@@ -1,0 +1,32 @@
+ATOM      1  O4  BLYF     1       1.431   0.000   0.000  0.00  0.00          BLYF
+ATOM      3  C1  BLYF     1       1.868   1.362   0.000  0.00  0.00          BLYF
+ATOM      5  H1  BLYF     1       2.086   1.641   1.054  0.00  0.00          BLYF
+ATOM      6  O1  BLYF     1       3.027   1.491  -0.772  0.00  0.00          BLYF
+ATOM      8 HO1  BLYF     1       2.786   1.311  -1.682  0.00  0.00          BLYF
+ATOM      9  C4  BLYF     1       0.000   0.000   0.000  0.00  0.00          BLYF
+ATOM     11  H4  BLYF     1      -0.310   0.323   1.021  0.00  0.00          BLYF
+ATOM     17  C5  BLYF     1      -0.614  -1.395  -0.266  0.00  0.00          BLYF
+ATOM     19 H51  BLYF     1      -0.385  -1.716  -1.295  0.00  0.00          BLYF
+ATOM     20 H52  BLYF     1      -0.171  -2.130   0.425  0.00  0.00          BLYF
+ATOM     21  O5  BLYF     1      -2.030  -1.369  -0.091  0.00  0.00          BLYF
+ATOM     23 HO5  BLYF     1      -2.270  -1.563   0.821  0.00  0.00          BLYF
+ATOM     26  C2  BLYF     1       0.685   2.204  -0.572  0.00  0.00          BLYF
+ATOM     28  H2  BLYF     1       0.231   2.808   0.245  0.00  0.00          BLYF
+ATOM     29  O2  BLYF     1       1.058   3.091  -1.626  0.00  0.00          BLYF
+ATOM     31 HO2  BLYF     1       0.750   2.689  -2.450  0.00  0.00          BLYF
+ATOM     34  C3  BLYF     1      -0.324   1.110  -1.004  0.00  0.00          BLYF
+ATOM     36  H3  BLYF     1      -1.373   1.462  -0.918  0.00  0.00          BLYF
+ATOM     37  O3  BLYF     1      -0.091   0.679  -2.345  0.00  0.00          BLYF
+ATOM     39 HO3  BLYF     1       0.644   0.055  -2.342  0.00  0.00          BLYF
+ATOM     42 LP1A BLYF     1       1.502  -0.097  -0.329  0.00  0.00          BLYF
+ATOM     43 LP1B BLYF     1       1.502  -0.097   0.329  0.00  0.00          BLYF
+ATOM     44 LP4A BLYF     1       3.077   1.836  -0.806  0.00  0.00          BLYF
+ATOM     45 LP4B BLYF     1       3.209   1.198  -0.715  0.00  0.00          BLYF
+ATOM     46 LP5A BLYF     1      -2.115  -1.030  -0.082  0.00  0.00          BLYF
+ATOM     47 LP5B BLYF     1      -2.145  -1.671  -0.226  0.00  0.00          BLYF
+ATOM     48 LP2A BLYF     1       0.826   3.353  -1.614  0.00  0.00          BLYF
+ATOM     49 LP2B BLYF     1       1.400   3.038  -1.675  0.00  0.00          BLYF
+ATOM     50 LP3A BLYF     1      -0.344   0.446  -2.413  0.00  0.00          BLYF
+ATOM     51 LP3B BLYF     1       0.079   0.943  -2.499  0.00  0.00          BLYF
+TER      52     BLYF     1
+END

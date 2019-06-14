@@ -1,0 +1,24 @@
+ATOM      1  CA  BGUA     1       0.000   0.000   0.000  0.00  0.00          BGUA
+ATOM      3 HA1  BGUA     1      -0.405   0.515  -0.898  0.00  0.00          BGUA
+ATOM      4 HA2  BGUA     1      -0.405   0.514   0.898  0.00  0.00          BGUA
+ATOM      5 HA3  BGUA     1      -0.399  -1.038  -0.000  0.00  0.00          BGUA
+ATOM      6  CB  BGUA     1       1.528   0.000   0.000  0.00  0.00          BGUA
+ATOM      8 HB1  BGUA     1       1.885  -0.555   0.898  0.00  0.00          BGUA
+ATOM      9 HB2  BGUA     1       1.885  -0.555  -0.898  0.00  0.00          BGUA
+ATOM     10  CG  BGUA     1       2.141   1.406   0.000  0.00  0.00          BGUA
+ATOM     12 HG1  BGUA     1       1.766   1.946  -0.900  0.00  0.00          BGUA
+ATOM     13 HG2  BGUA     1       1.766   1.946   0.900  0.00  0.00          BGUA
+ATOM     14  CD  BGUA     1       3.657   1.411   0.000  0.00  0.00          BGUA
+ATOM     16 HD1  BGUA     1       4.030   0.884   0.910  0.00  0.00          BGUA
+ATOM     17 HD2  BGUA     1       4.031   0.884  -0.909  0.00  0.00          BGUA
+ATOM     18  NE  BGUA     1       4.155   2.797   0.000  0.00  0.00          BGUA
+ATOM     20  HE  BGUA     1       3.468   3.522  -0.000  0.00  0.00          BGUA
+ATOM     21  CZ  BGUA     1       5.477   3.092   0.002  0.00  0.00          BGUA
+ATOM     23 NH1  BGUA     1       5.874   4.385   0.002  0.00  0.00          BGUA
+ATOM     25 HH11 BGUA     1       6.840   4.641   0.003  0.00  0.00          BGUA
+ATOM     26 HH12 BGUA     1       5.216   5.137   0.002  0.00  0.00          BGUA
+ATOM     27 NH2  BGUA     1       6.418   2.122   0.003  0.00  0.00          BGUA
+ATOM     29 HH21 BGUA     1       7.394   2.339   0.004  0.00  0.00          BGUA
+ATOM     30 HH22 BGUA     1       6.181   1.152   0.002  0.00  0.00          BGUA
+TER      31     BGUA     1
+END

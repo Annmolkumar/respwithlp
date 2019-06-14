@@ -1,4 +1,5 @@
 import sys
+import os
 import math
 import numpy as np
 
@@ -74,6 +75,10 @@ if sys.argv[1].split(".")[1] == "mol2":
 if sys.argv[1].split(".")[1] == "pdb":
    pdbfile = sys.argv[1]
    psffile = sys.argv[2]
+
+predpdb = os.path.basename(pdbfile).split("_")[0]
+outdir = "predlp"
+os.system("mkdir -p "+ outdir)
 
 if pdbfile is not None:
    filein = open(pdbfile, "r") 
@@ -153,14 +158,13 @@ natoms = len(anam)
 panam = anam
 cor = {}        
 predlpcor = {}        
+lplist = []
 for i in range (natoms):
     cor[anam[i]] = [float(pos[i][0]),float(pos[i][1]),float(pos[i][2])]
-
-#print(atomind)   
-#print(anam)   
-#print(pos)   
-#print(bndlst)   
-f = open(resi.lower()+"_predlp.pdb","w") 
+    if anam[i][0:2] == "LP" and anam[i][0:3] != "LPX":
+        lplist.append(anam[i])
+#print (lplist)
+f = open(outdir+"/"+predpdb+"_predlp.pdb","w") 
 vect = {}
 v1 = []
 v2 = []
@@ -185,16 +189,16 @@ for i in range(0, len(anam)):
                           atb = atms #bndlst.get(ata)[bndlst.get(ata).index(atms)]
                           break
 
+          lpname = lplist[n]  
           n = n+1
-          lpname = "LP"+str(n) 
           hcoor = [cor[anam[i]],cor[ata],cor[atb]]
           if anam[i][0:1] == "O": 
              predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
           if anam[i][0:1] == "S": 
              predlpcor[lpname] = relative(0.75,95.0,260.0,hcoor)
 
+          lpname = lplist[n]  
           n = n+1
-          lpname = "LP"+str(n) 
           hcoor = [cor[anam[i]],cor[atb],cor[ata]] # Order flipped
           if anam[i][0:1] == "O": 
              predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
@@ -205,8 +209,8 @@ for i in range(0, len(anam)):
           slope = []
           ata = bndlst.get(anam[i])[0]
           hcoor = [cor[anam[i]],cor[ata]]
+          lpname = lplist[n]  
           n = n+1
-          lpname = "LP"+str(n) 
           predlpcor[lpname] = colinear(0.35,1.00,hcoor)
           
     if anam[i][0:1] == "O" and len(bndlst.get(anam[i])) == 2: 
@@ -220,12 +224,12 @@ for i in range(0, len(anam)):
           #bisec = abs(angle(v_anamata,v_anamatb))
            
           hcoor = [cor[anam[i]],cor["RBI"],cor[atb]]
+          lpname = lplist[n]  
           n = n+1
-          lpname = "LP"+str(n) 
           predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
 
+          lpname = lplist[n]  
           n = n+1
-          lpname = "LP"+str(n) 
           predlpcor[lpname] = relative(0.35,110.0,270.0,hcoor)
 
     if anam[i][0:1] == "S" and len(bndlst.get(anam[i])) == 2:
@@ -236,12 +240,12 @@ for i in range(0, len(anam)):
           cor["RBI"] = [ca+cb for ca,cb in zip(cor[atb],cor["RBI"])]
 
           hcoor = [cor[anam[i]],cor["RBI"],cor[atb]]
+          lpname = lplist[n]  
           n = n+1
-          lpname = "LP"+str(n) 
           predlpcor[lpname] = relative(0.70,95.0,100.0,hcoor)
 
+          lpname = lplist[n]  
           n = n+1
-          lpname = "LP"+str(n) 
           hcoor = [cor[anam[i]],cor[atb],cor["RBI"]]  # Flipped order
           predlpcor[lpname] = relative(0.70,95.0,100.0,hcoor)
             
@@ -251,8 +255,8 @@ for i in range(0, len(anam)):
           atb = bndlst.get(anam[i])[1]
           cor["RBI"] = [(ca-cb)/2.0 for ca,cb in zip(cor[ata],cor[atb])]
           cor["RBI"] = [ca+cb for ca,cb in zip(cor[atb],cor["RBI"])]
+          lpname = lplist[n]  
           n = n+1
-          lpname = "LP"+str(n) 
           hcoor = [cor[anam[i]],cor["RBI"],cor[atb]]
           if anam[i][0:1] == "N": 
              predlpcor[lpname] = relative(0.30,180.0,180.0,hcoor)
@@ -296,9 +300,9 @@ for i in range(0, len(anam)):
           v2 = []
           v3 = []
           if poav > 100.0:
-             hcoor = [cor[anam[i]],cor["RBI"],cor[atb]]
+             hcoor = [cor[anam[i]],cor[ata],cor[atb]]
+             lpname = lplist[n]  
              n = n+1
-             lpname = "LP"+str(n) 
              if anam[i][0:1] == "N": 
                 predlpcor[lpname] = relative(0.30,poav,impr,hcoor)
              if anam[i][0:1] == "P": 
@@ -308,10 +312,10 @@ n = 0
 for key in cor.keys():
     if key != "RBI": n = n + 1
     if key[0:2] != "LP" and key[0:1] != "D" and key[0:3] != "RBI":
-       f.write("{:6s}{:5d} {:^4s}{:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,key,resi,1,cor[key][0],cor[key][1],cor[key][2],0.0,0.0,resi))
+       f.write("{:6s}{:5d} {:^4s} {:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,key,resi,1,cor[key][0],cor[key][1],cor[key][2],0.0,0.0,resi))
 for key in predlpcor.keys():
     n = n + 1
-    f.write("{:6s}{:5d} {:^4s}{:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,key,resi,1,predlpcor[key][0],predlpcor[key][1],predlpcor[key][2],0.0,0.0,resi))
+    f.write("{:6s}{:5d} {:^4s} {:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,key,resi,1,predlpcor[key][0],predlpcor[key][1],predlpcor[key][2],0.0,0.0,resi))
 f.write("{:6s}{:5d}     {:4s}  {:4d}\n".format('TER',n+1,resi,1))
 f.write("END")
 f.close() 

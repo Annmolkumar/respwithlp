@@ -1,0 +1,13 @@
+ATOM      1  C1  ACET     1       1.970   1.344   0.000  0.00  0.00          ACET
+ATOM      3  H1  ACET     1       3.074   1.219   0.000  0.00  0.00          ACET
+ATOM      4  H2  ACET     1       1.687   1.928  -0.902  0.00  0.00          ACET
+ATOM      5  H3  ACET     1       1.687   1.928   0.902  0.00  0.00          ACET
+ATOM      6  C2  ACET     1       1.254   0.000   0.000  0.00  0.00          ACET
+ATOM      8  O1  ACET     1       0.000   0.000   0.000  0.00  0.00          ACET
+ATOM     10  O2  ACET     1       1.935  -1.053   0.000  0.00  0.00          ACET
+ATOM     16 LP1A ACET     1      -0.120   0.000  -0.329  0.00  0.00          ACET
+ATOM     17 LP1B ACET     1      -0.099  -0.067   0.329  0.00  0.00          ACET
+ATOM     18 LP2A ACET     1       2.000  -1.154   0.329  0.00  0.00          ACET
+ATOM     19 LP2B ACET     1       1.933  -1.173  -0.329  0.00  0.00          ACET
+TER      20     ACET     1
+END

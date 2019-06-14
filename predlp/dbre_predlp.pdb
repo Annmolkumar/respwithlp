@@ -1,0 +1,10 @@
+ATOM      1  C1  DBRE     1       1.949   0.000   0.000  0.00  0.00          DBRE
+ATOM      3 BR11 DBRE     1       0.000   0.000   0.000  0.00  0.00          DBRE
+ATOM      5 BR12 DBRE     1       2.604  -0.918   1.590  0.00  0.00          DBRE
+ATOM      8 H13  DBRE     1       2.214  -0.539  -0.934  0.00  0.00          DBRE
+ATOM      9  C2  DBRE     1       2.473   1.446   0.000  0.00  0.00          DBRE
+ATOM     11 H21  DBRE     1       3.583   1.450   0.000  0.00  0.00          DBRE
+ATOM     12 H22  DBRE     1       2.112   1.983  -0.904  0.00  0.00          DBRE
+ATOM     13 H23  DBRE     1       2.112   1.983   0.904  0.00  0.00          DBRE
+TER      14     DBRE     1
+END

@@ -1,0 +1,32 @@
+ATOM      1  O4  ARIB     1       1.434   0.000   0.000  0.00  0.00          ARIB
+ATOM      3  C1  ARIB     1       1.852   1.360   0.000  0.00  0.00          ARIB
+ATOM      5  H1  ARIB     1       2.909   1.408  -0.340  0.00  0.00          ARIB
+ATOM      6  O1  ARIB     1       1.751   1.887   1.296  0.00  0.00          ARIB
+ATOM      8 HO1  ARIB     1       2.398   1.435   1.839  0.00  0.00          ARIB
+ATOM      9  C4  ARIB     1       0.000   0.000   0.000  0.00  0.00          ARIB
+ATOM     11  H4  ARIB     1      -0.309   0.239   1.043  0.00  0.00          ARIB
+ATOM     17  C5  ARIB     1      -0.586  -1.377  -0.382  0.00  0.00          ARIB
+ATOM     19 H51  ARIB     1      -0.222  -1.655  -1.385  0.00  0.00          ARIB
+ATOM     20 H52  ARIB     1      -0.241  -2.144   0.330  0.00  0.00          ARIB
+ATOM     21  O5  ARIB     1      -2.015  -1.334  -0.404  0.00  0.00          ARIB
+ATOM     23 HO5  ARIB     1      -2.371  -1.509   0.474  0.00  0.00          ARIB
+ATOM     26  C2  ARIB     1       0.902   2.015  -1.044  0.00  0.00          ARIB
+ATOM     28  H2  ARIB     1       1.349   1.834  -2.047  0.00  0.00          ARIB
+ATOM     29  O2  ARIB     1       0.711   3.425  -0.924  0.00  0.00          ARIB
+ATOM     31 HO2  ARIB     1       0.041   3.546  -0.237  0.00  0.00          ARIB
+ATOM     34  C3  ARIB     1      -0.394   1.151  -0.942  0.00  0.00          ARIB
+ATOM     36  H3  ARIB     1      -0.619   0.751  -1.956  0.00  0.00          ARIB
+ATOM     37  O3  ARIB     1      -1.554   1.830  -0.465  0.00  0.00          ARIB
+ATOM     39 HO3  ARIB     1      -2.328   1.291  -0.668  0.00  0.00          ARIB
+ATOM     42 LP1A ARIB     1       1.506  -0.096  -0.329  0.00  0.00          ARIB
+ATOM     43 LP1B ARIB     1       1.506  -0.096   0.329  0.00  0.00          ARIB
+ATOM     44 LP4A ARIB     1       1.913   2.197   1.283  0.00  0.00          ARIB
+ATOM     45 LP4B ARIB     1       1.465   1.739   1.434  0.00  0.00          ARIB
+ATOM     46 LP5A ARIB     1      -2.097  -0.994  -0.412  0.00  0.00          ARIB
+ATOM     47 LP5B ARIB     1      -2.114  -1.637  -0.548  0.00  0.00          ARIB
+ATOM     48 LP2A ARIB     1       0.986   3.541  -0.741  0.00  0.00          ARIB
+ATOM     49 LP2B ARIB     1       0.513   3.516  -1.198  0.00  0.00          ARIB
+ATOM     50 LP3A ARIB     1      -1.556   1.778  -0.119  0.00  0.00          ARIB
+ATOM     51 LP3B ARIB     1      -1.616   2.083  -0.699  0.00  0.00          ARIB
+TER      52     ARIB     1
+END

@@ -1,0 +1,20 @@
+ATOM      1  C1  CPNM     1       0.000   0.000   0.000  0.00  0.00          CPNM
+ATOM      3 H1A  CPNM     1      -0.347  -0.212  -1.025  0.00  0.00          CPNM
+ATOM      4  C2  CPNM     1       1.557   0.000   0.000  0.00  0.00          CPNM
+ATOM      6 H2A  CPNM     1       1.944  -0.547  -0.889  0.00  0.00          CPNM
+ATOM      7 H2B  CPNM     1       1.954  -0.531   0.894  0.00  0.00          CPNM
+ATOM      8  C3  CPNM     1       2.041   1.475   0.000  0.00  0.00          CPNM
+ATOM     10 H3A  CPNM     1       2.847   1.658  -0.743  0.00  0.00          CPNM
+ATOM     11 H3B  CPNM     1       2.451   1.737   1.002  0.00  0.00          CPNM
+ATOM     12  C4  CPNM     1       0.774   2.313  -0.288  0.00  0.00          CPNM
+ATOM     14 H4A  CPNM     1       0.615   2.408  -1.387  0.00  0.00          CPNM
+ATOM     15 H4B  CPNM     1       0.832   3.339   0.133  0.00  0.00          CPNM
+ATOM     16  C5  CPNM     1      -0.353   1.469   0.341  0.00  0.00          CPNM
+ATOM     18 H5A  CPNM     1      -1.360   1.759  -0.031  0.00  0.00          CPNM
+ATOM     19 H5B  CPNM     1      -0.359   1.612   1.447  0.00  0.00          CPNM
+ATOM     20  C6  CPNM     1      -0.622  -1.023   0.951  0.00  0.00          CPNM
+ATOM     22 H6A  CPNM     1      -1.260  -0.513   1.705  0.00  0.00          CPNM
+ATOM     23 H6B  CPNM     1      -1.252  -1.743   0.386  0.00  0.00          CPNM
+ATOM     24 H6C  CPNM     1       0.171  -1.588   1.485  0.00  0.00          CPNM
+TER      25     CPNM     1
+END

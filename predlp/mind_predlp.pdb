@@ -1,0 +1,21 @@
+ATOM      1  CG  MIND     1       0.000   0.000   0.000  0.00  0.00          MIND
+ATOM      3  CB  MIND     1      -0.878  -1.226   0.000  0.00  0.00          MIND
+ATOM      5 HB1  MIND     1      -0.252  -2.144  -0.000  0.00  0.00          MIND
+ATOM      6 HB2  MIND     1      -1.516  -1.206  -0.909  0.00  0.00          MIND
+ATOM      7 HB3  MIND     1      -1.516  -1.206   0.909  0.00  0.00          MIND
+ATOM      8 CD2  MIND     1      -0.485   1.360   0.000  0.00  0.00          MIND
+ATOM     10 CD1  MIND     1       1.399   0.000   0.000  0.00  0.00          MIND
+ATOM     12 HD1  MIND     1       2.034  -0.871  -0.000  0.00  0.00          MIND
+ATOM     13 NE1  MIND     1       1.824   1.312   0.000  0.00  0.00          MIND
+ATOM     15 HE1  MIND     1       2.769   1.633  -0.000  0.00  0.00          MIND
+ATOM     16 CE2  MIND     1       0.673   2.162   0.000  0.00  0.00          MIND
+ATOM     18 CE3  MIND     1      -1.788   1.830  -0.000  0.00  0.00          MIND
+ATOM     20 HE3  MIND     1      -2.653   1.187  -0.000  0.00  0.00          MIND
+ATOM     21 CZ2  MIND     1       0.545   3.550  -0.000  0.00  0.00          MIND
+ATOM     23 HZ2  MIND     1       1.398   4.206  -0.000  0.00  0.00          MIND
+ATOM     24 CZ3  MIND     1      -1.900   3.230  -0.000  0.00  0.00          MIND
+ATOM     26 HZ3  MIND     1      -2.885   3.676  -0.000  0.00  0.00          MIND
+ATOM     27 CH2  MIND     1      -0.766   4.071  -0.000  0.00  0.00          MIND
+ATOM     29 HH2  MIND     1      -0.908   5.142  -0.000  0.00  0.00          MIND
+TER      30     MIND     1
+END

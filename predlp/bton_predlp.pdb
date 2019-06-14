@@ -1,0 +1,17 @@
+ATOM      1  O1  BTON     1       0.000   0.000   0.000  0.00  0.00          BTON
+ATOM      5  C1  BTON     1       1.218   0.000   0.000  0.00  0.00          BTON
+ATOM      7  C2  BTON     1       2.008   1.273   0.000  0.00  0.00          BTON
+ATOM      9 H21  BTON     1       1.310   2.138   0.000  0.00  0.00          BTON
+ATOM     10 H22  BTON     1       2.647   1.309   0.908  0.00  0.00          BTON
+ATOM     11 H23  BTON     1       2.647   1.309  -0.908  0.00  0.00          BTON
+ATOM     12  C3  BTON     1       1.990  -1.275  -0.000  0.00  0.00          BTON
+ATOM     14 H31  BTON     1       1.713  -1.840   0.916  0.00  0.00          BTON
+ATOM     15 H32  BTON     1       1.713  -1.840  -0.916  0.00  0.00          BTON
+ATOM     16  C4  BTON     1       3.494  -1.003  -0.000  0.00  0.00          BTON
+ATOM     18 H41  BTON     1       4.056  -1.961  -0.000  0.00  0.00          BTON
+ATOM     19 H42  BTON     1       3.776  -0.421  -0.904  0.00  0.00          BTON
+ATOM     20 H43  BTON     1       3.776  -0.421   0.904  0.00  0.00          BTON
+ATOM     21 LPA  BTON     1      -0.120   0.000  -0.329  0.00  0.00          BTON
+ATOM     22 LPB  BTON     1      -0.101  -0.064   0.329  0.00  0.00          BTON
+TER      23     BTON     1
+END

@@ -1,0 +1,10 @@
+ATOM      1  C1  ETHA     1       1.093   0.000   0.000  0.00  0.00          ETHA
+ATOM      3 H11  ETHA     1       0.000   0.000   0.000  0.00  0.00          ETHA
+ATOM      4 H12  ETHA     1       1.426  -0.552  -0.883  0.00  0.00          ETHA
+ATOM      5 H13  ETHA     1       1.426  -0.552   0.883  0.00  0.00          ETHA
+ATOM      6  C2  ETHA     1       1.645   1.423   0.000  0.00  0.00          ETHA
+ATOM      8 H21  ETHA     1       2.738   1.423   0.000  0.00  0.00          ETHA
+ATOM      9 H22  ETHA     1       1.312   1.975  -0.883  0.00  0.00          ETHA
+ATOM     10 H23  ETHA     1       1.312   1.975   0.883  0.00  0.00          ETHA
+TER      11     ETHA     1
+END

@@ -1,0 +1,10 @@
+ATOM      1  C1  TIET     1       2.170   0.000   0.000  0.00  0.00          TIET
+ATOM      3 I11  TIET     1       0.000   0.000   0.000  0.00  0.00          TIET
+ATOM      5 I12  TIET     1       2.909  -1.020   1.767  0.00  0.00          TIET
+ATOM      7 I13  TIET     1       2.909  -1.020  -1.767  0.00  0.00          TIET
+ATOM     12  C2  TIET     1       2.688   1.448   0.000  0.00  0.00          TIET
+ATOM     14 H21  TIET     1       3.799   1.456   0.000  0.00  0.00          TIET
+ATOM     15 H22  TIET     1       2.326   1.983  -0.904  0.00  0.00          TIET
+ATOM     16 H23  TIET     1       2.326   1.983   0.904  0.00  0.00          TIET
+TER      17     TIET     1
+END

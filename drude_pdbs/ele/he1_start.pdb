@@ -1,7 +1,0 @@
-REMARK  $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $                        
-REMARK  MASTER TEST CASE FOR DRUDE                                                    
-REMARK   DATE:     6/13/19     16:19:27      CREATED BY USER: pchatter                
-ATOM      1 HE01 HE1     1       0.000   0.000   0.000  1.00  0.00      HE1 
-ATOM      2 DHE0 HE1     1      -0.002  -0.002  -0.002  1.00  0.00      HE1 
-TER       3      HE1      1
-END

@@ -1,0 +1,14 @@
+ATOM      1  C1  ACEH     1       2.088   1.222   0.000  0.00  0.00          ACEH
+ATOM      3  H1  ACEH     1       1.458   2.137   0.000  0.00  0.00          ACEH
+ATOM      4  H2  ACEH     1       2.729   1.214  -0.907  0.00  0.00          ACEH
+ATOM      5  H3  ACEH     1       2.729   1.214   0.907  0.00  0.00          ACEH
+ATOM      6  C2  ACEH     1       1.200   0.000   0.000  0.00  0.00          ACEH
+ATOM      8  O2  ACEH     1       0.000   0.000   0.000  0.00  0.00          ACEH
+ATOM     12  O1  ACEH     1       1.924  -1.115  -0.000  0.00  0.00          ACEH
+ATOM     16 HO1  ACEH     1       1.341  -1.890  -0.000  0.00  0.00          ACEH
+ATOM     17 LP2A ACEH     1      -0.120  -0.000   0.329  0.00  0.00          ACEH
+ATOM     18 LP2B ACEH     1      -0.104   0.060  -0.329  0.00  0.00          ACEH
+ATOM     19 LP1A ACEH     1       2.040  -1.145  -0.329  0.00  0.00          ACEH
+ATOM     20 LP1B ACEH     1       2.040  -1.145   0.329  0.00  0.00          ACEH
+TER      21     ACEH     1
+END

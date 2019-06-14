@@ -1,0 +1,10 @@
+ATOM      1  C1  TFET     1       1.360   0.000   0.000  0.00  0.00          TFET
+ATOM      3 F11  TFET     1       0.000   0.000   0.000  0.00  0.00          TFET
+ATOM      5 F12  TFET     1       1.746  -0.652   1.129  0.00  0.00          TFET
+ATOM      7 F13  TFET     1       1.746  -0.652  -1.129  0.00  0.00          TFET
+ATOM      9  C2  TFET     1       1.909   1.437   0.000  0.00  0.00          TFET
+ATOM     11 H21  TFET     1       3.020   1.421   0.000  0.00  0.00          TFET
+ATOM     12 H22  TFET     1       1.558   1.980  -0.904  0.00  0.00          TFET
+ATOM     13 H23  TFET     1       1.558   1.980   0.904  0.00  0.00          TFET
+TER      14     TFET     1
+END

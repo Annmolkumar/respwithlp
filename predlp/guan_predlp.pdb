@@ -1,0 +1,12 @@
+ATOM      1  C   GUAN     1       1.340   0.000   0.000  0.00  0.00          GUAN
+ATOM      3  N1  GUAN     1       0.000   0.000   0.000  0.00  0.00          GUAN
+ATOM      5 H11  GUAN     1      -0.519   0.851   0.000  0.00  0.00          GUAN
+ATOM      6 H12  GUAN     1      -0.519  -0.851   0.000  0.00  0.00          GUAN
+ATOM      7  N2  GUAN     1       2.010   1.161   0.000  0.00  0.00          GUAN
+ATOM      9 H21  GUAN     1       1.533   2.036   0.000  0.00  0.00          GUAN
+ATOM     10 H22  GUAN     1       3.007   1.185   0.000  0.00  0.00          GUAN
+ATOM     11  N3  GUAN     1       2.010  -1.161   0.000  0.00  0.00          GUAN
+ATOM     13 H31  GUAN     1       1.533  -2.036   0.000  0.00  0.00          GUAN
+ATOM     14 H32  GUAN     1       3.007  -1.185   0.000  0.00  0.00          GUAN
+TER      15     GUAN     1
+END

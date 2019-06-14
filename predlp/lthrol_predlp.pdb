@@ -1,0 +1,28 @@
+ATOM      1  C1  LTHR     1       0.000   0.000   0.000  0.00  0.00          LTHR
+ATOM      3 H11  LTHR     1      -0.223  -1.065  -0.058  0.00  0.00          LTHR
+ATOM      4 H12  LTHR     1      -0.245   0.605   0.947  0.00  0.00          LTHR
+ATOM      5  O1  LTHR     1      -0.526   0.642  -1.110  0.00  0.00          LTHR
+ATOM      7 HO1  LTHR     1      -0.431   1.541  -0.838  0.00  0.00          LTHR
+ATOM     10  C2  LTHR     1       1.605   0.000   0.000  0.00  0.00          LTHR
+ATOM     12  H2  LTHR     1       1.991  -0.306  -1.014  0.00  0.00          LTHR
+ATOM     13  O2  LTHR     1       2.182  -0.764   1.044  0.00  0.00          LTHR
+ATOM     15 HO2  LTHR     1       1.937  -1.663   1.048  0.00  0.00          LTHR
+ATOM     18  C3  LTHR     1       2.119   1.542   0.000  0.00  0.00          LTHR
+ATOM     20  H3  LTHR     1       1.718   2.056  -0.905  0.00  0.00          LTHR
+ATOM     21  O3  LTHR     1       1.655   2.185   1.175  0.00  0.00          LTHR
+ATOM     23 HO3  LTHR     1       2.023   1.673   1.859  0.00  0.00          LTHR
+ATOM     26  C4  LTHR     1       3.579   1.782  -0.043  0.00  0.00          LTHR
+ATOM     28 H41  LTHR     1       4.161   1.423   0.795  0.00  0.00          LTHR
+ATOM     29 H42  LTHR     1       3.849   2.864  -0.097  0.00  0.00          LTHR
+ATOM     30  O4  LTHR     1       4.203   1.266  -1.253  0.00  0.00          LTHR
+ATOM     32 HO4  LTHR     1       4.119   0.307  -1.269  0.00  0.00          LTHR
+ATOM     35 LP1A LTHR     1      -0.275   0.632  -1.354  0.00  0.00          LTHR
+ATOM     36 LP1B LTHR     1      -0.874   0.612  -1.081  0.00  0.00          LTHR
+ATOM     37 LP2A LTHR     1       2.512  -0.823   0.944  0.00  0.00          LTHR
+ATOM     38 LP2B LTHR     1       1.999  -0.681   1.331  0.00  0.00          LTHR
+ATOM     39 LP3A LTHR     1       1.856   2.469   1.214  0.00  0.00          LTHR
+ATOM     40 LP3B LTHR     1       1.322   2.085   1.214  0.00  0.00          LTHR
+ATOM     41 LP4A LTHR     1       3.975   1.330  -1.511  0.00  0.00          LTHR
+ATOM     42 LP4B LTHR     1       4.547   1.275  -1.192  0.00  0.00          LTHR
+TER      43     LTHR     1
+END

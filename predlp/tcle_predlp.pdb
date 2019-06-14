@@ -1,0 +1,10 @@
+ATOM      1  C1  TCLE     1       1.795   0.000   0.000  0.00  0.00          TCLE
+ATOM      3 CL11 TCLE     1       0.000   0.000   0.000  0.00  0.00          TCLE
+ATOM      5 CL12 TCLE     1       2.382  -0.848   1.469  0.00  0.00          TCLE
+ATOM      6 CL13 TCLE     1       2.382  -0.848  -1.469  0.00  0.00          TCLE
+ATOM     10  C2  TCLE     1       2.346   1.436   0.000  0.00  0.00          TCLE
+ATOM     12 H21  TCLE     1       3.457   1.418   0.000  0.00  0.00          TCLE
+ATOM     13 H22  TCLE     1       1.996   1.979  -0.904  0.00  0.00          TCLE
+ATOM     14 H23  TCLE     1       1.996   1.979   0.904  0.00  0.00          TCLE
+TER      15     TCLE     1
+END
