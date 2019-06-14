@@ -1,0 +1,69 @@
+
+ Electrostatic potential parameters
+
+ Grid information (see 1_default_grid.dat in units of <psi4)
+     van der Waals radii (Angstrom):
+                                       O   1.400
+                                       H   1.200
+                                       C   1.500
+     Number of VDW layers:             4
+     VDW scale facotr:                 1.400
+     VDW increment:                    0.200
+     VDW point density:                1.000
+     Number of grid points:            1065
+
+ Quantum electrostatic potential (see 1_default_grid_esp.dat)
+     ESP method:                       scf
+     ESP basis set:                    6-31g*
+
+ Constraints
+
+ Restraint
+     Hyperbolic restraint to a charge of zero
+     Hydrogen atoms are not restrained
+     resp_a:                           0.0005
+     resp_b:                           0.1000
+
+ Fit
+
+ Electrostatic Potential Charges
+   Center  Symbol       ESP      RESP
+       1    C       -0.02520   0.02404
+       2    H        0.04992   0.05810
+       3    H        0.04813   0.04641
+       4    O       -0.70874  -0.66197
+       5    H        0.47626   0.44869
+       6    C        0.74859   0.36392
+       7    H        0.02390   0.08452
+       8    O       -0.69081  -0.61378
+       9    H        0.41819   0.40678
+      10    C       -0.25643  -0.04112
+      11    H        0.09982   0.06366
+      12    O       -0.59775  -0.54962
+      13    H        0.40122   0.36921
+      14    C        0.55645   0.03496
+      15    H       -0.13057   0.07763
+      16    O       -0.77806  -0.70009
+      17    H        0.47860   0.45161
+      18    C        0.40290   0.29920
+      19    H       -0.01908   0.05482
+      20    O       -0.79050  -0.71983
+      21    H        0.46661   0.44238
+      22    C       -0.14625   0.00587
+      23    H        0.09158   0.06937
+      24    H        0.10860   0.08346
+      25    O       -0.80345  -0.73785
+      26    H        0.44237   0.43942
+      27    LP1A       -0.65358  -0.05824
+      28    LP1B        0.33848   0.00008
+      29    LP2A        0.03100   0.01015
+      30    LP2B        0.12729   0.02971
+      31    LP3A       -0.17475   0.01021
+      32    LP3B        0.19798   0.01407
+      33    LP4A        0.13456   0.11960
+      34    LP4B       -0.13227  -0.06289
+      35    LP5A        0.03610   0.05375
+      36    LP5B        0.05877   0.03317
+      37    LP6A        0.16932   0.02026
+      38    LP6B        0.00076   0.03033
+ Total Charge:      -0.00000   0.00000
