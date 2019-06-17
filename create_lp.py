@@ -193,17 +193,21 @@ for i in range(0, len(anam)):
           n = n+1
           hcoor = [cor[anam[i]],cor[ata],cor[atb]]
           if anam[i][0:1] == "O": 
-             predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
+             #predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor) # Out of plane lone pairs
+             predlpcor[lpname] = relative(0.35,110.0,0.0,hcoor)
           if anam[i][0:1] == "S": 
-             predlpcor[lpname] = relative(0.75,95.0,260.0,hcoor)
+             #predlpcor[lpname] = relative(0.75,95.0,260.0,hcoor)
+             predlpcor[lpname] = relative(0.75,95.0,0.0,hcoor)
 
           lpname = lplist[n]  
           n = n+1
-          hcoor = [cor[anam[i]],cor[atb],cor[ata]] # Order flipped
+       #  hcoor = [cor[anam[i]],cor[atb],cor[ata]] # Order flipped 
           if anam[i][0:1] == "O": 
-             predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
+             #predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
+             predlpcor[lpname] = relative(0.35,110.0,180.0,hcoor)
           if anam[i][0:1] == "S": 
-             predlpcor[lpname] = relative(0.75,95.0,260.0,hcoor)
+             #predlpcor[lpname] = relative(0.75,95.0,260.0,hcoor)
+             predlpcor[lpname] = relative(0.75,95.0,180.0,hcoor)
 
     if anam[i][0:1] == "N" and len(bndlst.get(anam[i])) == 1:
           slope = []
@@ -312,10 +316,10 @@ n = 0
 for key in cor.keys():
     if key != "RBI": n = n + 1
     if key[0:2] != "LP" and key[0:1] != "D" and key[0:3] != "RBI":
-       f.write("{:6s}{:5d} {:^4s} {:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,key,resi,1,cor[key][0],cor[key][1],cor[key][2],0.0,0.0,resi))
+       f.write("{:6s}{:5d} {:^4s}{:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,key,resi,1,cor[key][0],cor[key][1],cor[key][2],0.0,0.0,resi))
 for key in predlpcor.keys():
     n = n + 1
-    f.write("{:6s}{:5d} {:^4s} {:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,key,resi,1,predlpcor[key][0],predlpcor[key][1],predlpcor[key][2],0.0,0.0,resi))
+    f.write("{:6s}{:5d} {:^4s}{:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,key,resi,1,predlpcor[key][0],predlpcor[key][1],predlpcor[key][2],0.0,0.0,resi))
 f.write("{:6s}{:5d}     {:4s}  {:4d}\n".format('TER',n+1,resi,1))
 f.write("END")
 f.close() 

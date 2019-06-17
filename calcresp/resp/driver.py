@@ -98,7 +98,8 @@ def resp(molecules, options_list=None, intermol_constraints=None):
             lpcoor.append(line.split()[1:4])
         lpsym = np.array(lpsym)    
         lpcoor = np.array(lpcoor)
-        lpcoor = lpcoor.astype('float')*bohr_to_angstrom
+        #lpcoor = lpcoor.astype('float')*bohr_to_angstrom
+        lpcoor = lpcoor.astype('float')
 #        print ("lpsym and lpcoor")    
 #        print (lpsym)    
 #        print (lpcoor)    
@@ -191,6 +192,8 @@ def resp(molecules, options_list=None, intermol_constraints=None):
         
         n_atoms[imol] += len((lpcoor)) 
         if lpcoor != []: coordinates = np.concatenate((coordinates,lpcoor),axis=0)
+        print ("coordinates")
+        print (coordinates)
         options['coordinates'] = coordinates
         if lpsym != []: symbols = np.concatenate((symbols,lpsym),axis=0)
         options['symbols'] = symbols
