@@ -2,7 +2,7 @@ import sys
 import os
 import math
 import numpy as np
-from create_psi4inpfile import Psi4Writer as psw
+from runpsi4 import runPsi4
 
 def dotproduct(v1, v2):
   return sum((a*b) for a, b in zip(v1, v2))
@@ -359,12 +359,11 @@ def main():
        os.mkdir(outdir)
 
     printpdb(outdir,prefname,r,d,f)
-    psw(outdir,psi4name,resn='resn',rescharge=0,multiplicity=1,coor=d,lpcoor=f,mem="1000Mb",cpu=4,lot="scf",basis="6-31g*")
-    from subprocess import call
-    call(["python", outdir+"/"+psi4name+".py"])
+    runPsi4(outdir,psi4name,resn='resn',rescharge=0,multiplicity=1,coor=d,lpcoor=f,mem="1000Mb",cpu=4,lot="scf",basis="6-31g*")
     
 if __name__ == "__main__":
    print ("Either provide (mol2) file or (pdb and psf) files")
    main()
+
 
 
