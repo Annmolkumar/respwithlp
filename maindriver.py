@@ -401,8 +401,6 @@ def main():
        os.mkdir(outdir)
 
     printpdb(outdir,prefname,resname,coorv,lpcoorv)
-    print (args.charge)
-    print (args.multiplicity)
     runPsi4(outdir,psi4name,resn=resname,rescharge=args.charge,multiplicity=args.multiplicity,coor=coorv,lpcoor=lpcoorv,lplist=lplist,mem=args.memory,cpu=args.nthreads,lot=args.theory,basis=args.basis)
     
 if __name__ == "__main__":

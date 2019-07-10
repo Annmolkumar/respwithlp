@@ -58,10 +58,10 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
     mol.set_name('stage1')
     # Call for first stage fit
     charges1 = resp.resp([mol], [options])
-    print('Electrostatic Potential Charges')
-    print(charges1[0][0])
-    print('Restrained Electrostatic Potential Charges')
-    print(charges1[0][1])
+    #print('Electrostatic Potential Charges')
+    #print(charges1[0][0])
+    #print('Restrained Electrostatic Potential Charges')
+    #print(charges1[0][1])
     
     allcoor = coor + lpcoor
     respchar = OrderedDict()
@@ -74,12 +74,10 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
            respchar[key] = 0.0
            for val in lplist[key]:
                respchar[val] = respchar[val] + tobedist
-    print (list(respchar.values()))       
+    #print (list(respchar.values()))       
     # Call for second stage fit
     stage2=resp.stage2_helper()
-    #stage2.set_stage2_constraint(mol,charges1[0][1],options,cutoff=1.2)
     stage2.set_stage2_constraint(mol,list(respchar.values()),options,cutoff=1.2)
-   # mol.set_name('stage2')
     options['resp_a'] = 0.001
     options['grid'] = '1_%s_grid.dat' %mol.name()
     options['esp'] = '1_%s_grid_esp.dat' %mol.name()
