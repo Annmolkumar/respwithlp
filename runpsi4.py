@@ -1,4 +1,6 @@
 from __future__ import division, absolute_import, print_function
+import os
+
 
 def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpcoor=None,lplist=None,mem="1000Mb",cpu=4,lot="scf",basis="6-31g*"):
     import pytest
@@ -6,7 +8,8 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
     import psi4
     from localresp import resp
     import numpy as np
-    
+    from collections import OrderedDict
+
     psi4.set_num_threads(cpu)
     psi4.set_memory(mem)
     psi4.core.set_output_file(outdir+"/"+prefname+".out", False)
@@ -52,6 +55,7 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
                'RADIUS'             : {'BR':1.97,'I':2.19}
                }
     
+    mol.set_name('stage1')
     # Call for first stage fit
     charges1 = resp.resp([mol], [options])
     print('Electrostatic Potential Charges')
@@ -60,7 +64,7 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
     print(charges1[0][1])
     
     allcoor = coor + lpcoor
-    respchar = {}
+    respchar = OrderedDict()
     for i in range(len(allcoor)):
         respchar[allcoor[i][0]]  = charges1[0][1][i]
     
@@ -75,8 +79,7 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
     stage2=resp.stage2_helper()
     #stage2.set_stage2_constraint(mol,charges1[0][1],options,cutoff=1.2)
     stage2.set_stage2_constraint(mol,list(respchar.values()),options,cutoff=1.2)
-    #mol.set_name('stage1')
-    mol.set_name('stage2')
+   # mol.set_name('stage2')
     options['resp_a'] = 0.001
     options['grid'] = '1_%s_grid.dat' %mol.name()
     options['esp'] = '1_%s_grid_esp.dat' %mol.name()
@@ -89,3 +92,7 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
            respchar[allcoor[i][0]]  = charges2[0][1][i]
        for key,value in respchar.items():
            fout.write("%s  %7.3f \n"%(key, value))
+       for key,value in lplist.items():
+           fout.write("%s  %s \n"%(key, value))
+    os.remove('1_%s_grid.dat' %mol.name()) 
+    os.remove('1_%s_grid_esp.dat' %mol.name()) 
