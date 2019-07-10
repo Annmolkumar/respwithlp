@@ -1,24 +1,24 @@
 from __future__ import division, absolute_import, print_function
 
-def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpcoor=None,mem="1000Mb",cpu=4,lot="scf",basis="6-31g*"):
+def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpcoor=None,lplist=None,mem="1000Mb",cpu=4,lot="scf",basis="6-31g*"):
     import pytest
     import sys
     import psi4
     from localresp import resp
     import numpy as np
-
+    
     psi4.set_num_threads(cpu)
     psi4.set_memory(mem)
-    psi4.core.set_output_file("%s.out", False)
+    psi4.core.set_output_file(outdir+"/"+prefname+".out", False)
     
     xyz='%d %d\n' %(rescharge,multiplicity)
     xyz='    '+xyz
     n = 0
     geoline = ""
-    for key in coor.keys():
-        if key != "RBI": n = n + 1
-        if key[0:2] != "LP" and key[0:1] != "D" and key[0:3] != "RBI":
-            geoline  = geoline + key[0:1] + "  " + str(coor[key][0]) + "  " + str(coor[key][1]) + "  " + str(coor[key][2]) + " \n"
+    for key in coor:
+        if key[0] != "RBI": n = n + 1
+        if key[0][0:2] != "LP" and key[0][0:1] != "D" and key[0][0:3] != "RBI":
+            geoline  = geoline + key[0][0:1] + "  " + str(key[1]) + "  " + str(key[2]) + "  " + str(key[3]) + " \n"
     xyz=xyz+geoline
     psi4_xyz="""
     %s
@@ -31,9 +31,9 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
     xyz='' 
     n = 0
     geoline = ""
-    for key in lpcoor.keys():
-        if key[0:2] == "LP": 
-           geoline  = geoline + key + "  " + str(lpcoor[key][0]) + "  " + str(lpcoor[key][1]) + "  " + str(lpcoor[key][2]) + " \n"
+    for key in lpcoor:
+        if key[0][0:2] == "LP": 
+           geoline  = geoline + key[0] + "  " + str(key[1]) + "  " + str(key[2]) + "  " + str(key[3]) + " \n"
     xyz=xyz+geoline
     lp="""
     %s
@@ -59,37 +59,33 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
     print('Restrained Electrostatic Potential Charges')
     print(charges1[0][1])
     
+    allcoor = coor + lpcoor
+    respchar = {}
+    for i in range(len(allcoor)):
+        respchar[allcoor[i][0]]  = charges1[0][1][i]
+    
+    for key in list(respchar.keys()):
+        if key in list(lplist.keys()):
+           tobedist = respchar[key]/len(lplist[key])
+           respchar[key] = 0.0
+           for val in lplist[key]:
+               respchar[val] = respchar[val] + tobedist
+    print (list(respchar.values()))       
     # Call for second stage fit
-    newrest = []
-    for i in range(len(charges1[0][1])):
-        if i < 5:
-           newrest.append(charges1[0][1][i])
-        elif i == 5:
-           newrest.append(0.0)
-        elif i == 6:
-           newrest.append(0.0)
-        elif i == 7:
-           newrest.append(charges1[0][1][i])
-        elif i == 8 or i == 9:
-           char = charges1[0][1][5]/2.0
-           newrest.append(charges1[0][1][i]+char)
-        elif i == 10 or i == 11:
-           char = charges1[0][1][6]/2.0
-           newrest.append(charges1[0][1][i]+char)
-    print(newrest)
-    print(sum(newrest))
-   # sys.exit()
     stage2=resp.stage2_helper()
     #stage2.set_stage2_constraint(mol,charges1[0][1],options,cutoff=1.2)
-    stage2.set_stage2_constraint(mol,newrest,options,cutoff=1.2)
+    stage2.set_stage2_constraint(mol,list(respchar.values()),options,cutoff=1.2)
+    #mol.set_name('stage1')
+    mol.set_name('stage2')
     options['resp_a'] = 0.001
     options['grid'] = '1_%s_grid.dat' %mol.name()
     options['esp'] = '1_%s_grid_esp.dat' %mol.name()
-    mol.set_name('stage2')
+    fout = open(outdir+"/"+"resp.dat","w")
     if options.get('constraint_group')==[]:
-       print('Stage1 equals Stage2')
+       fout.write('Stage1 equals Stage2')
     else:
        charges2 = resp.resp([mol], [options])
-       print('RESP Charges')
-       print(charges2[0][1])
-
+       for i in range(len(allcoor)):
+           respchar[allcoor[i][0]]  = charges2[0][1][i]
+       for key,value in respchar.items():
+           fout.write("%s  %7.3f \n"%(key, value))

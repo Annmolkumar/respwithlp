@@ -100,11 +100,7 @@ def resp(molecules, options_list=None, intermol_constraints=None):
                lpcoor.append(line.split()[1:4])
         lpsym = np.array(lpsym)    
         lpcoor = np.array(lpcoor)
-        #lpcoor = lpcoor.astype('float')*bohr_to_angstrom
         lpcoor = lpcoor.astype('float')
-#        print ("lpsym and lpcoor")    
-#        print (lpsym)    
-#        print (lpcoor)    
     # QM options
     if 'METHOD_ESP' not in options:
         options['METHOD_ESP'] = 'scf'
@@ -194,8 +190,6 @@ def resp(molecules, options_list=None, intermol_constraints=None):
         
         n_atoms[imol] += len((lpcoor)) 
         if lpcoor != []: coordinates = np.concatenate((coordinates,lpcoor),axis=0)
-        print ("coordinates")
-        print (coordinates)
         options['coordinates'] = coordinates
         if lpsym != []: symbols = np.concatenate((symbols,lpsym),axis=0)
         options['symbols'] = symbols
@@ -228,12 +222,13 @@ def resp(molecules, options_list=None, intermol_constraints=None):
             f.write("\n Grid information (see %i_%s_grid.dat in %s)\n"
                     %(imol+1, molecules[imol].name(), str(molecules[imol].units).split('.')[1]))
             f.write("     van der Waals radii (Angstrom):\n")
-            for i, j in radii.items():
-                f.write("                                %8s%8.3f\n" %(i, j/scale_factor))
-            f.write("     Number of VDW layers:             %d\n" %(options["N_VDW_LAYERS"]))
-            f.write("     VDW scale facotr:                 %.3f\n" %(options["VDW_SCALE_FACTOR"]))
-            f.write("     VDW increment:                    %.3f\n" %(options["VDW_INCREMENT"]))
-            f.write("     VDW point density:                %.3f\n" %(options["VDW_POINT_DENSITY"]))
+            if not options['GRID']:
+               for i, j in radii.items():
+                   f.write("                                %8s%8.3f\n" %(i, j/scale_factor))
+               f.write("     Number of VDW layers:             %d\n" %(options["N_VDW_LAYERS"]))
+               f.write("     VDW scale facotr:                 %.3f\n" %(options["VDW_SCALE_FACTOR"]))
+               f.write("     VDW increment:                    %.3f\n" %(options["VDW_INCREMENT"]))
+               f.write("     VDW point density:                %.3f\n" %(options["VDW_POINT_DENSITY"]))
             f.write("     Number of grid points:            %d\n" %len(options['esp_values']))
 
             f.write("\n Quantum electrostatic potential (see %i_%s_grid_esp.dat)\n" %(imol+1, molecules[imol].name()))

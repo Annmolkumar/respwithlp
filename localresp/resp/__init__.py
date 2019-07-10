@@ -9,7 +9,6 @@ __version__ = '0.7'
 __license__ = "BSD-3-Clause"
 __date__    = "2018-04-28"
 
-print ("aasdddd")
 from .driver import resp
 from . import espfit
 from .extras import test
