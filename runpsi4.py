@@ -14,7 +14,7 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
     psi4.set_memory(mem)
     psi4.core.set_output_file(outdir+"/"+prefname+".out", False)
     
-    xyz='%d %d\n' %(rescharge,multiplicity)
+    xyz='%s %s\n' %(rescharge,multiplicity)
     xyz='    '+xyz
     n = 0
     geoline = ""

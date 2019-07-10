@@ -2,7 +2,17 @@ import sys
 import os
 import math
 import numpy as np
+import argparse
 from runpsi4 import runPsi4
+
+class LoadFromFile (argparse.Action):
+    def __call__ (self, parser, namespace, values, option_string = None):
+        rsarg = []
+        with values as f:
+            argline = f.read()
+            arglist = argline.split()
+      
+        parser.parse_args(nrsarg, namespace)
 
 def dotproduct(v1, v2):
   return sum((a*b) for a, b in zip(v1, v2))
@@ -349,47 +359,53 @@ def printpdb(outdir,prefname,resi,cor,predlpcor):
 
 
 def main():
-    mol2name = None; pdbname = None; psfname = None; outdir = None
-    for arg in sys.argv:
-        exten = arg.strip().split(".")[1]
-        if exten == "mol2":
-           mol2name = arg
-        elif exten == "pdb":
-           pdbname = arg
-        elif exten == "psf":
-           psfname = arg
-        else:
-           outdir = arg
-
-    if mol2name:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-mol2","--mol2file",help="Required Argument: Provide Mol2 File")
+    parser.add_argument("-pdb","--pdbfile",help="Required Argument: Provide Pdb file") 
+    parser.add_argument("-psf","--psffile",help="Required Argument: Pdb file requires psf file")
+    parser.add_argument("-dir","--workdir",type=str,default=".",help="Enter were the output files will be saved")
+    parser.add_argument("-mem","--memory",type=str,default="1000Mb",help="Memory")
+    parser.add_argument("-cpu","--nthreads",type=int,default=4,help="Number of threads")
+    parser.add_argument("-lot","--theory",type=str,default="scf",help="Enter level of theory")
+    parser.add_argument("-basis","--basis",type=str,default="6-31g*",help="Basis set")
+    parser.add_argument("-c","--charge",type=int,default=0,help="Charge of the molecule, default is 0")
+    parser.add_argument("-m","--multiplicity",type=int,default=1,help="Multiplicity of the molecule, default is 1")
+    parser.add_argument("-f","--file",type=open,action=LoadFromFile)
+    args = parser.parse_args()
+    
+    if args.mol2file is None: 
+       parser.print_help()
+       sys.exit()
+    if args.pdbfile is not None and args.psffile is None:
+       parser.print_help()
+       sys.exit()
+    if args.mol2file:
+       mol2name = args.mol2file
        prefname = os.path.basename(mol2name)
        psi4name = prefname.strip().split(".")[0]
-       prefdir = os.path.dirname(mol2name)
        resname, anamv, posv, bndlstv = readmol2(mol2name)
-    if pdbname and psfname:
+    if args.pdbfile and args.psffile:
+       pdbname = args.pdbfile
+       psfname = args.psffile
        prefname = os.path.basename(pdbname)
        psi4name = prefname.strip().split(".")[0]
-       prefdir = os.path.dirname(pdbname)
        resname, anamv, posv, bndlstv = readpdbpsf(pdbname,psfname)
-    if not mol2name and not psfname:
-       print ("PDB file requires psf for bond information")
-       sys.exit()
      
     coorv,lpcoorv,lplist = createlonepair(anamv, posv, bndlstv)
     
-    if not outdir:
-       if prefdir == "":
-          outdir = "coorwithlp"
-       else:
-          outdir = prefdir+"/coorwithlp"
-       if not os.path.exists(outdir):
-          os.mkdir(outdir)
+    if not args.workdir:
+       outdir = "."
+    else:
+       outdir = args.workdir
+    if not os.path.exists(outdir):
+       os.mkdir(outdir)
 
     printpdb(outdir,prefname,resname,coorv,lpcoorv)
-    runPsi4(outdir,psi4name,resn='resn',rescharge=0,multiplicity=1,coor=coorv,lpcoor=lpcoorv,lplist=lplist,mem="1000Mb",cpu=4,lot="scf",basis="6-31g*")
+    print (args.charge)
+    print (args.multiplicity)
+    runPsi4(outdir,psi4name,resn=resname,rescharge=args.charge,multiplicity=args.multiplicity,coor=coorv,lpcoor=lpcoorv,lplist=lplist,mem=args.memory,cpu=args.nthreads,lot=args.theory,basis=args.basis)
     
 if __name__ == "__main__":
-   print ("Either provide (mol2) file or (pdb and psf) files")
    main()
 
 
