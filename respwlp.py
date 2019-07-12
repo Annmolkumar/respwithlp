@@ -246,6 +246,7 @@ def readmol2(mol2name):
 def createlonepair(anam,pos,bndlst):
     natoms = len(anam)
     lpbndlst = OrderedDict()
+    lpbnddict = OrderedDict()
     nlpbndlst = OrderedDict()
     cor = OrderedDict()        
     predlpcor = []       
@@ -284,7 +285,8 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]] = [lpname]
-              nlpbndlst[i+1] = [n + natmwolp]
+              lpbnddict[lpname] = [anam[i]]
+              nlpbndlst[i] = [n + natmwolp - 1]
               hcoor = [cor[anam[i]],cor[ata],cor[atb]]
               if anam[i][0:1] == "O": 
                  ##predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor) # Out of plane lone pairs
@@ -298,7 +300,8 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]].append(lpname)
-              nlpbndlst[i+1].append(n + natmwolp)
+              lpbnddict[lpname] = [anam[i]]
+              nlpbndlst[i].append(n + natmwolp - 1)
            #  hcoor = [cor[anam[i]],cor[atb],cor[ata]] # Order flipped 
               if anam[i][0:1] == "O": 
                  ##predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
@@ -316,7 +319,8 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]] = [lpname]
-              nlpbndlst[i+1] = [n + natmwolp]
+              lpbnddict[lpname] = [anam[i]]
+              nlpbndlst[i] = [n + natmwolp - 1]
               #predlpcor[lpname] = colinear(0.35,1.00,hcoor)
               predlpcor.append([lpname]+colinear(0.35,1.00,hcoor))
               
@@ -334,14 +338,16 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]] = [lpname]
-              nlpbndlst[i+1] = [n + natmwolp]
+              lpbnddict[lpname] = [anam[i]]
+              nlpbndlst[i] = [n + natmwolp - 1]
               #predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
               predlpcor.append([lpname]+relative(0.35,110.0,90.0,hcoor))
     
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]].append(lpname)
-              nlpbndlst[i+1].append(n + natmwolp)
+              lpbnddict[lpname] = [anam[i]]
+              nlpbndlst[i].append(n + natmwolp - 1)
               #predlpcor[lpname] = relative(0.35,110.0,270.0,hcoor)
               predlpcor.append([lpname]+relative(0.35,110.0,270.0,hcoor))
     
@@ -356,14 +362,16 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]] = [lpname]
-              nlpbndlst[i+1] = [n + natmwolp]
+              lpbnddict[lpname] = [anam[i]]
+              nlpbndlst[i] = [n + natmwolp - 1]
               #predlpcor[lpname] = relative(0.70,95.0,100.0,hcoor)
               predlpcor.append([lpname]+relative(0.70,95.0,100.0,hcoor))
     
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]].append(lpname)
-              nlpbndlst[i+1].append(n + natmwolp)
+              lpbnddict[lpname] = [anam[i]]
+              nlpbndlst[i].append(n + natmwolp - 1)
               hcoor = [cor[anam[i]],cor[atb],cor["RBI"]]  # Flipped order
               #predlpcor[lpname] = relative(0.70,95.0,100.0,hcoor)
               predlpcor.append([lpname]+relative(0.70,95.0,100.0,hcoor))
@@ -377,7 +385,8 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]] = [lpname]
-              nlpbndlst[i+1] = [n + natmwolp]
+              lpbnddict[lpname] = [anam[i]]
+              nlpbndlst[i] = [n + natmwolp - 1 ]
               hcoor = [cor[anam[i]],cor["RBI"],cor[atb]]
               if anam[i][0:1] == "N": 
                  #predlpcor[lpname] = relative(0.30,180.0,180.0,hcoor)
@@ -427,14 +436,15 @@ def createlonepair(anam,pos,bndlst):
                  n = n+1
                  lpname = "LP"+str(n) 
                  lpbndlst[anam[i]] = [lpname]
-                 nlpbndlst[i+1] = [n + natmwolp]
+                 lpbnddict[lpname] = [anam[i]]
+                 nlpbndlst[i] = [n + natmwolp - 1]
                  if anam[i][0:1] == "N": 
                     #predlpcor[lpname] = relative(0.30,poav,impr,hcoor)
                     predlpcor.append([lpname]+relative(0.30,poav,impr,hcoor))
                  if anam[i][0:1] == "P": 
                     #predlpcor[lpname] = relative(0.70,poav,impr,hcoor)
                     predlpcor.append([lpname]+relative(0.70,poav,impr,hcoor))
-    return (corlist,predlpcor,lpbndlst,nlpbndlst)
+    return (corlist,predlpcor,lpbndlst,nlpbndlst,lpbnddict)
 
 def printxyz(outdir,prefname,cor,predlpcor):
     f = open(outdir+"/"+prefname,"w") 
@@ -472,13 +482,95 @@ def printallele(outdir,prefname,cor,predlpcor):
         f.write("{:4s}\n".format(key[0]))
     f.close() 
 
-def printlpbnd(outdir,prefname,nbndwolp,nlplist):
+def findbonds(coorv,lpcoorv,bndlstv,lplist,lpdict):
+    listallbonds = {**bndlstv,**lplist}
+    listallbonds = {**listallbonds,**lpdict}
+    #print ("bonds",listallbonds)
+    atomlist = []
+    for k in coorv:
+        atomlist.append(k[0]) 
+    for k in lpcoorv:
+        atomlist.append(k[0]) 
+    bonds = []
+    bondnum = []
+    for key,value in list(listallbonds.items()):
+        for val in value:
+            if [val,key] not in bonds:
+                bonds.append([key,val])
+                bondnum.append([atomlist.index(key),atomlist.index(val)])
+                #Issue1 Requires an exception so that if an atom is not defined but a bond exists it fails. But it should have failed above already!!!
+    return(bonds,bondnum)
+
+def printlpbnd(outdir,prefname,bndlist):
     f = open(outdir+"/"+prefname,"w") 
-    n = nbndwolp 
-    for key in list(nlplist.keys()):
-        for value in list(nlplist[key]):
-            n = n + 1
-            f.write("%s    %s    %s    %s\n"%(n,key,value, "1"))
+    for key in bndlist:
+        f.write("%s  %s\n"%(key[0],key[1]))
+    f.close() 
+    
+def findangles(coorv,lpcoorv,bndlstv,lplist,lpdict):
+    listallbonds = {**bndlstv,**lplist}
+    listallbonds = {**listallbonds,**lpdict}
+    #print ("angles",listallbonds)
+    atomlist = []
+    for k in coorv:
+        atomlist.append(k[0]) 
+    for k in lpcoorv:
+        atomlist.append(k[0]) 
+    angles = []
+    anglenum = []
+    for k0,v0 in list(listallbonds.items()):
+        if len(v0) > 1:
+           for i in range(0,(len(v0)-1)):
+               ang2 = k0
+               ang1 = v0[i]
+               for j in range(i+1,len(v0)):
+                   ang3 = v0[j]
+                   angles.append([ang1,ang2,ang3])
+                   anglenum.append([atomlist.index(ang1),atomlist.index(ang2),atomlist.index(ang3)])
+                   #anglenum.append([atomlist[ang1],atomlist[ang2],atomlist[ang3]])
+    #print (angles, anglenum)               
+    return(angles,anglenum)
+
+def printlpang(outdir,prefname,anglist):
+    f = open(outdir+"/"+prefname,"w") 
+    for key in anglist:
+        f.write("%s  %s\n"%(key[0],key[2]))
+    f.close() 
+
+def finddihedrals(coorv,lpcoorv,bndlstv,lplist,lpdict):
+    listallbonds = {**bndlstv,**lplist}
+    #print ("before",listallbonds)   
+    listallbonds = {**listallbonds,**lpdict}
+    atomlist = []
+    for k in coorv:
+        atomlist.append(k[0]) 
+    for k in lpcoorv:
+        atomlist.append(k[0]) 
+    #print ("after",listallbonds)   
+    dihedrals = []
+    dihedralnum = []
+    for k0,v0 in list(listallbonds.items()):
+        dih0 = k0
+        for k1 in v0:
+            if len(listallbonds[k1]) != 1:
+               dih1 = k1
+               for k2 in listallbonds[k1]:
+                     if len(listallbonds[k2]) != 1 and k2 != dih0:
+                         dih2 = k2
+                         for k3 in listallbonds[k2]:
+                             #if len(listofbonds[k3]) != 1 and k3 != dih1 and k3 != dih0:
+                             if k3 != dih1 and k3 != dih0:
+                                dih3 = k3
+                                if [dih3,dih2,dih1,dih0] not in dihedrals:
+                                   dihedrals.append([dih0,dih1,dih2,dih3])
+                                   dihedralnum.append([atomlist.index(dih0),atomlist.index(dih1),atomlist.index(dih2),atomlist.index(dih3)])
+                                  # self.dihedralnum.append([atomlist[dih0],atomlist[dih1],atomlist[dih2],atomlist[dih3]])
+    return(dihedrals,dihedralnum)
+
+def printlpdih(outdir,prefname,dihlist):
+    f = open(outdir+"/"+prefname,"w") 
+    for key in dihlist:
+        f.write("%s  %s\n"%(key[0],key[3]))
     f.close() 
 
 def main():
@@ -514,7 +606,7 @@ def main():
        psi4name = prefname.strip().split(".")[0]
        resname, anamv, posv, bndlstv = readpdbpsf(pdbname,psfname)
      
-    coorv,lpcoorv,lplist,nlplist = createlonepair(anamv, posv, bndlstv)
+    coorv,lpcoorv,lplist,nlplist,lpdict = createlonepair(anamv, posv, bndlstv)
     
     if not args.workdir:
        outdir = "."
@@ -525,14 +617,19 @@ def main():
     
     nbndwolp = len(bndlstv)
     printallele(outdir,"element_anm.dat",coorv,lpcoorv) 
-    printlpbnd(outdir,"lp.bond",nbndwolp,nlplist)
-    
+    bnds,bndn = findbonds(coorv,lpcoorv,bndlstv,lplist,lpdict) 
+    printlpbnd(outdir,"allwlp.bonds",bndn)
+    angs,angn = findangles(coorv,lpcoorv,bndlstv,lplist,lpdict) 
+    printlpang(outdir,"allwlp.angles",angn)
+    dihs,dihn= finddihedrals(coorv,lpcoorv,bndlstv,lplist,lpdict) 
+    printlpdih(outdir,"allwlp.dihedrals",dihn)
     #printpdb(outdir,prefname,resname,coorv,lpcoorv)
     runPsi4(outdir,psi4name,resn=resname,rescharge=args.charge,multiplicity=args.multiplicity,coor=coorv,lpcoor=lpcoorv,lplist=lplist,mem=args.memory,cpu=args.nthreads,lot=args.theory,basis=args.basis)
     
     
 if __name__ == "__main__":
    main()
+
 
 
 
