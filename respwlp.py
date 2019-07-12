@@ -4,6 +4,7 @@ import os
 import math
 import numpy as np
 import argparse
+from collections import OrderedDict
 
 class LoadFromFile (argparse.Action):
     def __call__ (self, parser, namespace, values, option_string = None):
@@ -95,16 +96,16 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
     options['grid'] = '1_%s_grid.dat' %mol.name()
     options['esp'] = '1_%s_grid_esp.dat' %mol.name()
     fout = open(outdir+"/"+"resp.dat","w")
-    if options.get('constraint_group')==[]:
-       fout.write('Stage1 equals Stage2')
-    else:
-       charges2 = resp.resp([mol], [options])
-       for i in range(len(allcoor)):
-           respchar[allcoor[i][0]]  = charges2[0][1][i]
-       for key,value in respchar.items():
-           fout.write("%s  %7.3f \n"%(key, value))
-       for key,value in lplist.items():
-           fout.write("%s  %s \n"%(key, value))
+    #if options.get('constraint_group')==[]:
+    #   fout.write('Stage1 equals Stage2')
+    #else:
+    charges2 = resp.resp([mol], [options])
+    for i in range(len(allcoor)):
+        respchar[allcoor[i][0]]  = charges2[0][1][i]
+    for key,value in respchar.items():
+        fout.write("%s  %7.3f \n"%(key, value))
+    for key,value in lplist.items():
+        fout.write("%s  %s \n"%(key, value))
     os.remove('1_%s_grid.dat' %mol.name()) 
     os.remove('1_%s_grid_esp.dat' %mol.name()) 
 
@@ -209,7 +210,7 @@ def readpdbpsf(pdbname,psfname):
 def readmol2(mol2name):
    foundatm=False
    foundbnd=False
-   bndlst = {}
+   bndlst = OrderedDict()
    anam = []
    pos = []
    with open(mol2name,"r") as filein:
@@ -246,13 +247,17 @@ def readmol2(mol2name):
 
 def createlonepair(anam,pos,bndlst):
     natoms = len(anam)
-    lpbndlst = {}
-    cor = {}        
+    lpbndlst = OrderedDict()
+    nlpbndlst = OrderedDict()
+    cor = OrderedDict()        
     predlpcor = []       
     corlist = []
+    natmwolp = 0
     for i in range (natoms):
         cor[anam[i]] = [float(pos[i][0]),float(pos[i][1]),float(pos[i][2])]
         corlist.append([anam[i],float(pos[i][0]),float(pos[i][1]),float(pos[i][2])])
+        if anam[i][0:2] != "LP" and anam[i][0:1] != "D" and anam[i][0:3] != "RBI":
+            natmwolp = natmwolp + 1 
 
     vect = {}
     v1 = []
@@ -280,7 +285,8 @@ def createlonepair(anam,pos,bndlst):
 
               n = n+1
               lpname = "LP"+str(n) 
-              lpbndlst[anam[i]]=[lpname]
+              lpbndlst[anam[i]] = [lpname]
+              nlpbndlst[i+1] = [n + natmwolp]
               hcoor = [cor[anam[i]],cor[ata],cor[atb]]
               if anam[i][0:1] == "O": 
                  ##predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor) # Out of plane lone pairs
@@ -294,6 +300,7 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]].append(lpname)
+              nlpbndlst[i+1].append(n + natmwolp)
            #  hcoor = [cor[anam[i]],cor[atb],cor[ata]] # Order flipped 
               if anam[i][0:1] == "O": 
                  ##predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
@@ -311,6 +318,7 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]] = [lpname]
+              nlpbndlst[i+1] = [n + natmwolp]
               #predlpcor[lpname] = colinear(0.35,1.00,hcoor)
               predlpcor.append([lpname]+colinear(0.35,1.00,hcoor))
               
@@ -328,12 +336,14 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]] = [lpname]
+              nlpbndlst[i+1] = [n + natmwolp]
               #predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
               predlpcor.append([lpname]+relative(0.35,110.0,90.0,hcoor))
     
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]].append(lpname)
+              nlpbndlst[i+1].append(n + natmwolp)
               #predlpcor[lpname] = relative(0.35,110.0,270.0,hcoor)
               predlpcor.append([lpname]+relative(0.35,110.0,270.0,hcoor))
     
@@ -348,12 +358,14 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]] = [lpname]
+              nlpbndlst[i+1] = [n + natmwolp]
               #predlpcor[lpname] = relative(0.70,95.0,100.0,hcoor)
               predlpcor.append([lpname]+relative(0.70,95.0,100.0,hcoor))
     
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]].append(lpname)
+              nlpbndlst[i+1].append(n + natmwolp)
               hcoor = [cor[anam[i]],cor[atb],cor["RBI"]]  # Flipped order
               #predlpcor[lpname] = relative(0.70,95.0,100.0,hcoor)
               predlpcor.append([lpname]+relative(0.70,95.0,100.0,hcoor))
@@ -367,6 +379,7 @@ def createlonepair(anam,pos,bndlst):
               n = n+1
               lpname = "LP"+str(n) 
               lpbndlst[anam[i]] = [lpname]
+              nlpbndlst[i+1] = [n + natmwolp]
               hcoor = [cor[anam[i]],cor["RBI"],cor[atb]]
               if anam[i][0:1] == "N": 
                  #predlpcor[lpname] = relative(0.30,180.0,180.0,hcoor)
@@ -416,13 +429,14 @@ def createlonepair(anam,pos,bndlst):
                  n = n+1
                  lpname = "LP"+str(n) 
                  lpbndlst[anam[i]] = [lpname]
+                 nlpbndlst[i+1] = [n + natmwolp]
                  if anam[i][0:1] == "N": 
                     #predlpcor[lpname] = relative(0.30,poav,impr,hcoor)
                     predlpcor.append([lpname]+relative(0.30,poav,impr,hcoor))
                  if anam[i][0:1] == "P": 
                     #predlpcor[lpname] = relative(0.70,poav,impr,hcoor)
                     predlpcor.append([lpname]+relative(0.70,poav,impr,hcoor))
-    return (corlist,predlpcor,lpbndlst)
+    return (corlist,predlpcor,lpbndlst,nlpbndlst)
 
 def printxyz(outdir,prefname,cor,predlpcor):
     f = open(outdir+"/"+prefname,"w") 
@@ -451,6 +465,23 @@ def printpdb(outdir,prefname,resi,cor,predlpcor):
     f.write("END")
     f.close() 
 
+def printallele(outdir,prefname,cor,predlpcor):
+    f = open(outdir+"/"+prefname,"w") 
+    for key in cor:
+        if key[0][0:2] != "LP" and key[0][0:1] != "D" and key[0][0:3] != "RBI":
+           f.write("{:4s}\n".format(key[0])) 
+    for key in predlpcor:
+        f.write("{:4s}\n".format(key[0]))
+    f.close() 
+
+def printlpbnd(outdir,prefname,nbndwolp,nlplist):
+    f = open(outdir+"/"+prefname,"w") 
+    n = nbndwolp 
+    for key in list(nlplist.keys()):
+        for value in list(nlplist[key]):
+            n = n + 1
+            f.write("%s    %s    %s    %s\n"%(n,key,value, "1"))
+    f.close() 
 
 def main():
     parser = argparse.ArgumentParser()
@@ -485,7 +516,7 @@ def main():
        psi4name = prefname.strip().split(".")[0]
        resname, anamv, posv, bndlstv = readpdbpsf(pdbname,psfname)
      
-    coorv,lpcoorv,lplist = createlonepair(anamv, posv, bndlstv)
+    coorv,lpcoorv,lplist,nlplist = createlonepair(anamv, posv, bndlstv)
     
     if not args.workdir:
        outdir = "."
@@ -493,9 +524,14 @@ def main():
        outdir = args.workdir
     if not os.path.exists(outdir):
        os.mkdir(outdir)
-
+    
+    nbndwolp = len(bndlstv)
+    printallele(outdir,"element_anm.dat",coorv,lpcoorv) 
+    printlpbnd(outdir,"lp.bond",nbndwolp,nlplist)
+    
     #printpdb(outdir,prefname,resname,coorv,lpcoorv)
     runPsi4(outdir,psi4name,resn=resname,rescharge=args.charge,multiplicity=args.multiplicity,coor=coorv,lpcoor=lpcoorv,lplist=lplist,mem=args.memory,cpu=args.nthreads,lot=args.theory,basis=args.basis)
+    
     
 if __name__ == "__main__":
    main()
