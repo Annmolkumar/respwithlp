@@ -494,7 +494,8 @@ def findbonds(coorv,lpcoorv,bndlstv,lplist,lpdict):
     bonds = []
     bondnum = []
     for key,value in list(listallbonds.items()):
-        for val in value:
+        if key[0:2] == "LP":
+          for val in value:
             if [val,key] not in bonds:
                 bonds.append([key,val])
                 bondnum.append([atomlist.index(key),atomlist.index(val)])
@@ -618,7 +619,7 @@ def main():
     nbndwolp = len(bndlstv)
     printallele(outdir,"element_anm.dat",coorv,lpcoorv) 
     bnds,bndn = findbonds(coorv,lpcoorv,bndlstv,lplist,lpdict) 
-    printlpbnd(outdir,"allwlp.bonds",bndn)
+    printlpbnd(outdir,"lp.bonds",bndn)
     angs,angn = findangles(coorv,lpcoorv,bndlstv,lplist,lpdict) 
     printlpang(outdir,"allwlp.angles",angn)
     dihs,dihn= finddihedrals(coorv,lpcoorv,bndlstv,lplist,lpdict) 
