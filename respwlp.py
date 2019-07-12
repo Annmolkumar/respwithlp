@@ -104,8 +104,6 @@ def runPsi4(outdir,prefname,resn='resn',rescharge=0,multiplicity=1,coor=None,lpc
         respchar[allcoor[i][0]]  = charges2[0][1][i]
     for key,value in respchar.items():
         fout.write("%s  %7.3f \n"%(key, value))
-    for key,value in lplist.items():
-        fout.write("%s  %s \n"%(key, value))
     os.remove('1_%s_grid.dat' %mol.name()) 
     os.remove('1_%s_grid_esp.dat' %mol.name()) 
 
