@@ -477,9 +477,10 @@ def printallele(outdir,prefname,cor,predlpcor):
     f = open(outdir+"/"+prefname,"w") 
     for key in cor:
         if key[0][0:2] != "LP" and key[0][0:1] != "D" and key[0][0:3] != "RBI":
-           f.write("{:4s}\n".format(key[0])) 
+           
+           f.write("{:4s}\n".format(key[0].strip("0123456789"))) 
     for key in predlpcor:
-        f.write("{:4s}\n".format(key[0]))
+        f.write("{:4s}\n".format(key[0].strip("0123456789")))
     f.close() 
 
 def findbonds(coorv,lpcoorv,bndlstv,lplist,lpdict):
@@ -502,10 +503,12 @@ def findbonds(coorv,lpcoorv,bndlstv,lplist,lpdict):
                 #Issue1 Requires an exception so that if an atom is not defined but a bond exists it fails. But it should have failed above already!!!
     return(bonds,bondnum)
 
-def printlpbnd(outdir,prefname,bndlist):
+def printlpbnd(outdir,prefname,nbnd,bndlist):
     f = open(outdir+"/"+prefname,"w") 
+    n = nbnd
     for key in bndlist:
-        f.write("%s  %s\n"%(key[0],key[1]))
+        n = n + 1
+        f.write("%s  %s  %s  %s \n"%(n, key[0],key[1], "1"))
     f.close() 
     
 def findangles(coorv,lpcoorv,bndlstv,lplist,lpdict):
@@ -616,10 +619,10 @@ def main():
     if not os.path.exists(outdir):
        os.mkdir(outdir)
     
-    nbndwolp = len(bndlstv)
+    nbndwolp = len(bndlstv) - 1 
     printallele(outdir,"element_anm.dat",coorv,lpcoorv) 
     bnds,bndn = findbonds(coorv,lpcoorv,bndlstv,lplist,lpdict) 
-    printlpbnd(outdir,"lp.bonds",bndn)
+    printlpbnd(outdir,"lp.bonds",nbndwolp,bndn)
     angs,angn = findangles(coorv,lpcoorv,bndlstv,lplist,lpdict) 
     printlpang(outdir,"allwlp.angles",angn)
     dihs,dihn= finddihedrals(coorv,lpcoorv,bndlstv,lplist,lpdict) 
