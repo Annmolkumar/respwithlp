@@ -31,30 +31,61 @@ class Psi4input():
         outdir=None
         mem="1000Mb"
         cpu=4
-        lot="mp2"
-        basis="6-31g*"
+        olot=rlot=plot="mp2"
+        obasis="6-31+g*"
+        rbasis=pbasis="Sadlej"
         qqm = True
-        qlp = True
+        qopt = qpol = qlp = True
         quiet = False
+        qwxyz = False
+        qwpdb = False
         for kwa,vwa in kwargs.items():
-            if kwa.lower() == "chrg":   chrg   = vwa 
-            if kwa.lower() == "mult":   mult   = vwa 
-            if kwa.lower() == "outdir": outdir = vwa 
-            if kwa.lower() == "mem":    mem    = vwa 
-            if kwa.lower() == "cpu":    cpu    = vwa 
-            if kwa.lower() == "lot":    lot    = vwa 
-            if kwa.lower() == "basis":  basis  = vwa 
-            if kwa.lower() == "qqm":    qqm    = vwa 
-            if kwa.lower() == "qlp":    qlp    = vwa 
-            if kwa.lower() == "quiet":  quiet  = vwa 
+            if kwa.lower() == "chrg":    chrg   = vwa 
+            if kwa.lower() == "mult":    mult   = vwa 
+            if kwa.lower() == "outdir":  outdir = vwa 
+            if kwa.lower() == "mem":     mem    = vwa 
+            if kwa.lower() == "cpu":     cpu    = vwa 
+            if kwa.lower() == "olot":    olot    = vwa 
+            if kwa.lower() == "obasis":  obasis  = vwa 
+            if kwa.lower() == "rlot":    rlot    = vwa 
+            if kwa.lower() == "rbasis":  rbasis  = vwa 
+            if kwa.lower() == "plot":    plot    = vwa 
+            if kwa.lower() == "pbasis":  pbasis  = vwa 
+            if kwa.lower() == "noqm":    qqm      = not vwa 
+            if kwa.lower() == "noopt":   qopt    = not vwa 
+            if kwa.lower() == "nopol":   qpol    = not vwa 
+            if kwa.lower() == "nolp":    qlp      = not vwa 
+            if kwa.lower() == "noresp":  qresp    = not vwa 
+            if kwa.lower() == "quiet":   quiet    = vwa 
+            if kwa.lower() == "qwxyz":   qwxyz    = vwa 
+            if kwa.lower() == "qwpdb":   qwpdb    = vwa 
+        if not qqm:
+           qopt = qpol = qresp = False
         # Kwargs Done ###################
         mol2info = self.readmol2(mol2name)
         _,mol2info["bondnums"] = self.findbonds(mol2info["atomnames"],mol2info["bonds"])
         _,mol2info["anglnums"] = self.findangles(mol2info["atomnames"],mol2info["bonds"])
         _,mol2info["dihenums"] = self.finddihedrals(mol2info["atomnames"],mol2info["bonds"])
-        self.mol2 = OrderedDict()
-        self.mol2["atomposi"] = mol2info["atomposi"]
-        print (self.mol2)
+        self.molinfo = OrderedDict()
+
+        self.molinfo["atomnames"] = mol2info["atomnames"]
+        self.molinfo["atomposiang"] = mol2info["atomposi"]
+        self.molinfo["atomposiau"] = OrderedDict()
+        for key,val in self.molinfo["atomposiang"].items():
+            valau = val[3]*1.889725989
+            self.molinfo["atomposiau"].update({key:[val[0],val[1],val[2],valau]})
+        self.molinfo["bonds"] = mol2info["bonds"]
+        self.molinfo["bondnums"] = mol2info["bondnums"]
+        self.molinfo["anglnums"] = mol2info["anglnums"]
+        self.molinfo["dihenums"] = mol2info["dihenums"]
+        if qlp and not qqm:
+            lonepinfo = self.createlonepair(self.molinfo["atomposiang"],self.molinfo["atomnames"],self.molinfo["bonds"])
+            self.molinfo["nlps"] = lonepinfo["nlps"]
+            self.molinfo["lpnames"] = lonepinfo["lpnames"]
+            self.molinfo["lpposi"] = lonepinfo["lpposi"]
+            self.molinfo["lpbonds"] = lonepinfo["lpbonds"] 
+            self.molinfo["allposi"] = OrderedDict(**(self.molinfo["atomposiang"]),**(self.molinfo["lpposi"]))
+        
         if chrg is None:
             chrg = mol2info["rescharge"]
         if mult is None:
@@ -62,13 +93,19 @@ class Psi4input():
             for key,val in mol2info["atomposi"].items(): 
                 ele.append(val[1]) 
             mult = self.calc_multip(ele,chrg) 
+
         psi4out = str(os.path.basename(mol2name)).split(".")[0] + ".out"
         if outdir is None: outdir = "."
         if qqm:
-            x,mx,y,my,z,mz=self.runPsi4(outdir,psi4out,resn='resn',rescharge=chrg,multiplicity=mult,atomposi=mol2info["atomposi"],mem=mem,cpu=cpu,lot=lot,basis=basis,quiet=quiet)
-            print (self.mol2)
-            self.atomic_pol(self.mol2["atomposi"],mol2info["bondnums"],[x,mx,y,my,z,mz]) 
-
+            dma=self.runPsi4(outdir,psi4out,rescharge=chrg,multiplicity=mult,atomposi=self.molinfo["atomposiang"],mem=mem,cpu=cpu,olot=olot,obasis=obasis,rlot=rlot,rbasis=rbasis,plot=plot,pbasis=pbasis,quiet=quiet,qopt=qopt,qpol=qpol,qlp=qlp,qresp=qresp)
+            if dma is not None: self.atomic_pol(dma) 
+        if qwxyz: 
+            xyzout = str(os.path.basename(mol2name)).split(".")[0] + ".xyz"
+            self._printxyz(".",xyzout,self.molinfo["allposi"])
+        if qwpdb: 
+            pdbout = str(os.path.basename(mol2name)).split(".")[0] + ".pdb"
+            self._printpdb(".",pdbout,self.molinfo["allposi"])
+          
     def readmol2(self,mol2name,resname="resi"):
         """ Read atomnames, element, position, charges, and bonds"""
         foundatm=False
@@ -103,7 +140,7 @@ class Psi4input():
                         atminfo[atnam] = ind
                         inam[ind] = atnam
                         pos = np.array(list(map(lambda x:float(x),field[2:5])))
-                        posinfo[ind] = [atnam,ele,pos]
+                        posinfo[ind] = [atnam,ele,"XXXXX",pos]
                         chrg = chrg + float(field[-1]) 
                     except (IndexError,ValueError):
                         foundatm = False
@@ -121,7 +158,7 @@ class Psi4input():
                     continue    
         totchrg = int(round(chrg))
         filein.close()
-        return ({"resname":"resi","atomnames":atminfo,"atomposi":posinfo,"bonds":bndlist,"rescharge":totchrg})   
+        return ({"atomnames":atminfo,"atomposi":posinfo,"bonds":bndlist,"rescharge":totchrg})   
 
     def findbonds(self,atomlist,listofbonds):
         """Make a list of list of bond pairs with atomnames and atomindices"""
@@ -181,7 +218,7 @@ class Psi4input():
             mult=2
         return mult
 
-    def createlonepair(self,anam,pos,bndlst):
+    def createlonepair(self,atomposi,ind,bndlst):
         def colinear(ar,scale,hcoor=[]):
             pos = [] 
             if len(hcoor) != 2:
@@ -230,168 +267,234 @@ class Psi4input():
             pos = [new_x,new_y,new_z] 
             return pos   
 
+        #initializing variables
+        curntid = len(atomposi.items())
+        lpinfo = OrderedDict() 
+        lpposi  = OrderedDict() 
+        lpbndlst = OrderedDict() 
 
-        natoms = len(anam)
-        lpbndlst = OrderedDict()
-        lpbnddict = OrderedDict()
-        nlpbndlst = OrderedDict()
-        cor = OrderedDict()        
-        predlpcor = []       
-        corlist = []
-        natmwolp = 0
-        for i in range (natoms):
-            cor[anam[i]] = [float(pos[i][0]),float(pos[i][1]),float(pos[i][2])]
-            corlist.append([anam[i],float(pos[i][0]),float(pos[i][1]),float(pos[i][2])])
-            if anam[i][0:2] != "LP" and anam[i][0:1] != "D" and anam[i][0:3] != "RBI":
-                natmwolp = natmwolp + 1 
+        for key,val in atomposi.items(): 
+            anam = val[0]
+            
+            # lonepair relative
+            if anam[0:1] == "O" and len(bndlst.get(anam)) == 1 or anam[0:1] == "S" and len(bndlst.get(anam)) == 1:
+                  hsta = anam
+                  hstb = bndlst.get(hsta)[0]
+                  hstc = ""
+                  if len(bndlst.get(hstb)) == 1:
+                      hstc = bndlst.get(hstb)[0]
+                  if len(bndlst.get(hstb)) > 1:
+                      for atms in bndlst.get(hstb):
+                          if atms[0:1] == "H":
+                              hstc = bndlst.get(hstb)[bndlst.get(hstb).index(atms)]
+                          if atms[0:1] != "H" and atms != hsta:
+                              hstc = bndlst.get(hstb)[bndlst.get(hstb).index(atms)]
+                              break
+                  hcoor = [atomposi[ind[hsta]][3],atomposi[ind[hstb]][3],atomposi[ind[hstc]][3]]
+                  curntid += 1
+                  lpnam1 = "LP"+str(hsta)+"1"
+                  lpinfo[lpnam1] = curntid
+                  if hsta[0:1] == "O": lpposi[curntid] = [lpnam1,"LP","LPDO1",relative(0.35,110.0,0.0,hcoor)] 
+                  if hsta[0:1] == "S": lpposi[curntid] = [lpnam1,"LP","LPDO1",relative(0.75,95.0,0.0,hcoor)] 
+                  try:
+                      lpbndlst[hsta].append(lpnam1)
+                  except KeyError:
+                      lpbndlst[hsta]=[lpnam1]
+                  curntid += 1
+                  lpnam2 = "LP"+str(hsta)+"2"
+                  lpinfo[lpnam2] = curntid
+                  if hsta[0:1] == "O": lpposi[curntid] = [lpnam2,"LP","LPDO1",relative(0.35,110.0,180.0,hcoor)] 
+                  if hsta[0:1] == "S": lpposi[curntid] = [lpnam2,"LP","LPDO1",relative(0.75,95.0,180.0,hcoor)] 
+                  try:
+                      lpbndlst[hsta].append(lpnam2)
+                  except KeyError:
+                      lpbndlst[hsta]=[lpnam2]
+                  continue
 
-        vect = {}
-        v1 = []
-        v2 = []
-        v3 = []
-        vc = []
-        vi = []
-        n = 0
-        for i in range(0, len(anam)):
-            if anam[i][0:1] == "O" and len(bndlst.get(anam[i])) == 1 or anam[i][0:1] == "S" and len(bndlst.get(anam[i])) == 1:
-                  ata = bndlst.get(anam[i])[0]
-                  if ata[0:1] == "P": pass
-                  atb = ""
-                  if len(bndlst.get(ata)) > 1:
-                        for atms in bndlst.get(ata): 
-                            if anam[i] != atms: 
-                               if atms[0:1] != "H":
-                                  atb = atms 
-                                  break
-                        if atb == "": 
-                           for atms in bndlst.get(ata): 
-                               if anam[i] != atms: 
-                                  atb = atms 
-                                  break
-
-                  n = n+1
-                  lpname = "LP"+str(n) 
-                  lpbndlst[anam[i]] = [lpname]
-                  lpbnddict[lpname] = [anam[i]]
-                  nlpbndlst[i] = [n + natmwolp - 1]
-                  hcoor = [cor[anam[i]],cor[ata],cor[atb]]
-                  if anam[i][0:1] == "O": 
-                     ##predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor) # Out of plane lone pairs
-                     #predlpcor[lpname] = relative(0.35,110.0,0.0,hcoor)
-                     predlpcor.append([lpname] + relative(0.35,110.0,0.0,hcoor))
-                  if anam[i][0:1] == "S": 
-                     ##predlpcor[lpname] = relative(0.75,95.0,260.0,hcoor)
-                     #predlpcor[lpname] = relative(0.75,95.0,0.0,hcoor)
-                     predlpcor.append([lpname]+relative(0.75,95.0,0.0,hcoor))
-        
-                  n = n+1
-                  lpname = "LP"+str(n) 
-                  lpbndlst[anam[i]].append(lpname)
-                  lpbnddict[lpname] = [anam[i]]
-                  nlpbndlst[i].append(n + natmwolp - 1)
-               #  hcoor = [cor[anam[i]],cor[atb],cor[ata]] # Order flipped 
-                  if anam[i][0:1] == "O": 
-                     ##predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
-                     #predlpcor[lpname] = relative(0.35,110.0,180.0,hcoor)
-                     predlpcor.append([lpname]+relative(0.35,110.0,180.0,hcoor))
-                  if anam[i][0:1] == "S": 
-                     ##predlpcor[lpname] = relative(0.75,95.0,260.0,hcoor)
-                     #predlpcor[lpname] = relative(0.75,95.0,180.0,hcoor)
-                     predlpcor.append([lpname]+relative(0.75,95.0,180.0,hcoor))
-        
-            if anam[i][0:1] == "N" and len(bndlst.get(anam[i])) == 1:
-                  slope = []
-                  ata = bndlst.get(anam[i])[0]
-                  hcoor = [cor[anam[i]],cor[ata]]
-                  n = n+1
-                  lpname = "LP"+str(n) 
-                  lpbndlst[anam[i]] = [lpname]
-                  lpbnddict[lpname] = [anam[i]]
-                  nlpbndlst[i] = [n + natmwolp - 1]
-                  #predlpcor[lpname] = colinear(0.35,1.00,hcoor)
-                  predlpcor.append([lpname]+colinear(0.35,1.00,hcoor))
+            # lonepair colinear
+            if anam[0:1] == "N" and len(bndlst.get(anam)) == 1 or anam[0:1] == "P" and len(bndlst.get(anam)) == 1:
+                  hsta = anam
+                  hstb = bndlst.get(anam)[0]
+                  hcoor = [atomposi[ind[hsta]][3],atomposi[ind[hstb]][3]]
+                  curntid += 1
+                  lpnam1 = "LP"+str(hsta)+"1"
+                  lpinfo[lpnam1] = curntid
+                  lpposi[curntid] = [lpnam1,"LP","LPDN1",relative(0.35,1.0,hcoor)] 
+                  try:
+                      lpbndlst[hsta].append(lpnam1)
+                  except KeyError:
+                      lpbndlst[hsta]=[lpnam1]
+                  continue
                   
-            if anam[i][0:1] == "O" and len(bndlst.get(anam[i])) == 2: 
-                  # lonepair bisector
-                  ata = bndlst.get(anam[i])[0]
-                  atb = bndlst.get(anam[i])[1]
-                  cor["RBI"] = [(ca-cb)/2.0 for ca,cb in zip(cor[ata],cor[atb])]
-                  cor["RBI"] = [ca+cb for ca,cb in zip(cor[atb],cor["RBI"])]
-                  #v_anamata = [a_i - b_i for a_i, b_i in zip(cor[ata],cor[anam[i]]) 
-                  #v_anamatb = [a_i - b_i for a_i, b_i in zip(cor[atb],cor[anam[i]]) 
-                  #bisec = abs(angle(v_anamata,v_anamatb))
-                   
-                  hcoor = [cor[anam[i]],cor["RBI"],cor[atb]]
-                  n = n+1
-                  lpname = "LP"+str(n) 
-                  lpbndlst[anam[i]] = [lpname]
-                  lpbnddict[lpname] = [anam[i]]
-                  nlpbndlst[i] = [n + natmwolp - 1]
-                  #predlpcor[lpname] = relative(0.35,110.0,90.0,hcoor)
-                  predlpcor.append([lpname]+relative(0.35,110.0,90.0,hcoor))
+            # lonepair bisector
+            if anam[0:1] == "O" and len(bndlst.get(anam)) == 2 or anam[0:1] == "S" and len(bndlst.get(anam)) == 2: 
+                  hsta = anam
+                  hstb = bndlst.get(hsta)[0]
+                  hstc = bndlst.get(hsta)[1]
+                  medcor = [(ca-cb)/2.0 for ca,cb in zip(atomposi[ind[hstb]][3],atomposi[ind[hstc]][3])]
+                  medcor = [ca+cb for ca,cb in zip(atomposi[ind[hstc]][3],medcor)]
+                  hcoor = [atomposi[ind[hsta]][3],medcor,atomposi[ind[hstc]][3]]
+                  curntid += 1
+                  lpnam1 = "LP"+str(hsta)+"1"
+                  lpinfo[lpnam1] = curntid
+                  if hsta[0:1] == "O": lpposi[curntid] = [lpnam1,"LP","LPDO1",relative(0.35,110.0,90.0,hcoor)] 
+                  if hsta[0:1] == "S": lpposi[curntid] = [lpnam1,"LP","LPDO1",relative(0.70,95.0,100.0,hcoor)] 
+                  try:
+                      lpbndlst[hsta].append(lpnam1)
+                  except KeyError:
+                      lpbndlst[hsta]=[lpnam1]
+                  curntid += 1
+                  lpnam2 = "LP"+str(hsta)+"2"
+                  lpinfo[lpnam2] = curntid
+                  if hsta[0:1] == "O": lpposi[curntid] = [lpnam2,"LP","LPDO1",relative(0.35,110.0,270.0,hcoor)] 
+                  if hsta[0:1] == "S": 
+                      hcoor = [atomposi[ind[hsta]][3],atomposi[ind[hstc]][3],medcor]
+                      lpposi[curntid] = [lpnam2,"LP","LPDO1",relative(0.70,95.0,100.0,hcoor)] 
+                  try:
+                      lpbndlst[hsta].append(lpnam2)
+                  except KeyError:
+                      lpbndlst[hsta]=[lpnam2]
+                  continue
         
-                  n = n+1
-                  lpname = "LP"+str(n) 
-                  lpbndlst[anam[i]].append(lpname)
-                  lpbnddict[lpname] = [anam[i]]
-                  nlpbndlst[i].append(n + natmwolp - 1)
-                  #predlpcor[lpname] = relative(0.35,110.0,270.0,hcoor)
-                  predlpcor.append([lpname]+relative(0.35,110.0,270.0,hcoor))
-        
-            if anam[i][0:1] == "S" and len(bndlst.get(anam[i])) == 2:
-                  # lonepair bisector
-                  ata = bndlst.get(anam[i])[0]
-                  atb = bndlst.get(anam[i])[1]
-                  cor["RBI"] = [(ca-cb)/2.0 for ca,cb in zip(cor[ata],cor[atb])]
-                  cor["RBI"] = [ca+cb for ca,cb in zip(cor[atb],cor["RBI"])]
-        
-                  hcoor = [cor[anam[i]],cor["RBI"],cor[atb]]
-                  n = n+1
-                  lpname = "LP"+str(n) 
-                  lpbndlst[anam[i]] = [lpname]
-                  lpbnddict[lpname] = [anam[i]]
-                  nlpbndlst[i] = [n + natmwolp - 1]
-                  #predlpcor[lpname] = relative(0.70,95.0,100.0,hcoor)
-                  predlpcor.append([lpname]+relative(0.70,95.0,100.0,hcoor))
-        
-                  n = n+1
-                  lpname = "LP"+str(n) 
-                  lpbndlst[anam[i]].append(lpname)
-                  lpbnddict[lpname] = [anam[i]]
-                  nlpbndlst[i].append(n + natmwolp - 1)
-                  hcoor = [cor[anam[i]],cor[atb],cor["RBI"]]  # Flipped order
-                  #predlpcor[lpname] = relative(0.70,95.0,100.0,hcoor)
-                  predlpcor.append([lpname]+relative(0.70,95.0,100.0,hcoor))
-                    
-            if anam[i][0:1] == "N" and len(bndlst.get(anam[i])) == 2 or anam[i][0:1] == "P" and len(bndlst.get(anam[i])) == 2:
-                   # lonepair bisector
-                  ata = bndlst.get(anam[i])[0]
-                  atb = bndlst.get(anam[i])[1]
-                  cor["RBI"] = [(ca-cb)/2.0 for ca,cb in zip(cor[ata],cor[atb])]
-                  cor["RBI"] = [ca+cb for ca,cb in zip(cor[atb],cor["RBI"])]
-                  n = n+1
-                  lpname = "LP"+str(n) 
-                  lpbndlst[anam[i]] = [lpname]
-                  lpbnddict[lpname] = [anam[i]]
-                  nlpbndlst[i] = [n + natmwolp - 1 ]
-                  hcoor = [cor[anam[i]],cor["RBI"],cor[atb]]
-                  if anam[i][0:1] == "N": 
-                     #predlpcor[lpname] = relative(0.30,180.0,180.0,hcoor)
-                     predlpcor.append([lpname]+relative(0.30,180.0,180.0,hcoor))
-                  if anam[i][0:1] == "P": 
-                     #predlpcor[lpname] = relative(0.70,180.0,180.0,hcoor)
-                     predlpcor.append([lpname]+relative(0.70,180.0,180.0,hcoor))
-        
-        return (corlist,predlpcor,lpbndlst,nlpbndlst,lpbnddict)
+            # lonepair bisector
+            if anam[0:1] == "N" and len(bndlst.get(anam)) == 2 or anam[0:1] == "P" and len(bndlst.get(anam)) == 2:
+                  hsta = anam
+                  hstb = bndlst.get(hsta)[0]
+                  hstc = bndlst.get(hsta)[1]
+                  medcor = [(ca-cb)/2.0 for ca,cb in zip(atomposi[ind[hstb]][3],atomposi[ind[hstc]][3])]
+                  medcor = [ca+cb for ca,cb in zip(atomposi[ind[hstc]][3],medcor)]
+                  hcoor = [atomposi[ind[hsta]][3],medcor,atomposi[ind[hstc]][3]]
+                  curntid += 1
+                  lpnam1 = "LP"+str(hsta)+"1"
+                  lpinfo[lpnam1] = curntid
+                  if hsta[0:1] == "N": lpposi[curntid] = [lpnam1,"LP","LPDO1",relative(0.30,180.0,180.0,hcoor)] 
+                  if hsta[0:1] == "P": lpposi[curntid] = [lpnam1,"LP","LPDO1",relative(0.70,180.0,180.0,hcoor)] 
+                  try:
+                      lpbndlst[hsta].append(lpnam1)
+                  except KeyError:
+                      lpbndlst[hsta]=[lpnam1]
+                  continue
+        nlps = curntid - (len(atomposi.items()))
+        return ({"nlps":nlps,"lpnames":lpinfo,"lpposi":lpposi,"lpbonds":lpbndlst}) 
 
-    def runPsi4(self,outdir,prefname,resn='resn',rescharge=0,multiplicity=1,atomposi=None,mem="1000Mb",cpu=4,lot="scf",basis="6-31g*",quiet=False):
+    def runPsi4(self,outdir,prefname,rescharge=0,multiplicity=1,atomposi=None,mem="1000Mb",cpu=4,olot="mp2",obasis="6-31+g*",rlot="mp2",rbasis="Sadlej",plot="mp2",pbasis="Sadlej",quiet=False,qopt=True,qpol=True,qlp=True,qresp=True):
         import pytest
         import sys
         import psi4
+        #import psi4.driver.p4util.exceptions
         from localresp import resp
         import numpy as np
         from collections import OrderedDict
-    
+        from multiprocessing import Process, current_process
+        
+        def opt(theory,basis,mol): 
+            options={'scf_type':'df','g_convergence':'gau','freeze_core':'true','mp2_type':'df','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri'}
+            psi4.set_options(options)
+        #    try:
+            psi4.optimize(theory+'/'+basis,molecule=mol)
+        #    except SCFConvergenceError:
+        #       print ("Problem detected")
+            mol.update_geometry() 
+            return(mol) 
+
+        def pol(theory,basis): 
+            dmadict = {} 
+            flag = {0:["x",[0.0008, 0, 0]],1:["mx",[-0.0008, 0, 0]],2:["y",[0, 0.0008, 0]],3:["my",[0, -0.0008, 0]],4:["z",[0, 0 , 0.0008]],5:["mz",[0, 0 , -0.0008]]}
+            for i in range(6):
+                options={'scf_type':'df','g_convergence':'gau','freeze_core':'true','mp2_type':'df','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri','perturb_h':'true','perturb_with':'dipole','perturb_dipole':flag[i][1]}
+                psi4.set_options(options)
+                wfn = str(flag[i][0])+"wfn"
+                grad,wfn=psi4.gradient(theory+"/"+basis,return_wfn=True) 
+                psi4.fchk(wfn,str(flag[i][0])+'.fchk')
+                fdma = open(str(flag[i][0])+"control.dma","w")
+                fdma.write(self.createdma(str(flag[i][0])+'.fchk','CC',1))
+                fdma.close()
+
+            parallel = False
+            if parallel: 
+                processes = []
+                for i in range(6):
+                    wfnname = str(flag[i][0])+"wfn"
+                    process = Process(target=psi4.gdma,args=(wfnname,str(flag[i][0])+"control.dma"))
+                    processes.append(process)
+                    process.start()
+                for process in processes:
+                    process.join()
+            else:
+                for i in range(6):
+                    wfnname = str(flag[i][0])+"wfn"
+                    psi4.gdma(wfnname,datafile=str(flag[i][0])+"control.dma") 
+                    dma_results = psi4.variable('DMA DISTRIBUTED MULTIPOLES')
+                    dma_results = list(map(lambda x:x[0:4],dma_results.np))
+                    dmadict[i] = np.array(dma_results)
+                    #os.remove(str(flag[i][0])+'.fchk') 
+                    #os.remove(str(flag[i][0])+'control.dma') 
+            return(dmadict)
+ 
+        def calcresp(theory,basis,mol,mollp=None,mollpbnd=None):
+            options = {'N_VDW_LAYERS'       : 4,
+                       'VDW_SCALE_FACTOR'   : 1.4,
+                       'VDW_INCREMENT'      : 0.2,
+                       'VDW_POINT_DENSITY'  : 1.0,
+                       'resp_a'             : 0.0005,
+                       'RESP_B'             : 0.1,
+                       'METHOD_ESP'         : theory,
+                       'BASIS_ESP'          : basis,
+                       'g_convergence'      : 'gau',
+                       'RADIUS'             : {'BR':1.97,'I':2.19},
+                       'psi4_options'       : {'scf_type':'df','mp2_type':'df','freeze_core':'true','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri','maxiter':250}
+                       }
+            
+            if qlp:
+                geoline = ""
+                for key,val in mollp.items():
+                    geoline = geoline + val[0] + "  " + str(val[3][0]) + "  " + str(val[3][1]) + "  " + str(val[3][2]) + " \n"
+                lp="""
+                %s
+                """%(geoline)
+                options['LPCOOR'] = lp
+
+            mol.set_name('stage1')
+            charges1 = resp.resp([mol], [options])
+            if qlp:
+               allatoms = mol.natom() + len(mollp)
+            else:
+               allatoms = mol.natom()
+        
+            respchar = OrderedDict()
+            for i in range(allatoms):
+                respchar[i+1]  = charges1[0][1][i]
+            
+            print ("Before") 
+            print (respchar)
+            if qlp:
+                for key,val in self.molinfo["lpbonds"].items():  
+                    dbute = respchar[self.molinfo["atomnames"][key]]/len(val) 
+                    respchar[self.molinfo["atomnames"][key]] = 0.0
+                    for v in val: 
+                        respchar[self.molinfo["lpnames"][v]] += dbute
+        
+            print ("After") 
+            print (respchar)
+            stage2=resp.stage2_helper()
+            stage2.set_stage2_constraint(mol,list(respchar.values()),options,cutoff=1.2)
+            options['resp_a'] = 0.001
+            options['grid'] = '1_%s_grid.dat' %mol.name()
+            options['esp'] = '1_%s_grid_esp.dat' %mol.name()
+            fout = open(outdir+"/"+"resp.dat","w")
+            
+            charges2 = resp.resp([mol], [options])
+        
+            for i in range(allatoms):
+                respchar[i+1]  = charges2[0][1][i]
+            #for key,value in respchar.items():
+            #    fout.write("%s  %7.3f \n"%(key, value))
+            os.remove('1_%s_grid.dat' %mol.name()) 
+            os.remove('1_%s_grid_esp.dat' %mol.name()) 
+            return
+ 
+        # Psi4 STARTS ########################
+        dmadict = None
         psi4.set_num_threads(cpu)
         psi4.set_memory(mem)
         if not quiet:
@@ -400,95 +503,61 @@ class Psi4input():
             psi4.core.be_quiet()
         
         xyz='%s %s\n' %(rescharge,multiplicity)
-        xyz='    '+xyz
-        n = 0
         geoline = ""
         for key,value in atomposi.items():
-            geoline  = geoline + value[1] + "  " + str(value[2][0]) + "  " + str(value[2][1]) + "  " + str(value[2][2]) + " \n"
+            geoline = geoline + value[1] + "  " + str(value[3][0]) + "  " + str(value[3][1]) + "  " + str(value[3][2]) + " \n"
+            if value[1].upper() in ["K","CA","BR","I"]: obasis = "6-311G(d,p)"
         xyz=xyz+geoline
-        psi4_xyz="""
-        %s
-        symmetry c1
-        """%(xyz)
+        psi4_xyz="""%s\nsymmetry c1\nnoreorient\nnocom"""%(xyz)
         mol=psi4.geometry(psi4_xyz)
-        mol.update_geometry() # This update is required for psi4 to load the molecule
-        for i in range(mol.natom()):
-            self.mol2["atomposi"][i+1][2] = np.array([mol.x(i),mol.y(i),mol.z(i)])
-        opttheory=lot
-        optbasis=basis
-        options={'scf_type':'df','g_convergence':'gau','freeze_core':'true','mp2_type':'df','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri','perturb_h':'true','perturb_with':'dipole','perturb_dipole':[0.0008, 0, 0]}
-        psi4.set_options(options)
-        grad,wfn=psi4.gradient(opttheory+"/"+optbasis,return_wfn=True) 
-        #psi4.gdma(wfn) 
-        #self.createdma("xcontrol.dma","x.fchk",,1)
-        psi4.fchk(wfn,'x.fchk')
-        psi4.gdma(wfn,datafile="xcontrol.dma") 
-        xdma_results = psi4.variable('DMA DISTRIBUTED MULTIPOLES')
-        options={'scf_type':'df','g_convergence':'gau','freeze_core':'true','mp2_type':'df','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri','perturb_h':'true','perturb_with':'dipole','perturb_dipole':[-0.0008, 0, 0]}
-        psi4.set_options(options)
-        grad,wfn=psi4.gradient(opttheory+"/"+optbasis,return_wfn=True) 
-        #psi4.gdma(wfn) 
-        psi4.fchk(wfn,'mx.fchk')
-        psi4.gdma(wfn,datafile="mxcontrol.dma") 
-        mxdma_results = psi4.variable('DMA DISTRIBUTED MULTIPOLES')
-        options={'scf_type':'df','g_convergence':'gau','freeze_core':'true','mp2_type':'df','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri','perturb_h':'true','perturb_with':'dipole','perturb_dipole':[0, 0.0008, 0]}
-        psi4.set_options(options)
-        grad,wfn=psi4.gradient(opttheory+"/"+optbasis,return_wfn=True) 
-        #psi4.gdma(wfn) 
-        psi4.fchk(wfn,'y.fchk')
-        psi4.gdma(wfn,datafile="ycontrol.dma") 
-        ydma_results = psi4.variable('DMA DISTRIBUTED MULTIPOLES')
-        options={'scf_type':'df','g_convergence':'gau','freeze_core':'true','mp2_type':'df','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri','perturb_h':'true','perturb_with':'dipole','perturb_dipole':[0, -0.0008, 0]}
-        psi4.set_options(options)
-        grad,wfn=psi4.gradient(opttheory+"/"+optbasis,return_wfn=True) 
-        #psi4.gdma(wfn) 
-        psi4.fchk(wfn,'my.fchk')
-        psi4.gdma(wfn,datafile="mycontrol.dma") 
-        mydma_results = psi4.variable('DMA DISTRIBUTED MULTIPOLES')
-        options={'scf_type':'df','g_convergence':'gau','freeze_core':'true','mp2_type':'df','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri','perturb_h':'true','perturb_with':'dipole','perturb_dipole':[0, 0 , 0.0008]}
-        psi4.set_options(options)
-        grad,wfn=psi4.gradient(opttheory+"/"+optbasis,return_wfn=True) 
-        #psi4.gdma(wfn) 
-        psi4.fchk(wfn,'z.fchk')
-        psi4.gdma(wfn,datafile="zcontrol.dma") 
-        zdma_results = psi4.variable('DMA DISTRIBUTED MULTIPOLES')
-        options={'scf_type':'df','g_convergence':'gau','freeze_core':'true','mp2_type':'df','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri','perturb_h':'true','perturb_with':'dipole','perturb_dipole':[0, 0 , -0.0008]}
-        psi4.set_options(options)
-        grad,wfn=psi4.gradient(opttheory+"/"+optbasis,return_wfn=True) 
-        psi4.fchk(wfn,'mz.fchk')
-        psi4.gdma(wfn,datafile="mzcontrol.dma") 
-        mzdma_results = psi4.variable('DMA DISTRIBUTED MULTIPOLES')
-        #geo =psi4.geometry() #print_out() 
-        return(xdma_results.np,mxdma_results.np,ydma_results.np,mydma_results.np,zdma_results.np,mzdma_results.np)
+        mol.update_geometry() 
+        if qopt:
+            mol = opt(olot,obasis,mol)
+            for i in range(mol.natom()):
+                posiang = np.array([mol.x(i),mol.y(i),mol.z(i)])*0.529177249
+                self.molinfo["atomposiang"][i+1][3] = posiang
+            for i in range(mol.natom()):
+                posiau =np.array([mol.x(i),mol.y(i),mol.z(i)])
+                self.molinfo["atomposiau"][i+1][3] = posiau
+        if qpol:
+           dmadict = pol(plot,pbasis)
+           self.atomic_pol(self.molinfo["atomposiang"],self.molinfo["bondnums"],dmadict) 
+        if qlp: 
+           lonepinfo = self.createlonepair(self.molinfo["atomposiang"],self.molinfo["atomnames"],self.molinfo["bonds"])
+           self.molinfo["nlps"] = lonepinfo["nlps"]
+           self.molinfo["lpnames"] = lonepinfo["lpnames"]
+           self.molinfo["lpposi"] = lonepinfo["lpposi"]
+           self.molinfo["lpbonds"] = lonepinfo["lpbonds"] 
+           self.molinfo["allposi"] = OrderedDict(**(self.molinfo["atomposiang"]),**(self.molinfo["lpposi"]))
+        if qresp and qlp:
+           calcresp(rlot,rbasis,mol,self.molinfo["lpposi"],self.molinfo["lpbonds"])
+        elif qresp:
+           calcresp(rlot,rbasis,mol) 
 
-    def createdma(self,fchk,density="SCF",nmultipoles=1):
-        towrite = """File %s Density %s \nAngstrom \nMultipoles \nLimit %s \nStart \nFinish"""%(fchk,density,nmultipoles) 
-        print (towrite)
 
-    def atomic_pol(self,atomposi,bondlist,qlist,field=0.0008,unit=0.529177249**3): 
+    def createdma(self,fchkname,densitype,nmultipoles):
+        towrite = """File %s Density %s \nAngstrom \nMultipoles \nLimit %s \nStart \nFinish"""%(fchkname,densitype,nmultipoles) 
+        return(towrite)
+
+    def atomic_pol(self,atomposi,bondlist,dma,field=0.0008,unit=0.529177249**3): 
         natoms = len(atomposi) 
         nrings = 0
         nbonds = len(bondlist) 
         gq=np.zeros((natoms,6))                    # Create empty charge array (+zero rows for ring conditions)
         gd=np.zeros((natoms,3,6))                        # Create empty atomic dipole array
-        for j in range(len(qlist)):
-            for i in range(len(qlist[j])):
-                gq[i,j]= qlist[j][i][0] 
-                gd[i,0,j]=qlist[j][i][1] 
-                gd[i,1,j]=qlist[j][i][2] 
-                gd[i,2,j]=qlist[j][i][3] 
+        for key,val in dma.items():
+            for i in range(len(val)): 
+                gq[i,key]   = dma[key][i][0] 
+                gd[i,0,key] = dma[key][i][1] 
+                gd[i,1,key] = dma[key][i][2] 
+                gd[i,2,key] = dma[key][i][3] 
         print("Substract overall charge ("+str(gq[:,0].sum())+")?")
         #answer=input("............ yes/no   ")
         for j in range(6):
             ch=gq[:,j].sum()/natoms
             for i in range(natoms):
                 gq[i,j]-=ch
-        
-        print("")
-        print("---------------------------------------------------------")
-        print("------------------Starting calculation-------------------")
-        print("---------------------------------------------------------")
-        print("---------------------------------------------------------")
+
         print("------------------Atomic Polarizability------------------")
         #========================================================================================
         #   Atomic polarizability
@@ -516,8 +585,7 @@ class Psi4input():
         #of each bond charge "index" the bond charges "b" and then the atomic 
         #dipoles "mu" and the polarizability "a" for the charge transfer
         #=============================================================================================
-        
-        
+        print (bondlist) 
         n=np.zeros((natoms,natoms))                                        # Create empty connectivity matrix
         for i in range(nbonds):
             first=bondlist[i][0]-1                   # Read atom numbers of each bond
@@ -528,11 +596,8 @@ class Psi4input():
             else:
                 n[first,second]=-1
                 n[second,first]=1
-        index=np.zeros((nbonds,2))                                        # Create index matrix (which bond charge contains which atoms)
-        print ("index")
-        print (index)
-        print (bondlist)
         print (n)
+        index=np.zeros((nbonds,2))                                        # Create index matrix (which bond charge contains which atoms)
         ctr=0
         for i in range(natoms):
             for j in range(i,natoms):
@@ -540,6 +605,7 @@ class Psi4input():
                     index[ctr,0]=i
                     index[ctr,1]=j
                     ctr+=1
+        print (index)
         a=np.zeros((natoms+nrings,nbonds))                                  # Create matrix for linear equations ab=q
         for i in range(natoms):
             for j in range(nbonds):
@@ -547,6 +613,7 @@ class Psi4input():
                     a[i,j]=1
                 if i==index[j,1]:
                     a[i,j]=-1         
+        print (a)
         for i in range(nrings):                                           # Write ring conditions into matrix a                                 
             structure=re.findall(r"\d+",nring[i])
             for j in range(len(structure)):
@@ -566,7 +633,6 @@ class Psi4input():
                 # Find the correct bond charge which is involved in the ring
                 element=np.where(np.all(index==np.array([[first,second]]),axis=1))[0][0]              
                 a[natoms+i,element]=factor                                  # Write entry in a
-        print (a)    
         #Calculate bond charges and mu
         mu=np.zeros((natoms,3,6))
         for k in range(6):
@@ -576,10 +642,9 @@ class Psi4input():
             for i in range(natoms):                                         # Calculate atomic dipole from charge transfer as sum of bond charges times vector of the
                 for j in range(nbonds):                                     # atom in direction of each bond 
                     if i==index[j,0]:
-                        mu[i,:,k]+=(atomposi[i+1][2]-(atomposi[i+1][2]+atomposi[int(index[j,1])+1][2])/2)*b[j]
+                        mu[i,:,k]+=(atomposi[i+1][3]-(atomposi[i+1][3]+atomposi[int(index[j,1])+1][3])/2)*b[j]
                     if i==index[j,1]:
-                        mu[i,:,k]+=(atomposi[i+1][2]-(atomposi[i+1][2]+atomposi[int(index[j,0])+1][2])/2)*b[j]*(-1)
-            print (mu) 
+                        mu[i,:,k]+=(atomposi[i+1][3]-(atomposi[i+1][3]+atomposi[int(index[j,0])+1][3])/2)*b[j]*(-1)
         
         a_xx=(mu[:,0,0]-mu[:,0,3])/(2*field)*1.889725989*(-1)*unit   #numeric differentiation, yields polarizability
         a_yy=(mu[:,1,1]-mu[:,1,4])/(2*field)*1.889725989*(-1)*unit
@@ -608,283 +673,24 @@ class Psi4input():
         print("-------------------------Goodbye-------------------------")
         print("---------------------------------------------------------")
 
-#psi4=""" 
-#    lot="scf",basis="6-31g*"):
-#    options = {'N_VDW_LAYERS'       : 4,
-#               'VDW_SCALE_FACTOR'   : 1.4,
-#               'VDW_INCREMENT'      : 0.2,
-#               'VDW_POINT_DENSITY'  : 1.0,
-#               'resp_a'             : 0.0005,
-#               'RESP_B'             : 0.1,
-#               'BASIS_ESP'          : basis,
-#               'psi4_options'       : {'df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri', 'maxiter':250},
-#               'METHOD_ESP'         : lot,
-#               'RADIUS'             : {'BR':1.97,'I':2.19}
-#               }
-#"""
-#
-#Psi4pol="""
-#set perturb_h true
-#set perturb_with dipole
-#set perturb_dipole [0.0008, 0, 0]
-#grad, wfn = gradient('mp2', return_wfn=True)
-#fchk(wfn,'x.fchk')
-#set perturb_h true
-#set perturb_with dipole
-#set perturb_dipole [-0.0008, 0, 0]
-#grad, wfn = gradient('mp2', return_wfn=True)
-#fchk(wfn,'mx.fchk')
-#set perturb_h true
-#set perturb_with dipole
-#set perturb_dipole [0, 0.0008, 0]
-#grad, wfn = gradient('mp2', return_wfn=True)
-#fchk(wfn,'y.fchk')
-#set perturb_h true
-#set perturb_with dipole
-#set perturb_dipole [0, -0.0008, 0]
-#grad, wfn = gradient('mp2', return_wfn=True)
-#fchk(wfn,'my.fchk')
-#set perturb_h true
-#set perturb_with dipole
-#set perturb_dipole [0, 0, 0.0008]
-#grad, wfn = gradient('mp2', return_wfn=True)
-#fchk(wfn,'z.fchk')
-#set perturb_h true
-#set perturb_with dipole
-#set perturb_dipole [0, 0, -0.0008]
-#grad, wfn = gradient('mp2', return_wfn=True)
-#fchk(wfn,'mz.fchk')
-#"""
-#
-#psi4polesp = """
-#mol.update_geometry()
-#options = {'N_VDW_LAYERS' : 4,
-#'VDW_SCALE_FACTOR' : 1.4,
-#'VDW_INCREMENT' : 0.2,
-#'VDW_POINT_DENSITY' : 20.0,
-#'resp_a' : 0.0005,
-#'RESP_B' : 0.1,
-#'BASIS_ESP':'3-21G',
-#'METHOD_ESP':'HF',
-#'RADIUS':{'BR':1.97,'I':2.19}
-#}
-## Call for first stage fit
-#charges1 = resp.resp([mol], [options])
-#calculate()
-#"""
-#
-#psi4polesp2="""
-#set {
-#basis Sadlej
-#e_convergence 6
-#d_convergence 8
-#scf_type df
-#df_basis_scf def2-tzvpp-jkfit
-#df_basis_mp2 def2-tzvppd-ri
-#}
-#set perturb_h true
-#set perturb_with dipole
-#set perturb_dipole [0.0008, 0, 0]
-#property('mp2', properties=['grid_esp','dipole'])
-#"""
-#    Psi4moltmpl='''
-#psi4_xyz="""
-#%s
-#%s
-#"""
-#mol=psi4.geometry(psi4_xyz)
-#mol.update_geometry() # This update is required for psi4 to load the molecule
-#'''
-#
-#    Psi4smoltmpl='''
-#psi4_xyz="""
-#%s
-#"""
-#mol=psi4.geometry(psi4_xyz)
-#mol.update_geometry() # This update is required for psi4 to load the molecule
-#'''
-#
-#    Psi4polarloop='''
-#opttheory="%s"
-#optbasis="%s"
-#psi4.prop(opttheory+"/"+optbasis, properties=["DIPOLE"])
-#zero_ene=psi4.energy(opttheory+"/"+optbasis)
-#field=%f
-#fnames={0:'x',1:'y',2:'z'}
-#polars={}
-#for i in range(3):
-#    tmpfield=[0,0,0]
-#    tmpfield[i]=abs(field)
-#    psi4.set_options({'scf_type': 'df', 'g_convergence':'gau','freeze_core':'true','mp2_type':'df','perturb_h':'true','perturb_with':'dipole','perturb_dipole':tmpfield})
-#    p_ene=psi4.energy(opttheory+'/'+optbasis)
-#    tmpfield[i]=abs(field)*-1
-#    psi4.set_options({'scf_type': 'df', 'g_convergence':'gau','freeze_core':'true','mp2_type':'df','perturb_h':'true','perturb_with':'dipole','perturb_dipole':tmpfield})
-#    n_ene=psi4.energy(opttheory+'/'+optbasis)
-#    enes=np.array([zero_ene,p_ene,n_ene,field],dtype='float64') #Lets ensure it floats are always with numpy
-#    pol_i=abs((enes[1]-(2*enes[0])+enes[2])/(enes[3]**2))
-#    polars[fnames[i]+fnames[i]]=pol_i
-#
-#total=np.sum(np.array(list(polars.values()),dtype='float64'))/3.0
-#psi4.core.print_out('Polar RESULTS XX:'+str(polars['xx'])+' YY:'+str(polars['yy'])+' ZZ:'+str(polars['zz'])+' Total:'+str(total)+'\\n')
-#'''
-#
-#
-#    def z2c(self,coor,reschrg,multiplicity,nosymm=None,extraspace=False,notmpl=False):
-#        '''
-#        This function takes up a coordinate dictionary or geometry object and returns an xyz format for Psi4:
-#        xyz , this is a simple xyz coordinate file element names as the first character. It also contains charge and multiplicity information
-#        If charge is not given it is set to 0. If multiplicity is not given it is set to 1. Most of the time multiplicity is 1.
-#        If you need extraspace, which is the case when using coordinates for Psi4 binary set extraspace to True.
-#        '''
-#        #We have extra fields with other residue numbering we remove this for psi4 below in for loop.
-#        if not nosymm:
-#            nosymm=""
-#        xyz='%d %d\n' %(reschrg,multiplicity)
-#        if extraspace:
-#            xyz='    '+xyz
-#        for coord in coor:
-#            atcrd=str('%-5s' %coord[1][0])+'\t'+str('%-7f' %float(coord[2]))+'\t'+str('%-7f' %float(coord[3]))+'\t'+str('%-7f' %float(coord[4]))+'\n'
-#            if extraspace:
-#                atcrd='    '+atcrd
-#            xyz=xyz+atcrd
-#        if notmpl:
-#            return(xyz)
-#        moltmpl=self.Psi4moltmpl %(xyz,nosymm)
-#        return(moltmpl)
-#
-#def Psi4coor(resn='resn',rescharge=0,multiplicity=1,coor=None,
-#    chrgmult='%s %s\n\n'%(rescharge,multiplicity)
-#    xyz='    '+xyz
-#    n = 0
-#    geoline = ""
-#    for key in coor:
-#        if key[0] != "RBI": n = n + 1
-#        if key[0][0:2] != "LP" and key[0][0:1] != "D" and key[0][0:3] != "RBI":
-#            geoline  = geoline + key[0][0:1] + "  " + str(key[1]) + "  " + str(key[2]) + "  " + str(key[3]) + " \n"
-#    xyz=xyz+geoline
-#    psi4_xyz="""
-#    %s
-#    no_reorient
-#    no_com
-#    """%(xyz)
-#    mol=psi4.geometry(psi4_xyz)
-#    mol.update_geometry() 
-#    
-#    
-#    lot="scf",basis="6-31g*"):
-#    options = {'N_VDW_LAYERS'       : 4,
-#               'VDW_SCALE_FACTOR'   : 1.4,
-#               'VDW_INCREMENT'      : 0.2,
-#               'VDW_POINT_DENSITY'  : 1.0,
-#               'resp_a'             : 0.0005,
-#               'RESP_B'             : 0.1,
-#               'BASIS_ESP'          : basis,
-#               'psi4_options'       : {'df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri', 'maxiter':250},
-#               'METHOD_ESP'         : lot,
-#               'RADIUS'             : {'BR':1.97,'I':2.19}
-#               }
-#    qlp=True,lpcoor=None,lplist=None):
-#    if qlp:
-#        xyz='' 
-#        n = 0
-#        geoline = ""
-#        for key in lpcoor:
-#            if key[0][0:2] == "LP": 
-#               geoline  = geoline + key[0] + "  " + str(key[1]) + "  " + str(key[2]) + "  " + str(key[3]) + " \n"
-#        xyz=xyz+geoline
-#        lp="""
-#        %s
-#        """%(xyz)
-#        
-#        options['LPCOOR'] = lp
-#
-#    mol.set_name('stage1')
-#    charges1 = resp.resp([mol], [options])
-#    
-#    if qlp:
-#       allcoor = coor + lpcoor
-#    else:
-#       allcoor = coor
-#
-#    respchar = OrderedDict()
-#    for i in range(len(allcoor)):
-#        respchar[allcoor[i][0]]  = charges1[0][1][i]
-#    
-#    if qlp:
-#        for key in list(respchar.keys()):
-#            if key in list(lplist.keys()):
-#                tobedist = respchar[key]/len(lplist[key])
-#                respchar[key] = 0.0
-#                for val in lplist[key]:
-#                    respchar[val] = respchar[val] + tobedist
-#
-#    stage2=resp.stage2_helper()
-#    stage2.set_stage2_constraint(mol,list(respchar.values()),options,cutoff=1.2)
-#    options['resp_a'] = 0.001
-#    options['grid'] = '1_%s_grid.dat' %mol.name()
-#    options['esp'] = '1_%s_grid_esp.dat' %mol.name()
-#    fout = open(outdir+"/"+"resp.dat","w")
-#    
-#    charges2 = resp.resp([mol], [options])
-#
-#    for i in range(len(allcoor)):
-#        respchar[allcoor[i][0]]  = charges2[0][1][i]
-#    for key,value in respchar.items():
-#        fout.write("%s  %7.3f \n"%(key, value))
-#    os.remove('1_%s_grid.dat' %mol.name()) 
-#    os.remove('1_%s_grid_esp.dat' %mol.name()) 
-#
-#
-#    def writegeom(self,inpdata,Psi4header,options=None):
-#        #field is set by default to 0.0008
-#        shortnames={'optimize':'opt','frequency':'freq','dipole':'dipo','polar':'pol','energy':'ene'}
-#        if not options:
-#            options="'scf_type': 'df', 'g_convergence':'gau','freeze_core':'true'"
-#        Psi4footer=self.Psi4footer%(self.theory,self.basis,options)
-#        runfn=self.outpath+'/'+self.outname if self.outname else self.outpath+'/%s_%s.py' %(self.resn.lower(),'_'.join([shortnames[i] for i in self.todo]))
-#        try:
-#            runf=open(runfn,"w")
-#        except FileNotFoundError:
-#            return None
-#        xyz=self.Psi4xyz(inpdata['coor'],self.reschrg,self.multiplicity,nosymm=self.nosymm)
-#        runf.write(Psi4header)
-#        runf.write(xyz)
-#        runf.write(Psi4footer)
-#        runf.write('\n')
-#        if 'optimize' in self.todo:
-#            runf.write('psi4.optimize(opttheory+"/"+optbasis,mol=mol)\n')
-#        if 'frequency' in self.todo:
-#            runf.write('psi4.core.print_out("Hessian START\\n")\n')
-#            runf.write('E,wfn=psi4.frequency(opttheory+"/"+optbasis,return_wfn=True)\n')
-#            runf.write('wfn.hessian().print_out()\n')
-#            runf.write('psi4.core.print_out("Hessian END\\n")\n')
-#        if 'polar' in self.todo:
-#            field=0.0008
-#            Psi4polar=self.Psi4polarloop%(self.theory,self.basis,field)
-#            runf.write('psi4.core.print_out("Dipole START\\n")\n')
-#            runf.write(Psi4polar)
-#            runf.write('psi4.core.print_out("Dipole END\\n")\n')
-#        if 'polar' not in self.todo and 'dipole' in self.todo:
-#            runf.write('psi4.core.print_out("Dipole START\\n")\n')
-#            runf.write('psi4.prop(opttheory+"/"+optbasis, properties=["DIPOLE"])\n')
-#            runf.write('psi4.core.print_out("Dipole END\\n")\n')
-#        if 'energy' in self.todo:
-#            runf.write('psi4.energy(opttheory+"/"+optbasis)\n')
-#        runf.close()
-#        return(runfn)
-#
-#
-#
-#  
-#
-#
-#
-# 
-#
-#        
-
+    def _printxyz(self,outdir,prefname,cor):
+        f = open(outdir+"/"+prefname,"w") 
+        f.write(str(len(cor))+"\n\n")
+        for key,value in cor.items():
+            f.write("{:4s}   {:12.6f} {:12.6f} {:12.6f}\n".format(value[0],value[3][0],value[3][1],value[3][2]))
+        f.close() 
     
-
+    
+    def _printpdb(self,outdir,prefname,cor,resi="RESI"):
+        f = open(outdir+"/"+prefname,"w") 
+        n = 0
+        for key,value in cor.items():
+            n = n + 1
+            f.write("{:6s}{:5d} {:^4s}{:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,value[1][0:4],resi,1,value[3][0],value[3][1],value[3][2],0.0,0.0,resi))
+        f.write("{:6s}{:5d}     {:4s}  {:4d}\n".format('TER',n+1,resi,1))
+        f.write("END")
+        f.close() 
+    
 class LoadFromFile (argparse.Action):
     def __call__ (self, parser, namespace, values, option_string = None):
         rsarg = []
@@ -897,21 +703,28 @@ class LoadFromFile (argparse.Action):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-mol2","--mol2file",help="Required Argument: Provide Mol2 File")
-#    parser.add_argument("-pdb","--pdbfile",help="Required Argument: Provide Pdb file") 
-#    parser.add_argument("-psf","--psffile",help="Required Argument: Pdb file requires psf file")
-    parser.add_argument('-qqm','--noqm', action='store_false',default=True,help='Insert this flag if you want not to perform qm calculation.')
-    parser.add_argument('-quiet','--quiet', action='store_true',default=False,help='Insert this flag if you want not to perform qm calculation.')
+    parser.add_argument('-noqm','--noqm', action='store_true',default=False,help='Insert this flag if you do not want to perform qm calculation.')
+    parser.add_argument('-noopt','--noopt', action='store_true',default=False,help='Insert this flag if you do not want to perform optimization.')
+    parser.add_argument("-nopol","--nopol", action='store_true',default=False,help="Insert this flag if you do not want to calculate atomic polarizability.")
+    parser.add_argument("-nolp","--nolp",   action='store_true',default=False,help="Insert this flag if you do not want to attach lone pairs to the acceptor atoms.")
+    parser.add_argument("-noresp","--noresp",action='store_true',default=False,help="Insert this flag if you do not want to perform resp calculation.")
+    parser.add_argument('-quiet','--quiet', action='store_true',default=False,help='Insert this flag if you want to suppress qm output file.')
     parser.add_argument("-dir","--workdir",type=str,default=".",help="Enter were the output files will be saved")
-    parser.add_argument("-qlp","--qlonepair",type=bool,default=True,help="No if you dont want to attach lone pairs to the acceptor atoms")
-    parser.add_argument("-mem","--memory",type=str,default="1000Mb",help="Memory")
+    parser.add_argument("-mem","--memory",type=str,default="2000Mb",help="Memory")
     parser.add_argument("-cpu","--nthreads",type=int,default=4,help="Number of threads")
-    parser.add_argument("-lot","--theory",type=str,default="scf",help="Enter level of theory")
-    parser.add_argument("-basis","--basis",type=str,default="6-31g*",help="Basis set")
-    parser.add_argument("-c","--charge",type=int,default=0,help="Charge of the molecule, default is 0")
-    parser.add_argument("-m","--multiplicity",type=int,default=1,help="Multiplicity of the molecule, default is 1")
+    parser.add_argument("-olot","--opttheory",type=str,default="mp2",help="Enter level of theory")
+    parser.add_argument("-obasis","--optbasis",type=str,default="6-31+g*",help="Basis set")
+    parser.add_argument("-rlot","--resptheory",type=str,default="mp2",help="Enter level of theory")
+    parser.add_argument("-rbasis","--respbasis",type=str,default="Sadlej",help="Basis set")
+    parser.add_argument("-plot","--poltheory",type=str,default="mp2",help="Enter level of theory")
+    parser.add_argument("-pbasis","--polbasis",type=str,default="Sadlej",help="Basis set")
+    parser.add_argument("-c","--charge",type=int,default=None,help="Charge of the molecule, default is 0")
+    parser.add_argument("-m","--multiplicity",type=int,default=None,help="Multiplicity of the molecule, default is 1")
+    parser.add_argument('-qwxyz','--qwxyz', action='store_true',default=False,help='Insert this flag if you want to write output coordinate xyz file.')
+    parser.add_argument('-qwpdb','--qwpdb', action='store_true',default=False,help='Insert this flag if you want to write output coordinate pdb file.')
     parser.add_argument("-f","--file",type=open,action=LoadFromFile)
     args = parser.parse_args()
-    Psi4input(args.mol2file,chrg=args.charge,mult=args.multiplicity,basis=args.basis,lot=args.theory,mem=args.memory,cpu=args.nthreads,outdir=args.workdir,qqm=args.noqm,quiet=args.quiet)    
+    Psi4input(args.mol2file,chrg=args.charge,mult=args.multiplicity,olot=args.opttheory,obasis=args.optbasis,rlot=args.resptheory,rbasis=args.respbasis,plot=args.poltheory,pbasis=args.polbasis,mem=args.memory,cpu=args.nthreads,outdir=args.workdir,noqm=args.noqm,noopt=args.noopt,nopol=args.nopol,nolp=args.nolp,noresp=args.noresp,quiet=args.quiet,qwxyz=args.qwxyz,qwpdb=args.qwpdb)    
 
 if __name__ == "__main__":
    main()
@@ -979,33 +792,6 @@ if __name__ == "__main__":
 #    return (resi, anam, pos, bndlst) 
 #
 #
-#
-#def _printxyz(self,outdir,prefname,cor,predlpcor):
-#    f = open(outdir+"/"+prefname,"w") 
-#    n = 0
-#    for key in cor:
-#        if key[0] != "RBI": n = n + 1
-#        if key[0][0:2] != "LP" and key[0][0:1] != "D" and key[0][0:3] != "RBI":
-#           f.write("{:4s}   {:8.3f} {:8.3f} {:8.3f}\n".format(key[0],key[1],key[2],key[2]))
-#    for key in predlpcor:
-#        n = n + 1
-#        f.write("{:4s}   {:8.3f} {:8.3f} {:8.3f}\n".format(key[0],key[1],key[2],key[3]))
-#    f.close() 
-#
-#
-#def _printpdb(self,outdir,prefname,resi,cor,predlpcor):
-#    f = open(outdir+"/"+prefname,"w") 
-#    n = 0
-#    for key in cor:
-#        if key[0] != "RBI": n = n + 1
-#        if key[0][0:2] != "LP" and key[0][0:1] != "D" and key[0][0:3] != "RBI":
-#           f.write("{:6s}{:5d} {:^4s}{:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,key[0],resi,1,key[1],key[2],key[3],0.0,0.0,resi))
-#    for key in predlpcor:
-#        n = n + 1
-#        f.write("{:6s}{:5d} {:^4s}{:4s}  {:4d}    {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:4s}\n".format('ATOM',n,key[0],resi,1,key[1],key[2],key[3],0.0,0.0,resi))
-#    f.write("{:6s}{:5d}     {:4s}  {:4d}\n".format('TER',n+1,resi,1))
-#    f.write("END")
-#    f.close() 
 #
 #def printallele(outdir,prefname,cor,predlpcor):
 #    f = open(outdir+"/"+prefname,"w") 
