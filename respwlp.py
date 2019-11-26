@@ -25,7 +25,7 @@ atnumas = {'LP': ('0', '0'), 'H': ('1', '1'), 'D': ('1', '2'), 'T': ('1', '3'), 
 
 class Psi4input(): 
     def __init__(self,mol2name,**kwargs): 
-        # Kwargs ###################
+        # Option reading ###################
         chrg=None
         mult=None
         outdir=None
@@ -40,28 +40,28 @@ class Psi4input():
         qwxyz = False
         qwpdb = False
         for kwa,vwa in kwargs.items():
-            if kwa.lower() == "chrg":    chrg   = vwa 
-            if kwa.lower() == "mult":    mult   = vwa 
-            if kwa.lower() == "outdir":  outdir = vwa 
-            if kwa.lower() == "mem":     mem    = vwa 
-            if kwa.lower() == "cpu":     cpu    = vwa 
+            if kwa.lower() == "chrg":    chrg    = vwa 
+            if kwa.lower() == "mult":    mult    = vwa 
+            if kwa.lower() == "outdir":  outdir  = vwa 
+            if kwa.lower() == "mem":     mem     = vwa 
+            if kwa.lower() == "cpu":     cpu     = vwa 
             if kwa.lower() == "olot":    olot    = vwa 
             if kwa.lower() == "obasis":  obasis  = vwa 
             if kwa.lower() == "rlot":    rlot    = vwa 
             if kwa.lower() == "rbasis":  rbasis  = vwa 
             if kwa.lower() == "plot":    plot    = vwa 
             if kwa.lower() == "pbasis":  pbasis  = vwa 
-            if kwa.lower() == "noqm":    qqm      = not vwa 
+            if kwa.lower() == "noqm":    qqm     = not vwa 
             if kwa.lower() == "noopt":   qopt    = not vwa 
             if kwa.lower() == "nopol":   qpol    = not vwa 
-            if kwa.lower() == "nolp":    qlp      = not vwa 
-            if kwa.lower() == "noresp":  qresp    = not vwa 
-            if kwa.lower() == "quiet":   quiet    = vwa 
-            if kwa.lower() == "qwxyz":   qwxyz    = vwa 
-            if kwa.lower() == "qwpdb":   qwpdb    = vwa 
+            if kwa.lower() == "nolp":    qlp     = not vwa 
+            if kwa.lower() == "noresp":  qresp   = not vwa 
+            if kwa.lower() == "quiet":   quiet   = vwa 
+            if kwa.lower() == "qwxyz":   qwxyz   = vwa 
+            if kwa.lower() == "qwpdb":   qwpdb   = vwa 
         if not qqm:
            qopt = qpol = qresp = False
-        # Kwargs Done ###################
+        # All options reading done ###################
         mol2info = self.readmol2(mol2name)
         _,mol2info["bondnums"] = self.findbonds(mol2info["atomnames"],mol2info["bonds"])
         _,mol2info["anglnums"] = self.findangles(mol2info["atomnames"],mol2info["bonds"])
@@ -86,19 +86,19 @@ class Psi4input():
             self.molinfo["lpbonds"] = lonepinfo["lpbonds"] 
             self.molinfo["allposi"] = OrderedDict(**(self.molinfo["atomposiang"]),**(self.molinfo["lpposi"]))
         
-        if chrg is None:
-            chrg = mol2info["rescharge"]
-        if mult is None:
-            ele = []
-            for key,val in mol2info["atomposi"].items(): 
-                ele.append(val[1]) 
-            mult = self.calc_multip(ele,chrg) 
-
-        psi4out = str(os.path.basename(mol2name)).split(".")[0] + ".out"
-        if outdir is None: outdir = "."
         if qqm:
-            dma=self.runPsi4(outdir,psi4out,rescharge=chrg,multiplicity=mult,atomposi=self.molinfo["atomposiang"],mem=mem,cpu=cpu,olot=olot,obasis=obasis,rlot=rlot,rbasis=rbasis,plot=plot,pbasis=pbasis,quiet=quiet,qopt=qopt,qpol=qpol,qlp=qlp,qresp=qresp)
-            if dma is not None: self.atomic_pol(dma) 
+            if chrg is None:
+                chrg = mol2info["rescharge"]
+            if mult is None:
+                ele = []
+                for key,val in mol2info["atomposi"].items(): 
+                    ele.append(val[1]) 
+                mult = self.calc_multip(ele,chrg) 
+
+            psi4out = str(os.path.basename(mol2name)).split(".")[0] + ".out"
+            if outdir is None: outdir = "."
+            self.runPsi4(outdir,psi4out,rescharge=chrg,multiplicity=mult,atomposi=self.molinfo["atomposiang"],mem=mem,cpu=cpu,olot=olot,obasis=obasis,rlot=rlot,rbasis=rbasis,plot=plot,pbasis=pbasis,quiet=quiet,qopt=qopt,qpol=qpol,qlp=qlp,qresp=qresp)
+        #    if dma is not None: self.atomic_pol(dma) 
         if qwxyz: 
             xyzout = str(os.path.basename(mol2name)).split(".")[0] + ".xyz"
             self._printxyz(".",xyzout,self.molinfo["allposi"])
@@ -385,7 +385,7 @@ class Psi4input():
         from localresp import resp
         import numpy as np
         from collections import OrderedDict
-        from multiprocessing import Process, current_process
+        from multiprocessing import Process, current_process, Manager
         
         def opt(theory,basis,mol): 
             options={'scf_type':'df','g_convergence':'gau','freeze_core':'true','mp2_type':'df','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri'}
@@ -400,35 +400,35 @@ class Psi4input():
         def pol(theory,basis): 
             dmadict = {} 
             flag = {0:["x",[0.0008, 0, 0]],1:["mx",[-0.0008, 0, 0]],2:["y",[0, 0.0008, 0]],3:["my",[0, -0.0008, 0]],4:["z",[0, 0 , 0.0008]],5:["mz",[0, 0 , -0.0008]]}
+            wfn = [None]*6
             for i in range(6):
                 options={'scf_type':'df','g_convergence':'gau','freeze_core':'true','mp2_type':'df','df_basis_scf':'def2-tzvpp-jkfit','df_basis_mp2':'def2-tzvppd-ri','perturb_h':'true','perturb_with':'dipole','perturb_dipole':flag[i][1]}
                 psi4.set_options(options)
-                wfn = str(flag[i][0])+"wfn"
-                grad,wfn=psi4.gradient(theory+"/"+basis,return_wfn=True) 
-                psi4.fchk(wfn,str(flag[i][0])+'.fchk')
+                grad,wfn[i]=psi4.gradient(theory+"/"+basis,return_wfn=True) 
+                psi4.fchk(wfn[i],str(flag[i][0])+'.fchk')
                 fdma = open(str(flag[i][0])+"control.dma","w")
-                fdma.write(self.createdma(str(flag[i][0])+'.fchk','CC',1))
+                fdma.write(self.createdma(str(flag[i][0])+'.fchk',dentype,1))
                 fdma.close()
-
             parallel = False
             if parallel: 
                 processes = []
                 for i in range(6):
-                    wfnname = str(flag[i][0])+"wfn"
-                    process = Process(target=psi4.gdma,args=(wfnname,str(flag[i][0])+"control.dma"))
+                    d[i] = Manager().Value('i',0)
+                    process = Process(target=psi4.gdma,args=(wfn[i],str(flag[i][0])+"control.dma"))
                     processes.append(process)
                     process.start()
                 for process in processes:
                     process.join()
             else:
                 for i in range(6):
-                    wfnname = str(flag[i][0])+"wfn"
-                    psi4.gdma(wfnname,datafile=str(flag[i][0])+"control.dma") 
+                    psi4.gdma(wfn[i],datafile=str(flag[i][0])+"control.dma") 
                     dma_results = psi4.variable('DMA DISTRIBUTED MULTIPOLES')
                     dma_results = list(map(lambda x:x[0:4],dma_results.np))
                     dmadict[i] = np.array(dma_results)
-                    #os.remove(str(flag[i][0])+'.fchk') 
-                    #os.remove(str(flag[i][0])+'control.dma') 
+                    print (i,"dma done")
+            #os.remove(str(flag[i][0])+'.fchk') 
+            #os.remove(str(flag[i][0])+'control.dma') 
+            #del wfn
             return(dmadict)
  
         def calcresp(theory,basis,mol,mollp=None,mollpbnd=None):
@@ -509,6 +509,7 @@ class Psi4input():
             if value[1].upper() in ["K","CA","BR","I"]: obasis = "6-311G(d,p)"
         xyz=xyz+geoline
         psi4_xyz="""%s\nsymmetry c1\nnoreorient\nnocom"""%(xyz)
+        #psi4_xyz="""%s\n"""%(xyz)
         mol=psi4.geometry(psi4_xyz)
         mol.update_geometry() 
         if qopt:
@@ -520,8 +521,9 @@ class Psi4input():
                 posiau =np.array([mol.x(i),mol.y(i),mol.z(i)])
                 self.molinfo["atomposiau"][i+1][3] = posiau
         if qpol:
+           dentype = "SCF" if plot.lower() == "scf" else "CC"
            dmadict = pol(plot,pbasis)
-           self.atomic_pol(self.molinfo["atomposiang"],self.molinfo["bondnums"],dmadict) 
+           self.atomic_pol(self.molinfo["atomposiau"],self.molinfo["bondnums"],dmadict) 
         if qlp: 
            lonepinfo = self.createlonepair(self.molinfo["atomposiang"],self.molinfo["atomnames"],self.molinfo["bonds"])
            self.molinfo["nlps"] = lonepinfo["nlps"]
@@ -531,12 +533,11 @@ class Psi4input():
            self.molinfo["allposi"] = OrderedDict(**(self.molinfo["atomposiang"]),**(self.molinfo["lpposi"]))
         if qresp and qlp:
            calcresp(rlot,rbasis,mol,self.molinfo["lpposi"],self.molinfo["lpbonds"])
-        elif qresp:
+        elif qresp and not qlp:
            calcresp(rlot,rbasis,mol) 
 
-
     def createdma(self,fchkname,densitype,nmultipoles):
-        towrite = """File %s Density %s \nAngstrom \nMultipoles \nLimit %s \nStart \nFinish"""%(fchkname,densitype,nmultipoles) 
+        towrite = """FILE %s DENSITY %s \nMULTIPOLES \nLIMIT %s \nSTART \nFINISH"""%(fchkname,densitype,nmultipoles) 
         return(towrite)
 
     def atomic_pol(self,atomposi,bondlist,dma,field=0.0008,unit=0.529177249**3): 
@@ -551,6 +552,8 @@ class Psi4input():
                 gd[i,0,key] = dma[key][i][1] 
                 gd[i,1,key] = dma[key][i][2] 
                 gd[i,2,key] = dma[key][i][3] 
+        print (gq)
+        print (gd)
         print("Substract overall charge ("+str(gq[:,0].sum())+")?")
         #answer=input("............ yes/no   ")
         for j in range(6):
