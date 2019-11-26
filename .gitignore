@@ -2,4 +2,6 @@
 *.dat
 *.out
 *.pdb
-*.pyc
+*.dma
+*.fchk
+*.txt

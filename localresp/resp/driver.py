@@ -221,8 +221,8 @@ def resp(molecules, options_list=None, intermol_constraints=None):
             f.write("\n Electrostatic potential parameters\n")
             f.write("\n Grid information (see %i_%s_grid.dat in %s)\n"
                     %(imol+1, molecules[imol].name(), str(molecules[imol].units).split('.')[1]))
-            f.write("     van der Waals radii (Angstrom):\n")
             if not options['GRID']:
+               f.write("     van der Waals radii (Angstrom):\n")
                for i, j in radii.items():
                    f.write("                                %8s%8.3f\n" %(i, j/scale_factor))
                f.write("     Number of VDW layers:             %d\n" %(options["N_VDW_LAYERS"]))
