@@ -227,9 +227,9 @@ class Psi4input():
             r_b = list(map(float,hcoor[1][0:3]))
             slope = [r_ai - r_bi for r_ai, r_bi in zip(r_a, r_b)] 
             slope = slope / np.linalg.norm(slope)
-            new_x = r_a[0] - ar*scale*slope[0]
-            new_y = r_a[1] - ar*scale*slope[1]
-            new_z = r_a[2] - ar*scale*slope[2]
+            new_x = r_a[0] + ar*scale*slope[0]
+            new_y = r_a[1] + ar*scale*slope[1]
+            new_z = r_a[2] + ar*scale*slope[2]
             pos = [new_x,new_y,new_z] 
             return pos   
 
@@ -264,6 +264,39 @@ class Psi4input():
             new_x = r_i[0] - ra[0] * ax + ncra[0] * ay + nv[0] * az
             new_y = r_i[1] - ra[1] * ax + ncra[1] * ay + nv[1] * az
             new_z = r_i[2] - ra[2] * ax + ncra[2] * ay + nv[2] * az
+            pos = [new_x,new_y,new_z] 
+            return pos   
+
+        def pyramidal(ar,hcoor=[]):
+            v1 = []
+            v1.append(hcoor[1][0]-hcoor[2][0])
+            v1.append(hcoor[1][1]-hcoor[2][1])
+            v1.append(hcoor[1][2]-hcoor[2][2])
+            v1 = np.array(v1)
+            v2 = []
+            v2.append(hcoor[1][0]-hcoor[3][0])
+            v2.append(hcoor[1][1]-hcoor[3][1])
+            v2.append(hcoor[1][2]-hcoor[3][2])
+            v2=np.array(v2)
+            vc = np.cross(v1,v2)
+            length = np.linalg.norm(vc)
+            vc = vc/length
+            v3 = np.array(hcoor[0])
+            vp = np.dot(vc,v3)
+            if vp != 0.0:
+               projc = v3 - vp*vc
+            else:
+               projc = vc
+            slope = [v3i - projci for v3i, projci in zip(v3, projc)] 
+            if np.linalg.norm(slope) == 0.0:
+               new_x = v3[0] + ar
+               new_y = v3[1] + ar
+               new_z = v3[2] + ar
+            else:
+               slope = slope / np.linalg.norm(slope)
+               new_x = v3[0] + ar*slope[0]
+               new_y = v3[1] + ar*slope[1]
+               new_z = v3[2] + ar*slope[2]
             pos = [new_x,new_y,new_z] 
             return pos   
 
@@ -319,7 +352,7 @@ class Psi4input():
                   curntid += 1
                   lpnam1 = "LP"+str(hsta)+"1"
                   lpinfo[lpnam1] = curntid
-                  lpposi[curntid] = [lpnam1,"LP","LPDN1",relative(0.35,1.0,hcoor)] 
+                  lpposi[curntid] = [lpnam1,"LP","LPDN1",colinear(0.35,1.0,hcoor)] 
                   try:
                       lpbndlst[hsta].append(lpnam1)
                   except KeyError:
@@ -374,6 +407,25 @@ class Psi4input():
                   except KeyError:
                       lpbndlst[hsta]=[lpnam1]
                   continue
+
+            # lonepair pyramidal
+            if anam[0:1] == "N" and len(bndlst.get(anam)) == 3 or anam[0:1] == "P" and len(bndlst.get(anam)) == 3:
+                  hsta = anam
+                  hstb = bndlst.get(hsta)[0]
+                  hstc = bndlst.get(hsta)[1]
+                  hstd = bndlst.get(hsta)[2]
+                  hcoor = [atomposi[ind[hsta]][3],atomposi[ind[hstb]][3],atomposi[ind[hstc]][3],atomposi[ind[hstd]][3]]
+                  curntid += 1
+                  lpnam1 = "LP"+str(hsta)+"1"
+                  lpinfo[lpnam1] = curntid
+                  if hsta[0:1] == "N": lpposi[curntid] = [lpnam1,"LP","LPDO1",pyramidal(0.30,hcoor)] 
+                  if hsta[0:1] == "P": lpposi[curntid] = [lpnam1,"LP","LPDO1",pyramidal(0.70,hcoor)] 
+                  try:
+                      lpbndlst[hsta].append(lpnam1)
+                  except KeyError:
+                      lpbndlst[hsta]=[lpnam1]
+                  continue
+
         nlps = curntid - (len(atomposi.items()))
         return ({"nlps":nlps,"lpnames":lpinfo,"lpposi":lpposi,"lpbonds":lpbndlst}) 
 
@@ -905,52 +957,3 @@ if __name__ == "__main__":
 #       radi = math.acos(dotproduct(v1, v2) / (length(v1) * length(v2)))
 #       return math.degrees(radi)
 
-#        if anam[i][0:1] == "N" and len(bndlst.get(anam[i])) == 3 or anam[i][0:1] == "P" and len(bndlst.get(anam[i])) == 3:
-#              ata = bndlst.get(anam[i])[0]
-#              atb = bndlst.get(anam[i])[1]
-#              atc = bndlst.get(anam[i])[2]
-#              v1.append(cor.get(ata)[0] - cor.get(atb)[0])
-#              v1.append(cor.get(ata)[1] - cor.get(atb)[1])
-#              v1.append(cor.get(ata)[2] - cor.get(atb)[2])
-#              v2.append(cor.get(ata)[0] - cor.get(atc)[0])
-#              v2.append(cor.get(ata)[1] - cor.get(atc)[1])
-#              v2.append(cor.get(ata)[2] - cor.get(atc)[2])
-#              vc = np.cross(v1,v2)
-#              v3.append(cor.get(anam[i])[0] - cor.get(ata)[0])
-#              v3.append(cor.get(anam[i])[1] - cor.get(ata)[1])
-#              v3.append(cor.get(anam[i])[2] - cor.get(ata)[2])
-#              poav = abs(angle(vc,v3))
-#              if poav <= 90.0:
-#                 poav = 180.0 - poav
-#              v1 = []
-#              v2 = [] 
-#              v3 = []
-#              v1.append(cor.get(anam[i])[0] - cor.get(ata)[0])
-#              v1.append(cor.get(anam[i])[1] - cor.get(ata)[1])
-#              v1.append(cor.get(anam[i])[2] - cor.get(ata)[2])
-#              v2.append(cor.get(anam[i])[0] - cor.get(atb)[0])
-#              v2.append(cor.get(anam[i])[1] - cor.get(atb)[1])
-#              v2.append(cor.get(anam[i])[2] - cor.get(atb)[2])
-#              vi = np.cross(v1,v2)
-#              impr = abs(angle(vi,vc))
-#              if impr < 90.0:
-#                 impr = 90.0 - impr
-#              elif impr > 90.0:
-#                 impr = 180.0 - impr
-#                 impr = 90.0 - impr
-#              v1 = []
-#              v2 = []
-#              v3 = []
-#              if poav > 100.0:
-#                 hcoor = [cor[anam[i]],cor[ata],cor[atb]]
-#                 n = n+1
-#                 lpname = "LP"+str(n) 
-#                 lpbndlst[anam[i]] = [lpname]
-#                 lpbnddict[lpname] = [anam[i]]
-#                 nlpbndlst[i] = [n + natmwolp - 1]
-#                 if anam[i][0:1] == "N": 
-#                    #predlpcor[lpname] = relative(0.30,poav,impr,hcoor)
-#                    predlpcor.append([lpname]+relative(0.30,poav,impr,hcoor))
-#                 if anam[i][0:1] == "P": 
-#                    #predlpcor[lpname] = relative(0.70,poav,impr,hcoor)
-#                    predlpcor.append([lpname]+relative(0.70,poav,impr,hcoor))
